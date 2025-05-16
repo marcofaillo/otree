@@ -304,7 +304,7 @@ SESSION_CONFIGS = [
             app_sequence=['weingast_sovereign'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
             treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
-
+            ),
         # dict(
         #     name='sif_singolo_no_finanziatore',
         #     display_name='sif_singolo_no_finanziatore',
@@ -440,7 +440,7 @@ SESSION_CONFIGS = [
         # ),
 
 
-]
+
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
 # the session config can be accessed from methods in your apps as self.session.config,
