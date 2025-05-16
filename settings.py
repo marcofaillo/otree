@@ -135,6 +135,26 @@ SESSION_CONFIGS = [
         #
         #     ),
 
+
+        dict(
+            name='weingast_citizens_3',
+            display_name='weingast_citizens_3',
+            num_demo_participants=1,
+            app_sequence=['weingast_citizens_3'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
+
+            ),
+        dict(
+            name='weingast_sovereign',
+            display_name='weingast_sovereign',
+            num_demo_participants=1,
+            app_sequence=['weingast_sovereign'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
+
+            ),
+
         # dict(
         #     name='are_you_sure',
         #     display_name='are_you_sure',
@@ -151,14 +171,14 @@ SESSION_CONFIGS = [
         #     app_sequence=['choice_list'],
         #     ),
 
-
+        #
         # dict(
         #     name='MPL_F',
         #     display_name='MPL_F',
         #     num_demo_participants=1,
         #     app_sequence=['MPL_F'],
         #     ),
-        # # dict(
+        # dict(
         #     name='FG_baseline_exp_low',
         #     display_name='FG_baseline_exp_low',
         #     num_demo_participants=4,
@@ -212,7 +232,7 @@ SESSION_CONFIGS = [
         #     num_demo_participants=1,
         #     app_sequence=['simulation_energy'],
         #
-        # #     ),
+        # # #     ),
         # dict(
         #     name='energy_boost',
         #     display_name='energy_boost',
@@ -221,7 +241,7 @@ SESSION_CONFIGS = [
         #     app_sequence=['simulation_energy', 'energy_boost', 'faillobret'],
         #
         #     ),
-        #
+        # #
 
     #
     # dict(
@@ -273,13 +293,13 @@ SESSION_CONFIGS = [
     # ),
     #
 
-        # dict(
-        #     name='sif_singolo_L3',
-        #     display_name='sif_singolo_L3',
-        #     num_demo_participants=1,
-        #     app_sequence=['sif_singolo_L3'],
-        #     treatment= 1
-        #  ),
+        dict(
+            name='sif_singolo_L3',
+            display_name='sif_singolo_L3',
+            num_demo_participants=1,
+            app_sequence=['sif_singolo_L3'],
+            treatment= 1
+         ),
         #
         # dict(
         #     name='bartling',
@@ -288,23 +308,8 @@ SESSION_CONFIGS = [
         #     app_sequence=['bartling'],
         #     treatment= 1
         # ),
-        dict(
-            name='weingast_citizens_3',
-            display_name='weingast_citizens_3',
-            num_demo_participants=1,
-            app_sequence=['weingast_citizens_3'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
 
-            ),
-        dict(
-            name='weingast_sovereign',
-            display_name='weingast_sovereign',
-            num_demo_participants=1,
-            app_sequence=['weingast_sovereign'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
-            ),
+
         # dict(
         #     name='sif_singolo_no_finanziatore',
         #     display_name='sif_singolo_no_finanziatore',
@@ -402,7 +407,7 @@ SESSION_CONFIGS = [
         #     order=3, # 1 se ordine 0 3 9  ; 2 se ordine 3 0 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
         #
         #     ),
-        # #
+        #
         # dict(
         #     name='faillo_np',
         #
@@ -429,7 +434,7 @@ SESSION_CONFIGS = [
         #     #
         #     # type_instructions=2,
         #     ),
-        # # dict(
+        # dict(
         #     name='sif_B_F',
         #     display_name='sif_B_F',
         #     num_demo_participants=1,
@@ -440,7 +445,7 @@ SESSION_CONFIGS = [
         # ),
 
 
-
+]
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
 # the session config can be accessed from methods in your apps as self.session.config,
