@@ -297,6 +297,13 @@ SESSION_CONFIGS = [
             treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
 
             ),
+        dict(
+            name='weingast_sovereign',
+            display_name='weingast_sovereign',
+            num_demo_participants=1,
+            app_sequence=['weingast_sovereign'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
 
         # dict(
         #     name='sif_singolo_no_finanziatore',
