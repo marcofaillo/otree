@@ -292,15 +292,15 @@ SESSION_CONFIGS = [
     #     app_sequence=['zero_rating_3_tarifs_practice','zero_rating_3_tarifs_paid' ],
     # ),
     #
-
-        dict(
-            name='sif_singolo_L3',
-            display_name='sif_singolo_L3',
-            num_demo_participants=1,
-            app_sequence=['sif_singolo_L3'],
-            treatment= 1
-         ),
-        #
+        # 
+        # dict(
+        #     name='sif_singolo_L3',
+        #     display_name='sif_singolo_L3',
+        #     num_demo_participants=1,
+        #     app_sequence=['sif_singolo_L3'],
+        #     treatment= 1
+        #  ),
+        # #
         # dict(
         #     name='bartling',
         #     display_name='bartling',
