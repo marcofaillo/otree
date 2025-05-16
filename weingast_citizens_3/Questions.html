@@ -1,0 +1,100 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit – Second-order risk change] -->
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> Control questions</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <div style="text-align: justify;">
+        <p><h4> First Decision</h4></p>
+
+        <!-- Risk taking risky benefit - Scenario base 1 -->
+
+        <p><b>Control Questions</b></p>
+
+
+        <p> {% formfield player.q_1 label="1) You will interact with two other participants. What you have in common is that:" %}</p>
+        <p> {% formfield player.q_2 label="2) You are:" %}</p>
+
+
+        <p> {% formfield player.q_3 label="3)	If Person 1 chooses earnings box B (see the figure below), you choose Y and Person 2 choose X, your earning (in points) is equal to: " %}         <img src="{{ static 'weingast_citizens_3/figure_2B.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
+ </p>
+        &nbsp
+
+        <p> {% formfield player.q_4 label="4)	If Person 1 chooses earnings square A (see the figure below), you choose X and Person 2 chooses Y, Person 1’s earnings  (in points) are equal to" %}         <img src="{{ static 'weingast_citizens_3/figure_2A.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
+</p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}
