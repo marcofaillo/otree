@@ -1,0 +1,93 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit – Second-order risk change] -->
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> CONTROL QUESTIONS</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+        Before starting the main activity described above, you will be asked to carry out another task, which will enable you to earn an additional amount of money.
+        The description of such preliminary task will be given in the next screenshot.
+
+        We now kindly ask you to answer the following four control questions.
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <div style="text-align: justify;">
+
+        <p> {% formfield player.q_1 label="1) According to the instructions provided above, how many mutual funds will be offered to you in the first decision?" %}</p>
+        <p> {% formfield player.q_2 label="2) According to the instructions provided above, what is the minimum return (in pounds) that your mutual fund may take?" %}</p>
+        <p> {% formfield player.q_3 label="3) According to the instructions provided above, what is the maximum return (in pounds) that your mutual fund may take?" %}</p>
+        <p> {% formfield player.q_4 label="4)	Assume that the return of the mutual you choose in the first decision is worth £3.5. Assume that you decide to discard it. The £3.5 are no longer in your possession. Your new earnings will depend on a random draw that may generate which outcomes?" %} </p>
+        <p> {% formfield player.q_5 label="5)	Assume that the mutual fund you choose in the first decision is worth £6.5. Assume that you decide to discard it. The £6.5 are no longer in your possession. Your new earnings will depend on a random draw that may generate which outcomes?" %}   </p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

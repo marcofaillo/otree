@@ -1,0 +1,92 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+  <div class="row">
+
+       <div class="alert alert-success" role="alert" style="text-align:center">
+         <h3> Final payment</h3>
+
+     </div>
+   </div>
+
+ </div>
+
+<div class="container-xxl" >
+  <div class="row">
+
+    <div class="col-lg">
+
+      <div align="justify">
+
+
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <!-- subject is 3, sovereign is 1 -->
+
+    <p> In your fist decision you choose <b> Fund {{choice_1}} </b> obtaining a total return of <b> £{{payoff_1}}. </b></p>
+    <p> In your second decision you have choosen to <b> {% if choice_2 == 1 %} keep that fund {% else %} to change the fund {% endif %}. </b></p>
+    <p> With this choice you have obtained a payment of <b> £{{payment}}. </b></p>
+    <p> In the task you </b> {% if bomb == 1 %} have {% else %} have not {% endif %} found </b>  the bomb, obtaining a payment of <b>£{{pay_bret}}.</b></p>
+    <p> Your final payment is of<b>  £ {{total_money}} </b>, which will be paid as bonus once you have confirmed your submission on Prolific.</p>
+
+
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
+
+</div>
+
+ </div>
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}

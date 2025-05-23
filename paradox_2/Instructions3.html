@@ -1,0 +1,98 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+
+     <div class="alert alert-success" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS: SECOND DECISION</h3>
+
+   </div>
+ </div>
+
+<div class="container-xxl" >
+  <div class="row">
+
+    <div class="col-lg">
+
+      <div align="justify">
+
+
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <!-- subject is 3, sovereign is 1 -->
+
+    <p> The second decision is about whether to keep or discard the mutual fund you chose in the first decision among the {% if treatment == 3 %} 3 {% else %} 9 {% endif %} offered to you, along with its associated return.  </p>
+    <p> If you decide to keep the mutual fund, you will retain the amount corresponding to its return, which will be paid to you at the end of the experiment. </p>
+    <p> If you decide to reject it, its associated return will no longer be in your possession. </p>
+    <p> In this case, your earnings will depend on a further random draw, which may have the following 5 outcomes: </p>
+    <p> The return of the discarded mutual fund minus £2 </p>
+    <p> The return of the discarded mutual fund minus £1 </p>
+    <p> Exactly the return of the discarded mutual fund </p>
+    <p> The return of the discarded mutual fund plus £1 </p>
+    <p> The return of the discarded mutual fund plus £2 </p>
+    <p> In other words, suppose that the return of the mutual fund you chose in the first decision is X£. If you decide to reject it your earnings are going to be determined by randomly selecting on of the following amounts. </p>
+    <p> £X-2		£X-1		£X		£X+1		£X+2 </p>
+    <p> These amounts have the same chance of being drawn. </p>
+    <p> Note that the first random draw, which determined the value of the return associated to the mutual fund you chose in you first decision, and the second random draw you undergo if you discard the mutual fund are independent. </p>
+    <p> This means that the chance of a positive outcome in the second random draw is not affected by the return generated in the first random draw. </p>
+
+
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
+
+</div>
+
+ </div>
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}

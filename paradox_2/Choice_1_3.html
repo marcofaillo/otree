@@ -1,0 +1,241 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<input type="hidden" name="choice_1" id="id_choice_1_3">
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> FIRST DECISION</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+    <div style="text-align: justify;">
+
+    <p>The main activity starts now.</p>
+    <p>By clicking on the "Draw" button, the returns for three mutual funds will appear on the screen, in descending order from the mutual fund with the highest total return to the mutual fund with the lowest total return.</p>
+    <p>The return of each mutual fund is determined by random draws as previously described.</p>
+    <p>To choose one of the funds 1 press the corresponding "choose button". You can change your choice as many times as you want, press NEXT to confirm.</p>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+      <p> <button type="button" id = "draw" class="btn btn-outline-primary btn-lg"> DRAW</button> </p>
+      </div>
+    </div>
+    <div id="tables-container">
+      <div class="fund-table" data-return="{{return1}}">
+         <table class="table table-sm"  style="border: 1px solid black; border-collapse: collapse;">
+
+              <tbody>
+              <tr  class="text-center" >
+                  <td colspan="9"> <b> Fund 1 </b></td>
+                  <td scope="col"> <b> Total return of the fund </b></td>
+              </tr>
+                <tr class="text-center" id="r1">
+                  <td scope="col"><button type="button" id = "b1" class="btn btn-outline-primary btn-lg"> Choose </button></td>
+                  <td class="text-center" scope="col">{{fund_1.0}}</td>
+                  <td class="text-center" scope="col">{{fund_1.1}}</td>
+                  <td class="text-center" scope="col">{{fund_1.2}}</td>
+                  <td class="text-center" scope="col">{{fund_1.3}}</td>
+                  <td class="text-center" scope="col">{{fund_1.4}}</td>
+                  <td class="text-center" scope="col">{{fund_1.5}}</td>
+                  <td class="text-center" scope="col">{{fund_1.6}}</td>
+                  <td class="text-center" scope="col">{{fund_1.7}}</td>
+                  <td class="text-center" scope="col">{{return1}}</td>
+                </tr>
+
+              </tbody>
+              </table>
+      </div>
+      <div class="fund-table" data-return="{{return2}}">     <table class="table table-sm" style="border: 1px solid black; border-collapse: collapse;">
+
+            <tbody>
+            <tr  class="text-center">
+
+                <td colspan="9"> <b> Fund 2 </b></td>
+                <td scope="col"> <b> Total return of the fund </b></td>
+            </tr>
+              <tr class="text-center" id="r2">
+                <td scope="col"><button type="button" id = "b2" class="btn btn-outline-primary btn-lg"> Choose </button></td>
+                <td class="text-center" scope="col">{{fund_2.0}}</td>
+                <td class="text-center" scope="col">{{fund_2.1}}</td>
+                <td class="text-center" scope="col">{{fund_2.2}}</td>
+                <td class="text-center" scope="col">{{fund_2.3}}</td>
+                <td class="text-center" scope="col">{{fund_2.4}}</td>
+                <td class="text-center" scope="col">{{fund_2.5}}</td>
+                <td class="text-center" scope="col">{{fund_2.6}}</td>
+                <td class="text-center" scope="col">{{fund_2.7}}</td>
+                <td class="text-center" scope="col">{{return2}}</td>
+
+              </tr>
+
+            </tbody>
+            </table>
+     </div>
+      <div class="fund-table" data-return="{{return3}}">       <table class="table table-sm" style="border: 1px solid black; border-collapse: collapse;">
+
+              <tbody>
+              <tr  class="text-center">
+
+                  <td colspan="9"> <b> Fund 3 </b></td>
+                  <td scope="col"> <b> Total return of the fund </b></td>
+              </tr>
+                <tr class="text-center" id="r3">
+                  <td scope="col"><button type="button" id = "b3" class="btn btn-outline-primary btn-lg"> Choose </button></td>
+                  <td class="text-center" scope="col">{{fund_3.0}}</td>
+                  <td class="text-center" scope="col">{{fund_3.1}}</td>
+                  <td class="text-center" scope="col">{{fund_3.2}}</td>
+                  <td class="text-center" scope="col">{{fund_3.3}}</td>
+                  <td class="text-center" scope="col">{{fund_3.4}}</td>
+                  <td class="text-center" scope="col">{{fund_3.5}}</td>
+                  <td class="text-center" scope="col">{{fund_3.6}}</td>
+                  <td class="text-center" scope="col">{{fund_3.7}}</td>
+                  <td class="text-center" scope="col">{{return3}}</td>
+
+                </tr>
+
+              </tbody>
+              </table>
+ </div>
+    </div>
+
+    <span id="feedback" ><p>  <font size="4">  You have chosen fund  <b> <span id="choice" >. </span> </b>  press Next to confirm and proceed </p> <span>
+
+      </div>
+      </div>
+      </div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "next" class="btn btn-outline-primary btn-lg"> NEXT </button>
+ </div>
+
+ </div>
+
+
+
+	</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block scripts %}
+<script>
+  const container = document.getElementById('tables-container');
+  const tables = Array.from(container.getElementsByClassName('fund-table'));
+
+  tables.sort((a, b) => parseFloat(b.dataset.return) - parseFloat(a.dataset.return));
+
+  tables.forEach(table => container.appendChild(table));
+</script>
+
+<script>
+
+
+$(document).ready(function(){
+    $( "#tables-container" ).hide();
+    $( "#next" ).hide();
+    $( "#feedback" ).hide();
+    $("#draw").click(function(){
+      $( "#tables-container" ).show();
+      $( "#feedback" ).show();
+    });
+
+		$("#b1").click(function(){
+        $( "#next" ).show();
+    		$(this).css('background','lightblue');
+    		$("#r1").css('background','lightblue');
+    		$("#b2").css('background','white');
+        $("#b3").css('background','white');
+    		$("#r3").css('background','white');
+        $("#r2").css('background','white');
+
+	  		$("#id_choice_1_3").val(1);
+	  		attiva();
+		});
+
+
+		$("#b2").click(function(){
+        $( "#next" ).show();
+    		$(this).css('background','lightblue');
+
+    		$("#r2").css('background','lightblue');
+    		$("#b1").css('background','white');
+        $("#b3").css('background','white');
+    		$("#r3").css('background','white');
+        $("#r1").css('background','white');
+
+	  		$("#id_choice_1_3").val(2);
+	  		attiva();
+		});
+
+    $("#b3").click(function(){
+        $( "#next" ).show();
+    		$(this).css('background','lightblue');
+
+    		$("#r3").css('background','lightblue');
+    		$("#b1").css('background','white');
+        $("#b2").css('background','white');
+    		$("#r2").css('background','white');
+        $("#r1").css('background','white');
+
+	  		$("#id_choice_1_3").val(3);
+	  		attiva();
+		});
+
+
+
+		function attiva(){
+		var choice_1_3=$("#id_choice_1_3").val();
+
+
+
+		$("#choice").html(choice_1_3).val();
+
+		}
+    $("#next").click(function(){
+      $("#form").submit()
+      });
+});
+
+</script>
+
+
+
+{% endblock %}
