@@ -177,9 +177,9 @@ class Questions(Page):
 
     def error_message(player: Player, values):
         if player.session.config['treatment'] == 3:
-           solutions = dict(q_1=3, q_2=0.25, q_3=1, q_4 = 3, q_5=1)
+           solutions = dict(q_1=3, q_2=2, q_3=8, q_4 = 3, q_5=1)
         else:
-           solutions = dict(q_1=9, q_2=0.25, q_3=1, q_4 = 3, q_5=1)
+           solutions = dict(q_1=9, q_2=2, q_3=8, q_4 = 3, q_5=1)
 
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
@@ -242,7 +242,7 @@ class Choice_2(Page):
         elif player.choice_1 == 8:
             player.payoff_1 = player.return8
         else:
-            player.payoff_1 = player.return9          
+            player.payoff_1 = player.return9
         player.participant.vars['payoffs_choice2']=[0,0,0,0,0]
         player.participant.vars['payoffs_choice2'][0]= player.payoff_1-2
         player.participant.vars['payoffs_choice2'][1]= player.payoff_1-1
