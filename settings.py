@@ -136,24 +136,36 @@ SESSION_CONFIGS = [
         #     ),
 
 
+        # dict(
+        #     name='weingast_citizens_3',
+        #     display_name='weingast_citizens_3',
+        #     num_demo_participants=1,
+        #     app_sequence=['weingast_citizens_3'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
+        #
+        #     ),
+        # dict(
+        #     name='weingast_sovereign',
+        #     display_name='weingast_sovereign',
+        #     num_demo_participants=1,
+        #     app_sequence=['weingast_sovereign'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
+        #
+        #     ),
+        #
+
         dict(
-            name='weingast_citizens_3',
-            display_name='weingast_citizens_3',
+            name='paradox_2',
+            display_name='paradox_2',
             num_demo_participants=1,
-            app_sequence=['weingast_citizens_3'],
+            app_sequence=['paradox_2'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
+            treatment =9, # 3  or 9 ;
 
             ),
-        dict(
-            name='weingast_sovereign',
-            display_name='weingast_sovereign',
-            num_demo_participants=1,
-            app_sequence=['weingast_sovereign'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
 
-            ),
 
         # dict(
         #     name='are_you_sure',
@@ -292,7 +304,7 @@ SESSION_CONFIGS = [
     #     app_sequence=['zero_rating_3_tarifs_practice','zero_rating_3_tarifs_paid' ],
     # ),
     #
-        # 
+
         # dict(
         #     name='sif_singolo_L3',
         #     display_name='sif_singolo_L3',
@@ -300,7 +312,7 @@ SESSION_CONFIGS = [
         #     app_sequence=['sif_singolo_L3'],
         #     treatment= 1
         #  ),
-        # #
+        #
         # dict(
         #     name='bartling',
         #     display_name='bartling',
