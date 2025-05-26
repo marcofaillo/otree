@@ -31,7 +31,7 @@
   <div style="text-align: justify;">
     <!-- subject is 3, sovereign is 1 -->
 
-    <p> You will be offered {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds.   </p>
+    <p> <b> You will be offered {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds. </b>  </p>
     <p> Mutual funds provide portfolio diversification. For this reason, the return on each mutual fund depends on the performance of the financial assets in which the fund is invested. </p>
     <p>The total return on each of the {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds offered to you depends on the performance of eight underlying assets. Specifically, their return is randomly determined as follows: with a 20% chance, each asset yields a £1 return, and with an 80% chance, each asset yields a £0.25 return. Observe that the return of an underlying asset in the mutual fund does not affect the return of any other underlying asset. </p>
     <p>For example, a mutual fund – call it A – you may be faced with in this activity is as follows. </p>
@@ -39,7 +39,7 @@
      <img src="{{ static 'paradox_2/figure_ex_A.jpg' }}" class="rounded mx-auto d-block" width = "600"/>
        &nbsp
 
-    <p>The returns of the underlying assets mutual fund A are displayed in the second raw (columns 1 to 8) of the table. These could have been generated according to the procedure described above. </p>
+    <p>The returns of the underlying assets mutual fund A invested in are displayed in the second raw (columns 1 to 8) of the table. These could have been generated according to the procedure described above. </p>
     <p>In particular, apart from the second asset and the fifth asset, whose realized return is £1, the realized return of the other underlying assets is £0.25. Accordingly, the right-most column of the above table indicates the total return of mutual fund A (£3.50), which is given by the sum of the returns of the underlying assets (0.25*6+£1*2).</p>
     <p> A second example of a mutual fund – call it B – you may be faced with is given below.</p>
     &nbsp
@@ -47,7 +47,7 @@
      &nbsp
 
      <p>
-         As far as mutual fund B is concerned, the realized return of the second, fourth, and sixth underlying asset is
+         As far as mutual fund B is concerned, the realized return of the second, the fourth, and the sixth underlying assets is
          £0.25, and the realized return of the other assets is £1. Accordingly, the total return of mutual
          fund B is £5.75 (= £1 × 5 + £0.25 × 3).
      </p>
@@ -62,7 +62,7 @@
      </p>
 
      <p>
-         By clicking on the "<strong>Draw</strong>" button, the total return for the {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds will be generated
+         By clicking on the "Draw" button, the total return for the {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds will be generated
          according to the procedure just described.
      </p>
 

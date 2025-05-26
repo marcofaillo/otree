@@ -86,8 +86,12 @@ class Player(BasePlayer):
     payoff_1 = models.FloatField()
     payment = models.FloatField()
     total_money = models.FloatField()
-# def set_payoff(player: Player):
-#
+
+    instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'], [5, '5. Perfectly clear.']])
+    student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
+    employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
+
+
 def check_proceed(player:Player):
     if player.proceed != 1:
         player.payoff=-1
@@ -207,7 +211,7 @@ class Choice_1_3(Page):
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.session.config['treatment'] == 3
     def vars_for_template(player: Player):
-            return dict(fund_1 = player.participant.vars['fund_1'],fund_2 = player.participant.vars['fund_2'],fund_3 = player.participant.vars['fund_3'], return1= player.return1,return2= player.return2,return3= player.return3)
+            return dict(treatment=player.session.config['treatment'],fund_1 = player.participant.vars['fund_1'],fund_2 = player.participant.vars['fund_2'],fund_3 = player.participant.vars['fund_3'], return1= player.return1,return2= player.return2,return3= player.return3)
 
 class Choice_1_9(Page):
     form_model = 'player'
@@ -216,7 +220,7 @@ class Choice_1_9(Page):
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.session.config['treatment'] == 9
     def vars_for_template(player: Player):
-            return dict(fund_1 = player.participant.vars['fund_1'],fund_2 = player.participant.vars['fund_2'],fund_3 = player.participant.vars['fund_3'],fund_4 = player.participant.vars['fund_4'], fund_5 = player.participant.vars['fund_5'],fund_6 = player.participant.vars['fund_6'],fund_7 = player.participant.vars['fund_7'],fund_8 = player.participant.vars['fund_8'],fund_9= player.participant.vars['fund_9'],return1= player.return1,return2= player.return2,return3= player.return3,return4= player.return4,return5= player.return5,return6= player.return6,return7= player.return7,return8= player.return8,return9= player.return9)
+            return dict(treatment=player.session.config['treatment'],fund_1 = player.participant.vars['fund_1'],fund_2 = player.participant.vars['fund_2'],fund_3 = player.participant.vars['fund_3'],fund_4 = player.participant.vars['fund_4'], fund_5 = player.participant.vars['fund_5'],fund_6 = player.participant.vars['fund_6'],fund_7 = player.participant.vars['fund_7'],fund_8 = player.participant.vars['fund_8'],fund_9= player.participant.vars['fund_9'],return1= player.return1,return2= player.return2,return3= player.return3,return4= player.return4,return5= player.return5,return6= player.return6,return7= player.return7,return8= player.return8,return9= player.return9)
 
 class Choice_2(Page):
     form_model = 'player'
@@ -250,7 +254,7 @@ class Choice_2(Page):
         player.participant.vars['payoffs_choice2'][3]= player.payoff_1+1
         player.participant.vars['payoffs_choice2'][4]= player.payoff_1+2
 
-        return dict(choice_1 = player.choice_1, payoff_1= player.payoff_1, payoffs_2=player.participant.vars['payoffs_choice2'])
+        return dict(treatment=player.session.config['treatment'],choice_1 = player.choice_1, payoff_1= player.payoff_1, payoffs_2=player.participant.vars['payoffs_choice2'])
 
 
 class Stop(Page):
@@ -267,6 +271,12 @@ class Feedback(Page):
     def vars_for_template(player: Player):
             return dict(choice_1 = player.choice_1, choice_2=player.choice_2, payoff_1=player.payoff_1, payment=player.payment, bomb=player.bomb, pay_bret=player.pay_bret, total_money=player.total_money)
 
+class Questionnaire(Page):
+    form_model = 'player'
+    form_fields = ['instructions', 'student', 'employment']
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1
 
 class Bret(Page):
     form_model = 'player'
@@ -305,4 +315,4 @@ class Back_to_Prolific (Page):
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing, Instructions, Instructions2, Instructions3,Questions, Instructions_task, Bret, Fail, Choice_1_3, Choice_1_9,Choice_2,Stop, Feedback,Back_to_Prolific]
+page_sequence = [Landing, Instructions, Instructions2, Instructions3,Questions, Fail, Instructions_task, Bret, Choice_1_3, Choice_1_9,Choice_2,Stop, Feedback,Questionnaire, Back_to_Prolific]

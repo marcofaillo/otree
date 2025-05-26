@@ -32,19 +32,18 @@
   <div style="text-align: justify;">
     <!-- subject is 3, sovereign is 1 -->
 
-    <p> You have chosen Fund {{choice_1}}.
-    <p>  The total return of the mutual fund you have selected in the first decision is £{{payoff_1}}. </p>
+    <p> Among the {% if treatment == 3 %} three {% else %} nine {% endif %} funds, you have chosen Fund {{choice_1}}.
+    <p> The total return of the mutual fund you have selected in the first decision is £{{payoff_1}}. </p>
     <p> It is now time for you to make the second decision.</p>
-    <p> The second decision is whether to keep or discard the mutual fund (and its associated return) you chose in the first decision among the three [nine] offered to you.</p>
-    <p>   If you decide to keep it, your earnings will be given by £{{payoff_1}}, which will be summed to the earning from the task and transferred over to you at the end of the experiment.</p>
+    <p> The second decision is whether to keep or discard the mutual fund (and its associated return) you chose in the first decision among the  {% if treatment == 3 %} 3 {% else %} 9 {% endif %}  offered to you.</p>
     <p>   If you decide to discard it, your earnings will be determined on the basis of a random draw, according to which you may earn any of the following amounts with equal chance:</p>
     <p>   £{{payoff_1}} - £2 = £{{payoffs_2.0}} </p>
     <p>   £{{payoff_1}} - £1 = £{{payoffs_2.1}}</p>
     <p>   £{{payoff_1}} = £{{payoffs_2.2}} </p>
     <p>   £{{payoff_1}} + £1 = £{{payoffs_2.3}}</p>
     <p>   £{{payoff_1}} + £2 = £{{payoffs_2.4}} </p>
-
-  <p>To choose one of the funds 1 press the corresponding button. You can change your choice as many times as you want, press NEXT to confirm.</p>
+  <p> These amounts have the same probability of being drawn.  </p>
+  <p>To choose one of the funds press the corresponding button. You can change your choice as many times as you want, press NEXT to confirm.</p>
     <table class="table table-sm"  style="border: 1px solid black; border-collapse: collapse;">
 
          <tbody>
@@ -52,16 +51,15 @@
              <td colspan="2"> <b> Your second decision </b></td>
          </tr>
            <tr class="text-left" id="r1">
-             <td scope="col" ><button type="button" id = "c2_1" class="btn btn-outline-primary btn-lg"> Keep your Fund </button></td>
+             <td scope="col" ><button type="button" id = "c2_1" class="btn btn-outline-primary btn-lg"> Keep the mutual fund. </button></td>
              <td class="text-center" scope="col">
-                <p align = "left"> Get £{{payoff_1}}
-                </p>
+                <p align = "left"> You keep in your possession of £{{payoff_1}}.   </p>
               </td>
            </tr>
            <tr class="text-left" id="r2">
-             <td scope="col"><button type="button" id = "c2_2" class="btn btn-outline-primary btn-lg"> Change </button></td>
+             <td scope="col"><button type="button" id = "c2_2" class="btn btn-outline-primary btn-lg"> Discard the fund. </button></td>
              <td class="text-center" scope="col" >
-                 <p align = "left">  Get one of the following payments: </p>
+                 <p align = "left"> You refuse the £{{payoff_1}}, and get one of the following payments: </p>
                  <p align = "left">   £{{payoff_1}} - £2 = £{{payoffs_2.0}} </p>
                  <p align = "left">   £{{payoff_1}} - £1 = £{{payoffs_2.1}}</p>
                  <p align = "left">   £{{payoff_1}} = £{{payoffs_2.2}} </p>
