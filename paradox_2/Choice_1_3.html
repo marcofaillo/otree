@@ -45,11 +45,11 @@
 
               <tbody>
               <tr  class="text-center" >
-                  <td colspan="9"> <b> Fund 1 </b></td>
+                  <td colspan="9"> <b>  </b></td>
                   <td scope="col"> <b> Total return of the fund </b></td>
               </tr>
                 <tr class="text-center" id="r1">
-                  <td scope="col"><button type="button" id = "b1" class="btn btn-outline-primary btn-lg"> Choose </button></td>
+                  <td scope="col"><button type="button" id = "b1" class="btn btn-outline-primary btn-lg"> Choose this fund</button></td>
                   <td class="text-center" scope="col">{{fund_1.0}}</td>
                   <td class="text-center" scope="col">{{fund_1.1}}</td>
                   <td class="text-center" scope="col">{{fund_1.2}}</td>
@@ -69,11 +69,11 @@
             <tbody>
             <tr  class="text-center">
 
-                <td colspan="9"> <b> Fund 2</b></td>
+                <td colspan="9"> <b> </b></td>
                 <td scope="col"> <b> Total return of the fund </b></td>
             </tr>
               <tr class="text-center" id="r2">
-                <td scope="col"><button type="button" id = "b2" class="btn btn-outline-primary btn-lg"> Choose </button></td>
+                <td scope="col"><button type="button" id = "b2" class="btn btn-outline-primary btn-lg"> Choose this fund </button></td>
                 <td class="text-center" scope="col">{{fund_2.0}}</td>
                 <td class="text-center" scope="col">{{fund_2.1}}</td>
                 <td class="text-center" scope="col">{{fund_2.2}}</td>
@@ -94,11 +94,11 @@
               <tbody>
               <tr  class="text-center">
 
-                  <td colspan="9"> <b>Fund 3 </b></td>
+                  <td colspan="9"> <b> </b></td>
                   <td scope="col"> <b> Total return of the fund </b></td>
               </tr>
                 <tr class="text-center" id="r3">
-                  <td scope="col"><button type="button" id = "b3" class="btn btn-outline-primary btn-lg"> Choose </button></td>
+                  <td scope="col"><button type="button" id = "b3" class="btn btn-outline-primary btn-lg"> Choose this fund </button></td>
                   <td class="text-center" scope="col">{{fund_3.0}}</td>
                   <td class="text-center" scope="col">{{fund_3.1}}</td>
                   <td class="text-center" scope="col">{{fund_3.2}}</td>
@@ -116,7 +116,7 @@
  </div>
     </div>
 
-    <span id="feedback" ><p>  <font size="4">  You have chosen fund  <b> <span id="choice" >. </span> </b>  press Next to confirm and proceed </p> <span>
+    <span id="feedback" ><p>  <font size="4">  Press Next to confirm and proceed </p> <span>
 
       </div>
       </div>
@@ -174,11 +174,13 @@ $(document).ready(function(){
     $( "#feedback" ).hide();
     $("#draw").click(function(){
       $( "#tables-container" ).show();
-      $( "#feedback" ).show();
+
     });
 
 		$("#b1").click(function(){
+        $( "#feedback" ).show();
         $( "#next" ).show();
+        $("#draw").hide()
     		$(this).css('background','lightblue');
     		$("#r1").css('background','lightblue');
     		$("#b2").css('background','white');
@@ -192,7 +194,9 @@ $(document).ready(function(){
 
 
 		$("#b2").click(function(){
+        $( "#feedback" ).show();
         $( "#next" ).show();
+        $("#draw").hide()
     		$(this).css('background','lightblue');
 
     		$("#r2").css('background','lightblue');
@@ -206,7 +210,9 @@ $(document).ready(function(){
 		});
 
     $("#b3").click(function(){
+        $( "#feedback" ).show();
         $( "#next" ).show();
+        $("#draw").hide()
     		$(this).css('background','lightblue');
 
     		$("#r3").css('background','lightblue');

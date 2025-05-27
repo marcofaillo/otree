@@ -90,7 +90,7 @@ class Player(BasePlayer):
     instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'], [5, '5. Perfectly clear.']])
     student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
     employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
-
+    comment = models.StringField()
 
 def check_proceed(player:Player):
     if player.proceed != 1:
@@ -273,7 +273,7 @@ class Feedback(Page):
 
 class Questionnaire(Page):
     form_model = 'player'
-    form_fields = ['instructions', 'student', 'employment']
+    form_fields = ['instructions', 'student', 'employment', 'comment']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1
