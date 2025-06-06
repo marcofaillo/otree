@@ -31,7 +31,7 @@ class C(BaseConstants):
     undoable = True
     #draw_funds
     values = [0.25, 1]
-    probabilities = [0.20, 0.80]
+    probabilities = [0.80, 0.20]
 
 class Subsession(BaseSubsession):
         def creating_session(subsession):
