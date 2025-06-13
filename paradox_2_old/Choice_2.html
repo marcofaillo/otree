@@ -12,7 +12,7 @@
 <div class="row">
 
      <div class="alert alert-success" role="alert" style="text-align:center">
-       <h3> DECISION 2</h3>
+       <h3> SECOND DECISION </h3>
 
    </div>
  </div>
@@ -32,8 +32,7 @@
   <div style="text-align: justify;">
     <!-- subject is 3, sovereign is 1 -->
 
-    <p> Among the {% if treatment == 3 %} three {% else %} nine {% endif %} funds, you have chosen Fund {{choice_1}}.
-    <p> The total return of the mutual fund you have selected in the first decision is £{{payoff_1}}. </p>
+    <p> Among the {% if treatment == 3 %} three {% else %} nine {% endif %} funds, you have chosen a fund with a total return of  £{{payoff_1}}.
     <p> It is now time for you to make the second decision.</p>
     <p> The second decision is whether to keep or discard the mutual fund (and its associated return) you chose in the first decision among the  {% if treatment == 3 %} 3 {% else %} 9 {% endif %}  offered to you.</p>
     <p>   If you decide to discard it, your earnings will be determined on the basis of a random draw, according to which you may earn any of the following amounts with equal chance:</p>
@@ -51,9 +50,9 @@
              <td colspan="2"> <b> Your second decision </b></td>
          </tr>
            <tr class="text-left" id="r1">
-             <td scope="col" ><button type="button" id = "c2_1" class="btn btn-outline-primary btn-lg"> Keep the fund. </button></td>
+             <td scope="col" ><button type="button" id = "c2_1" class="btn btn-outline-primary btn-lg"> Keep the  fund. </button></td>
              <td class="text-center" scope="col">
-                <p align = "left"> You keep in your possession of £{{payoff_1}}.   </p>
+                <p align = "left"> You keep in your possession the £{{payoff_1}}.   </p>
               </td>
            </tr>
            <tr class="text-left" id="r2">

@@ -1,0 +1,122 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+
+     <div class="alert alert-success" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS: FIRST DECISION</h3>
+
+   </div>
+ </div>
+
+<div class="container-xxl" >
+  <div class="row">
+
+    <div class="col-lg">
+
+      <div align="justify">
+
+
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <!-- subject is 3, sovereign is 1 -->
+
+    <p> <b> You will be offered {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds, and  you will be asked to choose one.</b>  </p>
+    <p> Mutual funds provide portfolio diversification. For this reason, the return on each mutual fund depends on the performance of the financial assets in which the fund is invested. </p>
+    <p>The total return on each of the {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds offered to you depends on the performance of eight underlying assets. Specifically, their return is randomly determined as follows: with a 20% chance, each asset yields a £1 return, and with an 80% chance, each asset yields a £0.25 return. Observe that the return of an underlying asset in the mutual fund does not affect the return of any other underlying asset. </p>
+    <p>For example, a mutual fund – call it A – you may be faced with in this activity is as follows. </p>
+      &nbsp
+     <img src="{{ static 'paradox_2/figure_ex_A.jpg' }}" class="rounded mx-auto d-block" width = "600"/>
+       &nbsp
+
+    <p>The returns of the underlying assets mutual fund A is invested in are displayed in the second raw (columns 1 to 8) of the table. These could have been generated according to the procedure described above. </p>
+    <p>In particular, apart from the second asset and the fifth asset, whose realized return is £1, the realized return of the other underlying assets is £0.25. Accordingly, the right-most column of the above table indicates the total return of mutual fund A (£3.50), which is given by the sum of the returns of the underlying assets (0.25*6+£1*2).</p>
+    <p> A second example of a mutual fund – call it B – you may be faced with is given below.</p>
+    &nbsp
+   <img src="{{ static 'paradox_2/figure_ex_B.jpg' }}" class="rounded mx-auto d-block" width = "600"/>
+     &nbsp
+
+     <p>
+         As far as mutual fund B is concerned, the realized return of the second, the fourth, and the sixth underlying assets is
+         £0.25, and the realized return of the other assets is £1. Accordingly, the total return of mutual
+         fund B is £5.75 (= £1 × 5 + £0.25 × 3).
+     </p>
+
+     <p>
+         Recall that in this activity you will be offered <strong>{% if treatment == 3 %} 3 {% else %} 9 {% endif %} </strong> mutual funds.
+         Depending on the realizations of the random returns of the underlying assets, the total return of each of the
+         <strong>{% if treatment == 3 %} 3 {% else %} 9 {% endif %}</strong> mutual funds ranges from <strong>£2</strong> (if the return of all underlying assets is £0.25)
+         to <strong>£8</strong> (if the return of all underlying assets is £1), with intermediate returns of:
+         <strong>£2.75</strong>, <strong>£3.5</strong>, <strong>£4.25</strong>, <strong>£5</strong>, <strong>£5.75</strong>,
+         <strong>£6.5</strong>, and <strong>£7.25</strong>.
+     </p>
+
+     <p>
+         By clicking on the "Draw" button, the total return for the {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds will be generated
+         according to the procedure just described.
+     </p>
+
+     <p>The {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds will then appear on the screen (as indicated above), each of which with its associated total return. </p>
+
+     <p> You will be asked to choose one of the {% if treatment == 3 %} 3 {% else %} 9 {% endif %} mutual funds.</p>
+
+     <p><strong> The return of the chosen mutual fund will become your personal possession.</strong></p
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
+
+</div>
+
+ </div>
+
+ &nbsp
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}

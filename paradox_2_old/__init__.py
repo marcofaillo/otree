@@ -64,9 +64,6 @@ class Player(BasePlayer):
 
     errors=models.IntegerField(initial = 0)
     failed_too_many = models.BooleanField(initial=False)
-    failed_once = models.BooleanField(initial=False)
-    wrong_answers = models.LongStringField()
-
     choice_1= models.IntegerField()
     choice_2= models.IntegerField()
 # bret
@@ -182,102 +179,24 @@ class Questions(Page):
     def is_displayed(player: Player):
         return player.proceed ==  1
 
-    # def error_message(player: Player, values):
-    #     if player.session.config['treatment'] == 3:
-    #        solutions = dict(q_1=3, q_2=2, q_3=8, q_4 = 3, q_5=1)
-    #     else:
-    #        solutions = dict(q_1=9, q_2=2, q_3=8, q_4 = 3, q_5=1)
-    #
-    #     errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
-    #     if errors:
-    #         player.errors += 1
-    #         player.failed_once = True
-    #
-    #         if player.errors>0:
-    #             player.failed_too_many = True
-    #             # we don't return any error here; just let the user proceed to the
-    #             # next page, but the next page is the 'failed' page that boots them
-    #             # from the experiment.
-    #         else:
-    #             return None
-    #             player.failed_once = True
     def error_message(player: Player, values):
         if player.session.config['treatment'] == 3:
-            solutions = dict(q_1=3, q_2=2, q_3=8, q_4=3, q_5=1)
+           solutions = dict(q_1=3, q_2=2, q_3=8, q_4 = 3, q_5=1)
         else:
-            solutions = dict(q_1=9, q_2=2, q_3=8, q_4=3, q_5=1)
+           solutions = dict(q_1=9, q_2=2, q_3=8, q_4 = 3, q_5=1)
 
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
-                player.errors += 1
-                player.wrong_answers = json.dumps(errors)  # store as string
-                if player.errors == 1:
-                    player.failed_once = True
-                    return None # show wrongs, then go to feedback
-                else:
-                    player.failed_too_many = True
-                    return None
-
-class Feedback_Answers(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.failed_once
-    @staticmethod
-    def vars_for_template(player: Player):
-            import json
-
-            question_texts = {
-                'q_1': "1) According to the instructions provided above, how many mutual funds will be offered to you in the first decision?",
-                'q_2': "2) According to the instructions provided above, what is the minimum return (in pounds) that your mutual fund may take?",
-                'q_3': "3) According to the instructions provided above, what is the maximum return (in pounds) that your mutual fund may take?",
-                'q_4': "4) Assume that the return of the mutual fund you choose in the first decision is worth £3.5. Assume that you decide to discard it. The £3.5 are no longer in your possession. Your new earnings will depend on a random draw that may generate which outcomes?",
-                'q_5': "5) Assume that the mutual fund you choose in the first decision is worth £6.5. Assume that you decide to discard it. The £6.5 are no longer in your possession. Your new earnings will depend on a random draw that may generate which outcomes?"
-            }
-
-            wrong_fields = json.loads(player.wrong_answers)
-
-            wrong_named = {
-                question_texts[key]: wrong_fields[key]
-                for key in wrong_fields
-            }
-
-            answers_named = {}
-            answers_named = {}
-            for key in ['q_1', 'q_2', 'q_3', 'q_4', 'q_5']:
-                if key in ['q_4', 'q_5']:
-                    label = getattr(player, f"get_{key}_display")()
-                else:
-                    label = str(getattr(player, key))
-                    # Add "→ Wrong" only if this question was wrong
-                if key in wrong_fields:
-                    label += " → Wrong"
-                answers_named[question_texts[key]] = label  # ✅ include all questions
-
-            return {
-                'wrong': wrong_named,
-                'answers': answers_named
-            }
+            player.errors += 1
+            if player.errors>1:
+                player.failed_too_many = True
+                # we don't return any error here; just let the user proceed to the
+                # next page, but the next page is the 'failed' page that boots them
+                # from the experiment.
+            else:
+                return errors
 
 
-
-
-    def is_processing_error_message(player):
-            return False  # disable revalidation
-
-
-class Instructions2_bis(Page):
-        @staticmethod
-        def is_displayed(player: Player):
-            return player.failed_once
-        def vars_for_template(player: Player):
-            return dict(treatment=player.session.config['treatment'])
-
-class Instructions3_bis(Page):
-        @staticmethod
-        def is_displayed(player: Player):
-            return player.failed_once and not player.failed_too_many
-        def vars_for_template(player: Player):
-            return dict(treatment=player.session.config['treatment'])
 
 class Fail (Page):
     @staticmethod
@@ -396,4 +315,4 @@ class Back_to_Prolific (Page):
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing, Instructions, Instructions2, Instructions3,Questions,Feedback_Answers,Instructions2_bis,Instructions3_bis, Questions,   Fail, Instructions_task, Bret, Choice_1_3, Choice_1_9,Choice_2,Stop, Feedback,Questionnaire, Back_to_Prolific]
+page_sequence = [Landing, Instructions, Instructions2, Instructions3,Questions, Fail, Instructions_task, Bret, Choice_1_3, Choice_1_9,Choice_2,Stop, Feedback,Questionnaire, Back_to_Prolific]

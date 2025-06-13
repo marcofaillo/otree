@@ -1,0 +1,82 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+
+
+ </div>
+
+<div class="container-xxl" >
+  <div class="row">
+
+    <div class="col-lg">
+
+      <div align="justify">
+
+
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <!-- subject is 3, sovereign is 1 -->
+
+    <p> You have made all your decision, press Next to see your final payment</p>
+
+
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
+
+</div>
+
+ </div>
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}
