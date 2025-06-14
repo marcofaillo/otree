@@ -66,6 +66,7 @@ class Player(BasePlayer):
     failed_too_many = models.BooleanField(initial=False)
     failed_once = models.BooleanField(initial=False)
     wrong_answers = models.LongStringField()
+    first= models.BooleanField(initial=False) #answer all questions at the first attempt
 
     choice_1= models.IntegerField()
     choice_2= models.IntegerField()
@@ -180,27 +181,8 @@ class Questions(Page):
     form_fields = ['q_1', 'q_2', 'q_3', 'q_4', 'q_5']
     @staticmethod
     def is_displayed(player: Player):
-        return player.proceed ==  1
+        return player.proceed ==  1 and not player.first
 
-    # def error_message(player: Player, values):
-    #     if player.session.config['treatment'] == 3:
-    #        solutions = dict(q_1=3, q_2=2, q_3=8, q_4 = 3, q_5=1)
-    #     else:
-    #        solutions = dict(q_1=9, q_2=2, q_3=8, q_4 = 3, q_5=1)
-    #
-    #     errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
-    #     if errors:
-    #         player.errors += 1
-    #         player.failed_once = True
-    #
-    #         if player.errors>0:
-    #             player.failed_too_many = True
-    #             # we don't return any error here; just let the user proceed to the
-    #             # next page, but the next page is the 'failed' page that boots them
-    #             # from the experiment.
-    #         else:
-    #             return None
-    #             player.failed_once = True
     def error_message(player: Player, values):
         if player.session.config['treatment'] == 3:
             solutions = dict(q_1=3, q_2=2, q_3=8, q_4=3, q_5=1)
@@ -217,11 +199,15 @@ class Questions(Page):
                 else:
                     player.failed_too_many = True
                     return None
+        else:
+            player.first = True
+
+
 
 class Feedback_Answers(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.failed_once
+        return player.failed_once and player.errors == 1
     @staticmethod
     def vars_for_template(player: Player):
             import json
@@ -261,14 +247,14 @@ class Feedback_Answers(Page):
 
 
 
-    def is_processing_error_message(player):
-            return False  # disable revalidation
+    # def is_processing_error_message(player):
+    #         return False  # disable revalidation
 
 
 class Instructions2_bis(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.failed_once
+            return player.failed_once and not player.failed_too_many
         def vars_for_template(player: Player):
             return dict(treatment=player.session.config['treatment'])
 
