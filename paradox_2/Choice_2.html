@@ -32,8 +32,7 @@
   <div style="text-align: justify;">
     <!-- subject is 3, sovereign is 1 -->
 
-    <p> Among the {% if treatment == 3 %} three {% else %} nine {% endif %} funds, you have chosen Fund {{choice_1}}.
-    <p> The total return of the mutual fund you have selected in the first decision is £{{payoff_1}}. </p>
+    <p> Among the {% if treatment == 3 %} three {% else %} nine {% endif %} funds, you have chosen a fund with a total return of  £{{payoff_1}}.
     <p> It is now time for you to make the second decision.</p>
     <p> The second decision is whether to keep or discard the mutual fund (and its associated return) you chose in the first decision among the  {% if treatment == 3 %} 3 {% else %} 9 {% endif %}  offered to you.</p>
     <p>   If you decide to discard it, your earnings will be determined on the basis of a random draw, according to which you may earn any of the following amounts with equal chance:</p>
@@ -43,7 +42,7 @@
     <p>   £{{payoff_1}} + £1 = £{{payoffs_2.3}}</p>
     <p>   £{{payoff_1}} + £2 = £{{payoffs_2.4}} </p>
   <p> These amounts have the same probability of being drawn.  </p>
-  <p>To choose one of the funds press the corresponding button. You can change your choice as many times as you want, press NEXT to confirm.</p>
+  <p>You can change your choice as many times as you want, before confirming your decision. Once you are sure about your decision, press the “NEXT” button to confirm.”</p>
     <table class="table table-sm"  style="border: 1px solid black; border-collapse: collapse;">
 
          <tbody>
