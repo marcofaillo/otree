@@ -25,7 +25,7 @@ class Player(BasePlayer):
     proceed = models.IntegerField()
     person=models.IntegerField()
 
-    q_1 = models.IntegerField(choices=[[1, 'You all participated in a previous survey'], [2, 'You all participated in a previous survey and selected the same topic as the most important one'], [3, 'You all participated in a previous survey and gave the same answer to the question about the topic you consider as the most important one']], initial=0, widget=widgets.RadioSelect)
+    q_1 = models.IntegerField(choices=[[1, 'You all participated in a previous survey'], [2, 'You all participated in a previous survey and selected the same topic as the most important one'], [3, 'You all participated in a previous survey and gave the same answers to the questions about the topic you consider as the most important one']], initial=0, widget=widgets.RadioSelect)
     q_2 = models.IntegerField(choices=[[1, 'Person 1, and choose between A, B, C, D'], [2, 'Person 2, and choose between X and Y'], [3, 'Person 3, and choose between X and Y']], initial=0, widget=widgets.RadioSelect)
     q_3 = models.IntegerField(choices=[[1, '2'], [2, '8'], [3, '9'],[4, '1']],initial=0)
     q_4 = models.IntegerField(choices=[[1, '2'], [2, '12'], [3, '8'],[4, '1']],initial=0)
@@ -53,12 +53,20 @@ class Landing(Page):
             check_proceed(player)
 
 
+class Treatment(Page):
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed ==  1
+        def vars_for_template(player: Player):
+            return dict(treatment=player.session.config['treatment'],topic=player.session.config['topic'])
+
 class Instructions(Page):
         @staticmethod
         def is_displayed(player: Player):
             return player.proceed ==  1
         def vars_for_template(player: Player):
             return dict(treatment=player.session.config['treatment'])
+
 
 class Instructions2(Page):
         @staticmethod
@@ -126,4 +134,4 @@ class Back_to_Prolific (Page):
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing, Instructions, Instructions2, Questions, Fail, Choice_A, Choice_B, Choice_C,Choice_D,Back_to_Prolific]
+page_sequence = [Landing, Treatment, Instructions, Instructions2, Questions, Fail, Choice_A, Choice_B, Choice_C,Choice_D,Back_to_Prolific]
