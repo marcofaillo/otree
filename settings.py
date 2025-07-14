@@ -143,7 +143,7 @@ SESSION_CONFIGS = [
             app_sequence=['weingast_citizens_3'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
             treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
-
+            topic = 5 # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
             ),
         dict(
             name='weingast_sovereign',
@@ -152,7 +152,8 @@ SESSION_CONFIGS = [
             app_sequence=['weingast_sovereign'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
             treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
-
+            topic = 1, # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
+            person = 3, # person to which he is associated
             ),
 
 
