@@ -1,0 +1,87 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> INSTRUCTIONS</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+
+    <p><strong>The activity</strong></p>
+<p>Person 1 moves first, and will choose one of four options: A, B, C, D. Depending on the choice of Person 1, you and  Person 2 will end up in different earning boxes (see the figure below)</p>
+  &nbsp
+
+    <img src="{{ static 'weingast_citizens_3/figure_1.jpg' }}" class="rounded mx-auto d-block" width = "300"/>
+
+    &nbsp
+    &nbsp
+    <p> In this study earnings will be computed using "points" as currency units. </p>
+    <p> At the end of the study, points will be converted in pounds at the exchange rate of 1 point= £ 0.25.</p>
+<p>In the next page you will see the content of the earnings boxes. In each box you and Person 2 have the possibility to choose one of two options, and you, Person 1 and Person 2 will earn different amounts depending on the combination of your choices </p>
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
+
+ </div>
+
+ </div>
+
+ &nbsp
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+{% endblock %}
