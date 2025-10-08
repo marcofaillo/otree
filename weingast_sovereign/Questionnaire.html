@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- [Risk taking risky benefit – Second-order risk change] -->
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
 <div class="card bg-light instructions">
     <div class="card-body">
 
@@ -13,7 +13,7 @@
  <div class="row">
 
       <div class="alert alert-success" role="alert" style="text-align:center">
-        <h3> Control questions</h3>
+        <h3> FINAL QUESTIONNAIRE</h3>
 
     </div>
   </div>
@@ -29,23 +29,15 @@
   <div style="text-align: justify;">
     <div style="text-align: justify;">
 
+        <!-- Risk taking risky benefit - Scenario base 1 -->
 
-
-        <!-- ripristare q1</p> -->
-        <p> {% formfield player.q_2 label=" You are:" %}</p>
-
-
-        <p> {% formfield player.q_3 label=" If Person 1 chooses earnings box B (see the figure below), You choose Y and Person 2 choose X, your earning (in points) is equal to: " %}         <img src="{{ static 'weingast_citizens_3/figure_2B.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
- </p>
-        &nbsp
-
-        <p> {% formfield player.q_4 label=" If Person 1 chooses earnings square A (see the figure below), you choose X and Person 2 chooses Y, Person 1’s earning  (in points) is equal to" %}         <img src="{{ static 'weingast_citizens_3/figure_2A.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
-</p>
-
-    </div>
-
-
-  </div>
+        <p>Thank you for participating in this activity. </p>
+        <p> Before leaving, and be redicted to Prolific, please answer the following few questions. </p>
+&nbsp
+        <p> {% formfield player.instructions label="Do you think that the instructions on the previous choices were clear (from 1 –Not at all clear, to 5 – Perfectly clear)? " %}</p>
+        <p> {% formfield player.student label="Are you a student?" %}</p>
+        <p> {% formfield player.employment label=" What is your employment status ? " %}</p>
+        <p> {% formfield player.comment label="Do you want to add a comment about your experience with this activity and / or suggestions for the researchers? " %}</p>
 
 </div>
 
@@ -88,6 +80,7 @@
     $("#id_proceed").val(1);
 			$("#form").submit()
 	  	});
+
 
 </script>
 

@@ -7,7 +7,7 @@ Weingast 1997 version: 7 Oct 2024
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'weingast_citizens_3'
+    NAME_IN_URL = 'weingast_citizens_2'
     EXCHANGE_RATE=0.02
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
@@ -41,7 +41,6 @@ class Player(BasePlayer):
     student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
     employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
     comment = models.StringField(blank=True)
-
 
 # def set_payoff(player: Player):
 #
@@ -89,7 +88,7 @@ class Questions(Page):
         return player.proceed ==  1
 
     def error_message(player: Player, values):
-        solutions = dict( q_2=3, q_3=3, q_4 = 2)    #    solutions = dict(q_1=2, q_2=3, q_3=3, q_4 = 2)#
+        solutions = dict( q_2=2, q_3=4, q_4 = 2)    #    solutions = dict(q_1=2, q_2=3, q_3=3, q_4 = 2)#
 
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
