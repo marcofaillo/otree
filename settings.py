@@ -133,9 +133,9 @@ SESSION_CONFIGS = [
         #     PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
         #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
         #
-        # #     ),
-        #
-        
+        #     ),
+
+
         dict(
             name='weingast_citizens_3',
             display_name='weingast_citizens_3',
@@ -145,6 +145,19 @@ SESSION_CONFIGS = [
             treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
 
             ),
+
+        dict(
+            name='weingast_citizens_2',
+            display_name='weingast_citizens_2',
+            num_demo_participants=1,
+            app_sequence=['weingast_citizens_2'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
+
+            ),
+
+
+
         dict(
             name='weingast_sovereign',
             display_name='weingast_sovereign',
@@ -152,9 +165,10 @@ SESSION_CONFIGS = [
             app_sequence=['weingast_sovereign'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
             treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
+            topic =1, # topic == 1 %} “immigration” {% elif topic == 2 %} “gender” {% elif topic == 3 %} "LGBTQ+" {% elif topic == 4 %} "climate change" {% else %} "welfare"
 
             ),
-
+        #
 
         # dict(
         #     name='paradox_2',
