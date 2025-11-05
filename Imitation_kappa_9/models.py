@@ -19,8 +19,8 @@ import random
 class Constants(BaseConstants):
     name_in_url = 'Imitation_kappa_9'
     players_per_group = 3
-    num_rounds = 25
-    num_round_fase = 25
+    num_rounds = 5
+    num_round_fase = 5
     kappa  = 9 # value of K
 
 
