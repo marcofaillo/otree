@@ -496,7 +496,8 @@ SESSION_CONFIGS = [
 
         instructions=1,
 
-        error=1,
+        error=20,
+        num_rounds = 3,
 
         ),
 

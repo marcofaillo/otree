@@ -68,37 +68,37 @@ class FeedbackLastLandscape(Page):
 		return self.round_number == Constants.num_rounds
 
 
-class EsitoHL(Page):
-	def vars_for_template(self):
-		self.player.set_payoff_HL()
-		return{
-		'guadagno_finale': self.player.player_final_payoff,
-		'payoff_HL': self.player.participant.vars['payoff_HL'],
-		'guadagno_sicuro':self.player.participant.vars['payoff_HL'] + self.session.config['participation_fee'],
-		'guadagno_cumulato': self.player.participant.vars['guadagno_cumulato'],
-		'riga': self.player.participant.vars['HL_riga']
-		}
-
-	def is_displayed(self):
-		return self.round_number == Constants.num_rounds and self.session.config['last'] == 1
+# class EsitoHL(Page):
+# 	def vars_for_template(self):
+# 		self.player.set_payoff_HL()
+# 		return{
+# 		'guadagno_finale': self.player.player_final_payoff,
+# 		'payoff_HL': self.player.participant.vars['payoff_HL'],
+# 		'guadagno_sicuro':self.player.participant.vars['payoff_HL'] + self.session.config['participation_fee'],
+# 		'guadagno_cumulato': self.player.participant.vars['guadagno_cumulato'],
+# 		'riga': self.player.participant.vars['HL_riga']
+# 		}
+#
+# 	def is_displayed(self):
+# 		return self.round_number == Constants.num_rounds
 
 class Anag(Page):
 	form_model = 'player'
 	form_fields = ['sex','age','faculty','num_experiments']
 
 	def is_displayed(self):
-		return self.round_number == Constants.num_rounds and self.session.config['last'] == 1
+		return self.round_number == Constants.num_rounds
 
-class HLPage(Page):
-	form_model = 'player'
-	form_fields = ['HL_1','HL_2','HL_3','HL_4','HL_5','HL_6','HL_7','HL_8','HL_9','HL_10']
-
-	def vars_for_template(self):
-		return {'f1':'2.00','f2':'1.60','f3':'3.85','f4':'0.10'}
-
-
-	def is_displayed(self):
-		return self.round_number == Constants.num_rounds and self.session.config['last'] == 1
+# class HLPage(Page):
+# 	form_model = 'player'
+# 	form_fields = ['HL_1','HL_2','HL_3','HL_4','HL_5','HL_6','HL_7','HL_8','HL_9','HL_10']
+#
+# 	def vars_for_template(self):
+# 		return {'f1':'2.00','f2':'1.60','f3':'3.85','f4':'0.10'}
+#
+#
+# 	def is_displayed(self):
+# 		return self.round_number == Constants.num_rounds
 
 
 class ResultsWaitPage(WaitPage):
@@ -135,12 +135,12 @@ class Istruzioni_ImitazioneImperfetta(Page):
 
     def get_form_fields(self):
         if Constants.players_per_group == 3:
-            return ['quest_1', 'quest_2', 'quest_3', 'quest_4', 'quest_5', 'quest_imitation_1', 'quest_imitation_2', 'quest_imitation_3', 'quest_imitation_4']
+            return ['quest_1', 'quest_2', 'quest_3',  'quest_5', 'quest_imitation_1', 'quest_imitation_2', 'quest_imitation_3', 'quest_imitation_4']
         else:
-            return ['quest_1', 'quest_2', 'quest_3', 'quest_4', 'quest_5']
+            return ['quest_1', 'quest_2', 'quest_3',  'quest_5']
 
     def error_message(self, values):
-        if values['quest_1'] != 1 or values['quest_2'] != 2 or values['quest_3'] != 2 or values['quest_4'] != 2 or \
+        if values['quest_1'] != 1 or values['quest_2'] != 2 or values['quest_3'] != 2 or  \
                 values['quest_5'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_1'] != 1 or Constants.players_per_group == 3 and values['quest_imitation_2'] != 2 or Constants.players_per_group == 3 and values['quest_imitation_3'] != 3 or Constants.players_per_group == 3 and values['quest_imitation_4'] != 2:
             return 'Error'
 
@@ -183,7 +183,7 @@ class Feedback(Page):
 
 class IstruzioniQuestionario(Page):
 	def is_displayed(self):
-		return self.round_number == Constants.num_rounds and self.session.config['last'] == 1
+		return self.round_number == Constants.num_rounds
 
 page_sequence = [
 	# Istruzioni_ImitazionePerfetta,
@@ -193,8 +193,8 @@ page_sequence = [
 	ResultsWaitPage,
 	FeedbackLastLandscape,
 	#Feedback,
-	IstruzioniQuestionario,
-	HLPage,
-	EsitoHL,
+	# IstruzioniQuestionario,
+	# HLPage,
+	# EsitoHL,
 	Anag
 ]

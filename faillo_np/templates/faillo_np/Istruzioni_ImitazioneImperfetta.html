@@ -81,21 +81,31 @@
 
 <br />
 <br />
-				<p align = "justify">Incontrerai tre viaggiatori dello spazio provenienti da tre pianeti diversi, ognuno dei quali acquisterà da te 25 immagini.
+				<!-- <p align = "justify">
+					Incontrerai tre viaggiatori dello spazio provenienti da tre pianeti diversi, ognuno dei quali acquisterà da te 25 immagini.
 					I tre non si conoscono e, provenendo da pianeti diversi, hanno gusti e preferenze completamente differenti. Di conseguenza,
-					essi sono disposti a pagare prezzi diversi per la medesima immagine.  Tutti e tre pagano con la valuta dello spazio, della quale non conosci il valore.</p>
-
-				<p align = "justify">Incontrerai il secondo viaggiatore dello spazio solo dopo aver completato tutte le vendite con il primo e, analogamente, il terzo solo dopo
+					essi sono disposti a pagare prezzi diversi per la medesima immagine.  Tutti e tre pagano con la valuta dello spazio, della quale non conosci il valore.</p> -->
+				<p align = "justify"> Il viaggiatore acquisterà da te 25 immagini. </p>
+				<!-- <p align = "justify">Incontrerai il secondo viaggiatore dello spazio solo dopo aver completato tutte le vendite con il primo e, analogamente, il terzo solo dopo
 					aver completato tutte le vendite col secondo. I tre non comunicano tra loro, per cui nessuno di essi sa nulla riguardo i tuoi scambi con
 					gli altri. Quando incontri un viaggiatore dello spazio per la prima volta, la combinazione di partenza è già disponibile sullo
-					schermo del computer e viene venduta automaticamente. A partire dal secondo round, puoi modificarla come preferisci per poi venderla facendo clic su "Vendi".</p>
+					schermo del computer e viene venduta automaticamente. A partire dal secondo round, puoi modificarla come preferisci per poi venderla facendo clic su "Vendi".</p> -->
+					<p align = "justify"> Quando incontri il viaggiatore, la combinazione di partenza è già disponibile sullo schermo del computer e viene venduta automaticamente. A partire dal secondo round, puoi modificarla come preferisci per poi venderla facendo clic su "Vendi".</p>
 
-				<p align = "justify">Per ogni viaggiatore dello spazio il tuo obiettivo è quello di massimizzare il "Pagamento Cumulato"
+
+				<!-- <p align = "justify">Per ogni viaggiatore dello spazio il tuo obiettivo è quello di massimizzare il "Pagamento Cumulato"
 					ottenuto dalla vendita delle immagini da te prodotte nel corso dei 25 round. Tanto il round in corso quanto il “Pagamento Cumulato”
-					sono indicati all’inteno della barra blu posizionata in alto (vedi lo screenshot sopra).</p>
-
+					sono indicati all’inteno della barra blu posizionata in alto (vedi lo screenshot sopra).</p> -->
+					<p align = "justify">Il tuo obiettivo è quello di massimizzare il "Pagamento Cumulato"
+						ottenuto dalla vendita delle immagini da te prodotte nel corso dei 25 round. Tanto il round in corso quanto il “Pagamento Cumulato”
+						sono indicati all’inteno della barra blu posizionata in alto (vedi lo screenshot sopra).</p>
+						<!--
 				<p align = "justify"> I tre partecipanti con il più alto "Guadagno Totale", cioè con la più alta somma di pagamenti cumulati ottenuti nei tre diversi incontri, riceveranno un premio. Il primo premio è €15, il secondo €10 e il terzo €5
-					(Nota Bene: se più partecipanti dovessero ottenere lo stesso "Guadagno Totale", il vincitore del premio in questione  sarà determinato per mezzo di una lotteria).</p>
+					(Nota Bene: se più partecipanti dovessero ottenere lo stesso "Guadagno Totale", il vincitore del premio in questione  sarà determinato per mezzo di una lotteria).</p> -->
+
+					<p align = "justify"> I tre partecipanti con il più alto "Guadagno Totale", cioè con la più alta somma di pagamenti cumulati, riceveranno un premio. Il primo premio è €15, il secondo €10 e il terzo €5
+						(Nota Bene: se più partecipanti dovessero ottenere lo stesso "Guadagno Totale", il vincitore del premio in questione  sarà determinato per mezzo di una lotteria).</p>
+
 
 				<p align = "center"><strong>Come procedere</strong></p>
 				<ol>
@@ -162,7 +172,7 @@
 					<input class="form-check-input" type="radio" name="quest_3" id="id_quest_3_3" value=3>
 					<label class="form-check-label" for="id_quest_3_3">1-5</label>
 				</div>
-<br />
+<!-- <br />
 				<p align = "justify">Domanda n.4: Il viaggiatore dello spazio è disposto a comprare più volte la stessa immagine allo stesso prezzo?</p>
 				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_4" id="id_quest_4_1" value=1>
@@ -176,10 +186,10 @@
 					<input class="form-check-input" type="radio" name="quest_4" id="id_quest_4_3" value=3>
 					<label class="form-check-label" for="id_quest_4_3">Sì, ed il prezzo è lo stesso per ogni viaggiatore dello spazio</label>
 				</div>
-<br />
+<br /> -->
 				 {% if Constants.players_per_group == 3 %}
 
-				<p align = "justify">Domanda n.5: Come sono estratti/e i/le partecipanti le cui immagini possono essere imitate?</p>
+				<p align = "justify">Domanda n.4: Come sono estratti/e i/le partecipanti le cui immagini possono essere imitate?</p>
 				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_1" value=1>
 					<label class="form-check-label" for="quest_imitation_1_1">A caso, in ogni round</label>
@@ -187,14 +197,14 @@
 				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_2" value=2>
 					<label class="form-check-label" for="quest_imitation_1_2">A caso, ogni certo numero di round</label>
-				<div class="form-check" style="padding-left:40px;">
 				</div>
+				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_imitation_1" id="quest_imitation_1_3" value=3>
 					<label class="form-check-label" for="quest_imitation_1_3">In base ad un criterio ben preciso</label>
 				</div>
 <br />
 
-				<p align = "justify">Domanda n.6: Che tipo di informazioni ti verranno fornite riguardo tali partecipanti?</p>
+				<p align = "justify">Domanda n.5: Che tipo di informazioni ti verranno fornite riguardo tali partecipanti?</p>
 				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_imitation_2" id="quest_imitation_2_1" value=1>
 				    <label class="form-check-label" for="quest_imitation_2_1">L'immagine prodotta nel round precedente</label>
@@ -211,7 +221,7 @@
 
 <br />
 
-				<p align = "justify">Domanda n.7: In quale occasione occorre imitare l'immagine prodotta da un/a altro/a partecipante?</p>
+				<p align = "justify">Domanda n.6: In quale occasione occorre imitare l'immagine prodotta da un/a altro/a partecipante?</p>
 				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_imitation_3" id="quest_imitation_3_1" value=1>
 				    <label class="form-check-label" for="quest_imitation_2_1">Mai</label>
@@ -227,7 +237,7 @@
 
 <br />
 
-				<p align = "justify">Domanda n.8: Quando decidi di imitare l'immagine di un/a altro/a partecipante, essa è sempre
+				<p align = "justify">Domanda n.7: Quando decidi di imitare l'immagine di un/a altro/a partecipante, essa è sempre
                     riprodotta in maniera corretta?</p>
 				<div class="form-check" style="padding-left:40px;">
 					<input class="form-check-input" type="radio" name="quest_imitation_4" id="quest_imitation_4_1" value=1>
@@ -273,7 +283,7 @@
 		</div>
 	</div>
 
-		{% if Constants.players_per_group == 3 %}
+		<!-- {% if Constants.players_per_group == 3 %}
 					 <br />
                      <br />
 		             <br />
@@ -294,7 +304,7 @@
                 {% else %}
                      <br />
                      <br />
-                {% endif %}
+                {% endif %} -->
 
 <div class="container">
 	<div class="row">

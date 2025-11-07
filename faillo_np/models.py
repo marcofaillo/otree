@@ -19,8 +19,8 @@ import random
 class Constants(BaseConstants):
 	name_in_url = 'faillo_np'
 	players_per_group = 3
-	num_rounds = 25
-	num_round_fase = 25
+	num_rounds = 10
+	num_round_fase = 10
 
 
 class Subsession(BaseSubsession):
