@@ -17,10 +17,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    sex = models.StringField()
-    age = models.IntegerField(choices=range(18, 60, 1))
-    num_experiments = models.IntegerField(choices=range(0, 50, 1))
-    faculty = models.StringField()
+	sex = models.StringField(widget=widgets.RadioSelectHorizontal(),choices=['Maschile', 'Femminile', 'Non binario'])
+	age = models.IntegerField(choices = range(18,60,1))
+	num_experiments = models.IntegerField(choices = range(1,50,1))
+	faculty = models.PositiveIntegerField(choices=[[1, 'Economia/Management'],[2, 'Giurisprudenza'],[3, 'Ingegneria'],[4,'Lettere'],[5,'Sociologia'],[6,'Psicologia'],[7,'Matematica/Fisica'],[8,'Informatica'],[9,'Altro'],[10,'Non sono studente/studentessa'],])
+
 
 
 
