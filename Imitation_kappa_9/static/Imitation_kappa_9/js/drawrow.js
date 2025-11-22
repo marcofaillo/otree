@@ -239,7 +239,7 @@ function aggiungi_altri(others,ng,guad,diff){
 	else {
 			nuova_riga = nuova_riga + "<div class=\"col-md-2 bordi_celle\"><p> " + String("") + " " + String("") + "</p></div> </div>";
 	}
-	if (errore_imitazione == 0){
+	if (errore_imitazione > 0){
 		// nuova_riga = nuova_riga + "<div class=\"row bordi_celle_altri\">";
 		nuova_riga = nuova_riga + "<div class=\"col-md-10 col-md-1sx bordi_celle_gray\">Il numero di simboli differenti rispetto all'ultima immagine da te prodotta è </div>";
 		nuova_riga = nuova_riga + "<div class=\"col-md-2 col-md-1sx bordi_celle\">&nbsp &nbsp &nbsp &nbsp" + String(diff) + "</div>";
