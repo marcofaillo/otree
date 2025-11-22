@@ -28,22 +28,18 @@
 
   <div style="text-align: justify;">
     <div style="text-align: justify;">
-        <p><h4> First Decision</h4></p>
-
-        <!-- Risk taking risky benefit - Scenario base 1 -->
-
-        <p><b>Control Questions</b></p>
 
 
-        <p> {% formfield player.q_1 label="1) You will interact with two other participants. What you have in common is that:" %}</p>
-        <p> {% formfield player.q_2 label="2) You are:" %}</p>
+
+        <!-- ripristare q1</p> -->
+        <p> {% formfield player.q_2 label=" You are:" %}</p>
 
 
-        <p> {% formfield player.q_3 label="3)	If Person 1 chooses earnings box B (see the figure below), You choose Y and Person 2 choose X, your earning (in points) is equal to: " %}         <img src="{{ static 'weingast_citizens_3/figure_2B.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
+        <p> {% formfield player.q_3 label=" If Person 1 chooses earnings box B (see the figure below), You choose Y and Person 2 choose X, your earning (in points) is equal to: " %}         <img src="{{ static 'weingast_citizens_3/figure_2B.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
  </p>
         &nbsp
 
-        <p> {% formfield player.q_4 label="4)	If Person 1 chooses earnings square A (see the figure below), you choose X and Person 2 chooses Y, Person 1’s earning  (in points) is equal to" %}         <img src="{{ static 'weingast_citizens_3/figure_2A.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
+        <p> {% formfield player.q_4 label=" If Person 1 chooses earnings square A (see the figure below), you choose X and Person 2 chooses Y, Person 1’s earning  (in points) is equal to" %}         <img src="{{ static 'weingast_citizens_3/figure_2A.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
 </p>
 
     </div>

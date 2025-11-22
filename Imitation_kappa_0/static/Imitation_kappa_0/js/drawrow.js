@@ -228,7 +228,7 @@ function aggiungi_altri(others,ng,guad,diff){
 	// 	}
 	// }
 
-	if (errore_imitazione > 0){
+	if (errore_imitazione > 1){
 
 		nuova_riga = nuova_riga + "<div class=\"col-md-10 col-md-1sx bordi_celle_gray\">Un partecipante selezionato casualmente ha ottenuto un pagamento di </div>";
 

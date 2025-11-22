@@ -28,79 +28,58 @@
   <div style="text-align: justify;">
     <!-- subject is 3, sovereign is 1 -->
     <p>In this activity, you will interact with two participants designed as Person 2 and Person 3, while you are labelled Person 1. </p>
-    <p> <b> Like you, Person 2 and 3 have participated in the survey indicating  {% if topic == 1 %} “immigration” {% elif topic == 2 %} “gender” {% elif topic == 3 %} "LGBTQ+" {% elif topic == 4 %} "climate change" {% else %} "welfare" {% endif %} as topic they consider as the most relevant (among five possibilities: immigration, gender, LGBTQ+, climate change, welfare).</b></p>
+    <p>Each of you will make decisions according to the instructions you receive. </p>
+    <p>At the end of the activity, we will ask you to wait for Person 2 and Person 3 to make their decisions. At that point, your choices will be matched, and you will be paid your bonus payment (if any), in addition to the fixed amount of £1</p>
+    <p>You can contact us through Prolific if you have any questions or would like to receive feedback about the payment. </p>
+
+
+
     <b>
     {% if treatment == 2 %}
+    <p> <b> Like you, Person 2 and 3 have participated in the survey indicating  {% if topic == 1 %} “immigration” {% elif topic == 2 %} “gender” {% elif topic == 3 %} "LGBTQ+" {% elif topic == 4 %} "climate change" {% else %} "welfare" {% endif %} as topic they consider as the most relevant (among five possibilities: immigration, gender, LGBTQ+, climate change, welfare).</b></p>
     <!-- citizens coalition -->
     <p> In the survey Person 2 and Person 3 have provided similar answers to the questions related to this topic, while you have provided different answers (look at the PDF below for a techical explanation of the calculation of the index of similarity between answers) </p>
-    {% elif treatment == 3 %}
-    <!-- citizens-sovereign coalition CHECK: ALSO WITH PERSON 2? -->
-    <p> In the survey, you and Person {% if person == 2 %} 2  {% else %}  3 {% endif %} have provided similar answers to the questions related to this topic, while Person {% if person == 2 %} 3 {% else %} 2 {% endif %} has provided a different answer different answers (look at the PDF below for a techical explanation of the calculation of the index of similarity between answers) </p>
-    {% endif %}
-    </b>
     <p>These other two individuals have also received this information about others' opinions on this topic. <p>
 
+    {% elif treatment == 3 %}
+    <p> <b> Like you, Person 2 and 3 have participated in the survey indicating  {% if topic == 1 %} “immigration” {% elif topic == 2 %} “gender” {% elif topic == 3 %} "LGBTQ+" {% elif topic == 4 %} "climate change" {% else %} "welfare" {% endif %} as topic they consider as the most relevant (among five possibilities: immigration, gender, LGBTQ+, climate change, welfare).</b></p>
+    <!-- citizens-sovereign coalition CHECK: ALSO WITH PERSON 2? -->
+    <p> In the survey, you and Person  3/2 have provided similar answers to the questions related to this topic, while Person  3/2 has provided a different answer different answers (look at the PDF below for a techical explanation of the calculation of the index of similarity between answers) </p>
+    <p>These other two individuals have also received this information about others' opinions on this topic. <p>
+
+    {% endif %}
+    </b>
+
 
   </div>
 
-  &nbsp
-  <!--		BOTTONE PROSEGUI	2	-->
-
-   <div class="row">
-      <div class="col-sm-12 text-center">
-      <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
-
-   </div>
-
-   </div>
-
-
-
-  <style type="text/css">
-  iframe {
-    border: none;
-    width: 60%;
-    height: 300px;
-    controls controlsList="nodownload";
-  }
-
-  @media (min-width: 800px) {
-    .content_viewport {
-      border: 0px none;
-      height: 600px;
-  width: 100%;
-    }
-  }
-  @media (max-width: 800px) {
-    .content_viewport {
-      border: 0px none;
-      height: 600px;
-  width: 100%;  }
-  }
-  @media (min-width: 800px) {
-    .content_viewport {
-      border: 0px none;
-      height: 600px;
-  width: 100%;  }
-  }
-  </style>
-  <div style=" overflow: hidden; margin: 15px auto; max-width: 880px;"><iframe class="content_viewport" scrolling="no" src="{{ static 'weingast_citizens_3/Eucl_distance.pdf' }}#navpanes=0" > </iframe>
-  <p>&nbsp;</p>
-  </div>
-
-
 </div>
 
 </div>
 </div>
 
+&nbsp
 
 
 
 
 
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
 
- &{% endblock %}
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
+
+ </div>
+
+ </div>
+
+ &nbsp
+
+
+
+{% endblock %}
 
 
 

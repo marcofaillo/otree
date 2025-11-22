@@ -20,7 +20,11 @@ class Constants(BaseConstants):
     name_in_url = 'Imitation_kappa_0'
     players_per_group = 3
     num_rounds = 5
+<<<<<<< HEAD
     num_round_fase = 5
+=======
+    num_round_fase = 2
+>>>>>>> fdc6a59680cd0d45b075947fdca556e574f22c22
     kappa  = 0 # value of K
 
 
@@ -28,7 +32,7 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def vars_for_admin_report(self):
         from otree.models import Participant
-        # pps = Participant.objects.all()
+        pps = Participant.objects.all()
         pps = {}
         for player in self.get_players():
             pps[str(player.participant.id_in_session)] = player.participant.vars['guadagno_cumulato']

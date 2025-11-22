@@ -1,0 +1,98 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit – Second-order risk change] -->
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> Control questions</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <div style="text-align: justify;">
+
+
+
+
+
+        <!-- ripristare q1</p> -->
+        <p> {% formfield player.q_2 label=" You are:" %}</p>
+
+
+        <p> {% formfield player.q_3 label=" If Person 1 chooses earnings box B (see the figure below), You choose Y and Person 3 choose X, your earning (in points) is equal to: " %}         <img src="{{ static 'weingast_citizens_2/figure_2B.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
+ </p>
+        &nbsp
+
+        <p> {% formfield player.q_4 label=" If Person 1 chooses earnings square A (see the figure below), you choose X and Person 3 chooses Y, Person 1’s earning  (in points) is equal to" %}         <img src="{{ static 'weingast_citizens_2/figure_2A.jpg' }}" class="rounded mx-auto d-block" width = "500"/>
+</p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

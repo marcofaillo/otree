@@ -2,7 +2,7 @@ from otree.api import *
 import random as r
 
 doc = """
-Weingast 1997
+Weingast 1997 version: 7 Oct 2024
 """
 
 
@@ -24,8 +24,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     proceed = models.IntegerField()
     person=models.IntegerField()
+# ---------ripristinare q_1 per sessioni ------------
 
-    q_1 = models.IntegerField(choices=[[1, 'You all participated in a previous survey'], [2, 'You all participated in a previous survey and selected the same topic as the most important one'], [3, 'You all participated in a previous survey and gave the same answers to the questions about the topic you consider as the most important one']], initial=0, widget=widgets.RadioSelect)
+    # q_1 = models.IntegerField(choices=[[1, 'You all participated in a previous survey'], [2, 'You all participated in a previous survey and selected the same topic as the most important one'], [3, 'You all participated in a previous survey and gave the same answers to the questions about the topic you consider as the most important one']], initial=0, widget=widgets.RadioSelect)
     q_2 = models.IntegerField(choices=[[1, 'Person 1, and choose between A, B, C, D'], [2, 'Person 2, and choose between X and Y'], [3, 'Person 3, and choose between X and Y']], initial=0, widget=widgets.RadioSelect)
     q_3 = models.IntegerField(choices=[[1, '2'], [2, '8'], [3, '9'],[4, '1']],initial=0)
     q_4 = models.IntegerField(choices=[[1, '2'], [2, '12'], [3, '8'],[4, '1']],initial=0)
@@ -36,6 +37,10 @@ class Player(BasePlayer):
     choice_C= models.IntegerField()
     choice_D= models.IntegerField()
 
+    instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'], [5, '5. Perfectly clear.']])
+    student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
+    employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
+    comment = models.StringField(blank=True)
 
 
 # def set_payoff(player: Player):
@@ -58,7 +63,7 @@ class Treatment(Page):
         def is_displayed(player: Player):
             return player.proceed ==  1
         def vars_for_template(player: Player):
-            return dict(treatment=player.session.config['treatment'],topic=player.session.config['topic'])
+            return dict(treatment=player.session.config['treatment'])   #,topic=player.session.config['topic'])
 
 class Instructions(Page):
         @staticmethod
@@ -77,13 +82,15 @@ class Instructions2(Page):
 
 class Questions(Page):
     form_model = 'player'
-    form_fields = ['q_1', 'q_2', 'q_3', 'q_4']
+    form_fields = ['q_2', 'q_3', 'q_4'] # ---------ripristinare q_1 per sessioni ------------
+
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1
 
     def error_message(player: Player, values):
-        solutions = dict(q_1=2, q_2=3, q_3=3, q_4 = 2)
+        solutions = dict( q_2=3, q_3=3, q_4 = 2)    #    solutions = dict(q_1=2, q_2=3, q_3=3, q_4 = 2)#
+
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
             player.errors += 1
@@ -129,9 +136,17 @@ class Choice_D(Page):
     def is_displayed(player: Player):
         return player.proceed ==  1
 
+
+class Questionnaire(Page):
+    form_model = 'player'
+    form_fields = ['student', 'instructions', 'employment', 'comment']
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1
+
 class Back_to_Prolific (Page):
     @staticmethod
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing, Treatment, Instructions, Instructions2, Questions, Fail, Choice_A, Choice_B, Choice_C,Choice_D,Back_to_Prolific]
+page_sequence = [Landing, Treatment, Instructions, Instructions2, Questions, Fail, Choice_A, Choice_B, Choice_C,Choice_D,Questionnaire, Back_to_Prolific]
