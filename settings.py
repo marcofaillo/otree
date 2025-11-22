@@ -133,29 +133,29 @@ SESSION_CONFIGS = [
         #     PARTICIPANT_FIELDS = ['decision_1', 'decision_2','insure_1', 'insure_2','paid_decision','lottery_1','lottery_2', 'second_order'],
         #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E'
         #
-        # #     ),
-        #
-        #
-        dict(
-            name='weingast_citizens_3',
-            display_name='weingast_citizens_3',
-            num_demo_participants=1,
-            app_sequence=['weingast_citizens_3'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
-            topic = 5 # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
-            ),
-        dict(
-            name='weingast_sovereign',
-            display_name='weingast_sovereign',
-            num_demo_participants=1,
-            app_sequence=['weingast_sovereign'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
-            topic = 1, # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
-            person = 3, # person to which he is associated
-            ),
+        #     ),
 
+        #
+        # dict(
+        #     name='weingast_citizens_3',
+        #     display_name='weingast_citizens_3',
+        #     num_demo_participants=1,
+        #     app_sequence=['weingast_citizens_3'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
+        #     topic = 5 # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
+        #     ),
+        # dict(
+        #     name='weingast_sovereign',
+        #     display_name='weingast_sovereign',
+        #     num_demo_participants=1,
+        #     app_sequence=['weingast_sovereign'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
+        #     topic = 1, # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
+        #     person = 3, # person to which he is associated
+        #     ),
+        #
 
         # dict(
         #     name='paradox_2',
@@ -362,65 +362,65 @@ SESSION_CONFIGS = [
         #
         #     ),
         #
-        # dict(
-        #     name='Imitation_kappa_0',
+        dict(
+            name='Imitation_kappa_0',
+
+            display_name="Imitation_kappa_0",
+
+            app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
+
+            PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+            order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+            error=0,
+
+            ),
         #
-        #     display_name="Imitation_kappa_0",
-        #
-        #     app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
-        #
-        #     PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=0, # k values 0,3,9
-        #
-        #     instructions=1,
-        #     order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
-        #
-        #     error=0,
-        #
-        #     ),
-        #
-        # dict(
-        #     name='Imitation_kappa_3',
-        #
-        #     display_name="Imitation_kappa_3",
-        #
-        #     app_sequence=['Imitation_kappa_3', 'Imitation_kappa_9', 'Imitation_kappa_0',  'questionnaire'],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=0, # k values 0,3,9
-        #
-        #     instructions=1,
-        #
-        #     error=0,
-        #
-        #     order=2, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
-        #
-        #
-        #     ),
-        #
-        # dict(
-        #     name='Imitation_kappa_9',
-        #
-        #     display_name="Imitation_kappa_9",
-        #
-        #     app_sequence=['Imitation_kappa_9', 'Imitation_kappa_0', 'Imitation_kappa_3',  'questionnaire' ],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=0, # k values 0,3,9
-        #
-        #     instructions=1,
-        #
-        #     error=0,
-        #
-        #     order=3, # 1 se ordine 0 3 9  ; 2 se ordine 3 0 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
-        #
-        #     ),
-        #
+        dict(
+            name='Imitation_kappa_3',
+
+            display_name="Imitation_kappa_3",
+
+            app_sequence=['Imitation_kappa_3', 'Imitation_kappa_9', 'Imitation_kappa_0',  'questionnaire'],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+
+            error=0,
+
+            order=2, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+
+            ),
+
+        dict(
+            name='Imitation_kappa_9',
+
+            display_name="Imitation_kappa_9",
+
+            app_sequence=['Imitation_kappa_9', 'Imitation_kappa_0', 'Imitation_kappa_3',  'questionnaire' ],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+
+            error=0,
+
+            order=3, # 1 se ordine 0 3 9  ; 2 se ordine 3 0 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+            ),
+
         # dict(
         #     name='faillo_np',
         #

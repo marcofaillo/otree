@@ -189,8 +189,8 @@ class Feedback(Page):
 # 		return self.round_number == Constants.num_rounds and self.session.config['last'] == 1
 
 page_sequence = [
-	Istruzioni_ImitazionePerfetta,
-    #Istruzioni_ImitazioneImperfetta,
+	# Istruzioni_ImitazionePerfetta,
+    Istruzioni_ImitazioneImperfetta,
 	Choice,
 	# SCOMMENTA ResultsWaitPage NEL CASO DI GRUPPO CON IMITAZIONE
 	ResultsWaitPage,
