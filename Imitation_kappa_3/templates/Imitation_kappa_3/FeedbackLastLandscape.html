@@ -19,10 +19,15 @@
 
 		<div class="row"  style="height:100px;">
 			<div class = "col-md-12_istruzioni" style="width:1000px;">
-				<br>
+		
 				<div> Il tuo 'Pagamento Cumulato' al termine di questo incontro è {{guadagno_cumulato_landscape}}.</div>
-				<div>  Ora incontrerai un nuovo viaggiatore.</div>
+				 {% if order == 3 %}
+				 <div>  L'esperimento è finito, ti chiediamo di rispondere a un breve questionario.</div>
+				 {% else %}
+				 <div>  Ora incontrerai un nuovo viaggiatore.</div>
+				 {% endif %}
 
+				</div>
 			</div>
 		</div>
 	</div>
