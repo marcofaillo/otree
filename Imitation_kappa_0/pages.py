@@ -148,7 +148,7 @@ class Istruzioni_ImitazioneImperfetta(Page):
             return 'Error'
 
     def is_displayed(self):
-        return self.round_number == 1 and self.session.config['instructions'] == 1
+        return self.round_number == 1 and self.session.config['instructions'] == 1 and self.session.config['order'] == 1
 
 class Feedback(Page):
 	def is_displayed(self):
