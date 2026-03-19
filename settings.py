@@ -143,7 +143,7 @@ SESSION_CONFIGS = [
         #
         #     ),
 
-
+        #
         # dict(
         #     name='weingast_citizens_3',
         #     display_name='weingast_citizens_3',
@@ -151,21 +151,8 @@ SESSION_CONFIGS = [
         #     app_sequence=['weingast_citizens_3'],
         #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
         #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
-        #
+        #     topic = 5 # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
         #     ),
-        #
-        # dict(
-        #     name='weingast_citizens_2',
-        #     display_name='weingast_citizens_2',
-        #     num_demo_participants=1,
-        #     app_sequence=['weingast_citizens_2'],
-        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-        #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
-        #
-        #     ),
-        #
-        #
-        #
         # dict(
         #     name='weingast_sovereign',
         #     display_name='weingast_sovereign',
@@ -173,8 +160,8 @@ SESSION_CONFIGS = [
         #     app_sequence=['weingast_sovereign'],
         #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
         #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
-        #     topic =1, # topic == 1 %} “immigration” {% elif topic == 2 %} “gender” {% elif topic == 3 %} "LGBTQ+" {% elif topic == 4 %} "climate change" {% else %} "welfare"
-        #
+        #     topic = 1, # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
+        #     person = 3, # person to which he is associated
         #     ),
         #
 
@@ -383,132 +370,91 @@ SESSION_CONFIGS = [
         #
         #     ),
         #
+        dict(
+            name='Imitation_kappa_0',
+
+            display_name="Imitation_kappa_0",
+
+            app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
+
+            PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+            order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+            error=20,
+
+            ),
+        #
+        dict(
+            name='Imitation_kappa_3',
+
+            display_name="Imitation_kappa_3",
+
+            app_sequence=['Imitation_kappa_3', 'Imitation_kappa_9', 'Imitation_kappa_0',  'questionnaire'],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+
+            error=20,
+
+            order=2, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+
+            ),
+
+        dict(
+            name='Imitation_kappa_9',
+
+            display_name="Imitation_kappa_9",
+
+            app_sequence=['Imitation_kappa_9', 'Imitation_kappa_0', 'Imitation_kappa_3',  'questionnaire' ],
+
+            num_demo_participants=3,
+
+            kappa=0, # k values 0,3,9
+
+            instructions=1,
+
+            error=20,
+
+            order=3, # 1 se ordine 0 3 9  ; 2 se ordine 3 0 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+
+            ),
+
         # dict(
-        #     name='Imitation_kappa_0',
+        #     name='faillo_np',
         #
-        #     display_name="Imitation_kappa_0",
+        #     display_name="NK with imitation",
         #
-        #     # app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
-        #     app_sequence=['Imitation_kappa_0','questionnaire'],
-        #
-        #
-        #     # PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
+        #     app_sequence=['faillo_np'],
         #
         #     num_demo_participants=3,
         #
-        #     kappa=0, # k values 0,3,9
+        #     kappa=9, # k values 0,3,9
         #
-        #     instructions=1,
-        #     # order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
-        #
-        #     error=0,
-        #
-        #     ),
-        #
-        # dict(
-        #     name='Imitation_kappa_3',
-        #
-        #     display_name="Imitation_kappa_3",
-        #
-        #     # app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
-        #     app_sequence=['Imitation_kappa_3','questionnaire'],
-        #
-        #
-        #     # PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=0, # k values 0,3,9
-        #
-        #     instructions=1,
-        #     # order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+        #     instructions=0,
         #
         #     error=0,
         #
+        #
+        #     last =1,
+        #
+        #     # fineexp=25,
+        #     #
+        #     # superadmin=0,
+        #     #
+        #     # waitstart=0,
+        #     #
+        #     # type_instructions=2,
         #     ),
-        #
-        # dict(
-        #     name='Imitation_kappa_9',
-        #
-        #     display_name="Imitation_kappa_9",
-        #
-        #     # app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
-        #     app_sequence=['Imitation_kappa_9','questionnaire'],
-        #
-        #
-        #     # PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=0, # k values 0,3,9
-        #
-        #     instructions=1,
-        #     # order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
-        #
-        #     error=0,
-        #
-        #     ),
-
-
-
-        # dict(
-        #     name='Imitation_kappa_3',
-        #
-        #     display_name="Imitation_kappa_3",
-        #
-        #     app_sequence=['Imitation_kappa_3', 'Imitation_kappa_9', 'Imitation_kappa_0',  'questionnaire'],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=0, # k values 0,3,9
-        #
-        #     instructions=1,
-        #
-        #     error=0,
-        #
-        #     order=2, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
-        #
-        #
-        #     ),
-        #
-        # dict(
-        #     name='Imitation_kappa_9',
-        #
-        #     display_name="Imitation_kappa_9",
-        #
-        #     app_sequence=['Imitation_kappa_9', 'Imitation_kappa_0', 'Imitation_kappa_3',  'questionnaire' ],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=0, # k values 0,3,9
-        #
-        #     instructions=1,
-        #
-        #     error=0,
-        #
-        #     order=3, # 1 se ordine 0 3 9  ; 2 se ordine 3 0 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
-        #
-        #     ),
-        #
-    dict(
-
-        name='faillo_np',
-
-        display_name="NK with imitation",
-
-        app_sequence=['faillo_np'],
-
-        num_demo_participants=3,
-
-        treatment=1,
-
-        instructions=1,
-
-        error=20,
-        num_rounds = 3,
-
-        ),
-
         # dict(
         #     name='sif_B_F',
         #     display_name='sif_B_F',

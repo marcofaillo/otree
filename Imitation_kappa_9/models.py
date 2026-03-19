@@ -3325,6 +3325,8 @@ class Player(BasePlayer):
             self.player_final_payoff = 0
         self.player_final_payoff = self.participant.vars['guadagno_cumulato']
 
+        if self.round_number == Constants.num_rounds:
+            self.payoff=self.player_final_payoff
 
     def round_payoff(self):
         output = []
