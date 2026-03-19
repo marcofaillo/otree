@@ -28,7 +28,7 @@
           <p> The total number of points you will earn is equal to: </p>
           <p style="text-align: center;"> <b>  Points Earned = Your Initial 10 Points – The Points You Sent + ( 2×The Points your Co-Participant Sent) </b> </p>
           <p> For example, if you send 2 points to your co-participant and they send you 3 points, the total number of points you earn is</p>
-          <p    <p style="text-align: center;"> 10-2+(2×3)=14 </p>
+          <p style="text-align: center;"> 10-2+(2×3)=14 </p>
           <p> and your co-participant earns:</p>
           <p style="text-align: center;">10-3+(2×2)=11.</p>
           <p> If, instead, you send 3 points to your co-participant and they send you 4 points, the total number of points you earn is:</p>
@@ -56,7 +56,7 @@
         <img src="{{ static 'discrimination/figure_2.png' }}" class="rounded mx-auto d-block" width = "500"/>
         &nbsp;
         &nbsp;
-        <p>Once you have concluded <6> rounds, we will ask you to rank the <5> categories for which you have been given the opportunity to revise your first-round decision. Please rank them on a scale from 1 to 5, where 1 is the most important category for you. After you have made your ranking, we will randomly choose one of the five categories to match you with a specific co-participant. Once you have concluded <6> rounds, we will ask you to rank the <5> categories for which you have been given the opportunity to revise your first-round decision. </p>
+        <p>Once you have concluded ... rounds, we will ask you to rank the ... categories for which you have been given the opportunity to revise your first-round decision. Please rank them on a scale from 1 to 5, where 1 is the most important category for you. After you have made your ranking, we will randomly choose one of the five categories to match you with a specific co-participant. Once you have concluded <6> rounds, we will ask you to rank the <5> categories for which you have been given the opportunity to revise your first-round decision. </p>
         <p> Please rank them on a scale from 1 to 5, where 1 is the most important category for you. </p>
         <p> After you have made your ranking, we will randomly choose one of the five categories to match you with a specific co-participant. </p>
         <p> The probability that a revised decision based on the types in one category will be choosen depends on your ranking. See table below </p>
@@ -116,7 +116,7 @@
 
   {% block scripts %}
   <script>
-      let currentPage = 1;
+      var currentPage = 1;
       const totalPages = 3;
 
       function showPage(page) {
