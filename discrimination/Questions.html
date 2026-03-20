@@ -1,0 +1,95 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit – Second-order risk change] -->
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> CONTROL QUESTIONS</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <div style="text-align: justify;">
+
+
+        <!-- <p> ripristinare q1 You will interact with two other participants. What you have in common is that:" %}</p> -->
+
+        <p> {% formfield player.q_1 label=" In round 1, if you send 3 points and your co-participant sends 3 points, your earning will be" %}</p>
+
+        <p> {% formfield player.q_2 label="In round 1, if you send 4 points and your co-participant sends 5  points,  your co-participant's  earning will be" %}</p>
+        <p> {% formfield player.q_3 label="Considering the example of the instructions, suppose that in round 1 you decided to send 3 point to your co-participant. You decided to go on to round 2. In round 2, you decided to revise your choice only in case you are matched with a tall person, sending 6 points. How many points your co-participant will receive if, at the end, round 2 is selected and your co-participant is a  medium-sized person?" %}</p>
+        <p> {% formfield player.q_4 label="Considering the previous scenario, How many points your co-participant will receive if, at the end, round 2 is selected and your co-participant is a tall person?" %}</p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+<style>
+.large-text {
+    font-size: 18px;
+}
+</style>
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

@@ -22,6 +22,14 @@ SESSION_CONFIGS = [
     # ),
 
 
+        dict(
+            name='discrimination',
+            display_name='discrimination',
+            num_demo_participants=1,
+            app_sequence=['discrimination'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+
+            ),
 
 
         # dict(
