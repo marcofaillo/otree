@@ -31,8 +31,7 @@ class Player(BasePlayer):
     q_2 = models.IntegerField()
     q_3 = models.IntegerField()
     q_4 = models.IntegerField()
-    go_forward = models.BooleanField(initial=False)
-    go_back = models.BooleanField(initial=False)
+    re_read=models.IntegerField()
     errors=models.IntegerField(initial = 0)
     failed_too_many = models.BooleanField(initial=False)
     failed_once = models.BooleanField(initial=False)
@@ -71,12 +70,39 @@ class Landing(Page):
             check_proceed(player)
 
 
-class Instructions(Page):
+class Instructions1(Page):
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed == 1 and C.TEST == 0
+
+class Instructions2(Page):
         @staticmethod
         def is_displayed(player: Player):
             return player.proceed == 1 and C.TEST == 0
 
 
+class Instructions3(Page):
+        form_model = 'player'
+        form_fields = ['re_read']
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed == 1 and C.TEST == 0
+
+class Instructions1_2(Page):
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
+
+class Instructions2_2(Page):
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
+
+
+class Instructions3_2(Page):
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
 
 class Questions(Page):
     form_model = 'player'
@@ -101,11 +127,6 @@ class Questions(Page):
         else:
             player.first = True
 
-
-class Instructions2(Page):
-        @staticmethod
-        def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0 and player.failed_once == True
 
 class Feedback_Answers(Page):
     @staticmethod
@@ -192,4 +213,4 @@ class Back_to_Prolific (Page):
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing,Instructions, Questions, Feedback_Answers, Instructions2,Questions, Fail, Choice_1, Choice_1_stop, Choice_2, Questionnaire,Back_to_Prolific]
+page_sequence = [Landing,Instructions1, Instructions2,Instructions3,Instructions1_2, Instructions2_2,Instructions3_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_2, Questionnaire,Back_to_Prolific]
