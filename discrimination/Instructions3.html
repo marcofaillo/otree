@@ -2,8 +2,6 @@
 {% load otree static %}
 
 {% block content %}
-<input type="hidden" name="re_read" id="id_re_read">
-
 <div class="card bg-light instructions">
     <div class="card-body">
 
@@ -20,53 +18,63 @@
  <div class="row">
     <div class="col-sm-12">
       <div style="text-align: justify; font-size: 1.1rem;">
-        <p><strong>Matching and payment</strong></p>
+        <p><strong>Ranking</strong></p>
 
-        <p> After completing the activity, you may return to Prolific. Once all participants in this session have finished the activity, matching will be carried out and bonus payments will be processed.</p>
-        <p> If you stopped at round 1, a co-participant will be randomly selected, and your payment and that of your co-participant will depend on your choices in that round.</p>
-        <p> If instead you continued, one the X rounds, a category, and a co-participant will be randomly drawn. Based on the co-participant’s characteristics in that category and in that round, your choice will be implemented and both your payment and that of your co-participant will be determined.</p>
-        <p> In a few days  you will receive a message with a link where you check the outcome of the activity. </p>
-        <p> You have finished reading the instructions. If anything is unclear, go back and read that part of the instructions again. If you understand everything, please proceed to the control questions.</p>
+        <p> Finally you will be asked to rank them on a scale from 1 to 5, where 1 is the most important characteristic for you. </p>
+        <p> After you have made your ranking, we will randomly choose one of the five characteristics to match you with a specific co-participant. </p>
+        <p> The probability that a revised decision based on one characteristic will be chosen depends on your ranking. See the table below. </p>
 
+        <table style="border-collapse: collapse; text-align: center; width: 300px; margin: 0 auto;">
+            <tr>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">Rank</th>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">Probability</th>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">First</td>
+              <td style="padding: 6px;">100%</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">Second</td>
+              <td style="padding: 6px;">90%</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">Third</td>
+              <td style="padding: 6px;">80%</td>
+          </tr>
+          <tr>
+              <td style="border-bottom: 1px solid black; padding: 6px;">Fourth</td>
+              <td style="border-bottom: 1px solid black; padding: 6px;">70%</td>
+          </tr>
+        </table>
+        &nbsp;
+        <p>	If the category you ranked first is chosen, your revised decision based on the types in that category will be implemented with 100% probability.</p>
+        <p>	If the second category is chosen, your revised decision based on the types in that category will be implemented with 90% probability. With a 10% probability, your first-round decision will be implemented, disregarding your co-participant’s type.</p>
+        <p> The same applies to subsequent rankings.</p>
+
+      </div>
       </div>
     </div>
 </div>
 
 
-<div class="row">
-   <div class="col-sm-12 text-center">
-   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Proceed to the control questions</button>
-
- </div>
-
+<div class="row mt-4">
+<div class="col-sm-12 text-center">
+        <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
 </div>
-&nbsp
-<div class="row">
-   <div class="col-sm-12 text-center">
-   <button type="button" id = "btn_re_read" class="btn btn-outline-primary btn-lg"> Read the instructions again from the beginning </button>
-
 </div>
 
-</div>
+{% endblock %}
 
-    {% endblock %}
+{% block scripts %}
+<script>
+$(document).ready(function(){
+});
+$("#btn_submit").click(function(){
+$("#id_proceed").val(1);
+$("#form").submit()
+});
 
-    {% block scripts %}
-    <script>
-  		$(document).ready(function(){
-
-  		$("#btn_submit").click(function(){
-      $("#id_re_read").val(2);
-  			$("#form").submit()
-  	  	});
-
-      $("#btn_re_read").click(function(){
-      $("#id_re_read").val(1);
-          $("#form").submit()
-          });
-  		});
-
-  </script>
+</script>
 
 
 

@@ -80,13 +80,19 @@ class Instructions2(Page):
         def is_displayed(player: Player):
             return player.proceed == 1 and C.TEST == 0
 
-
 class Instructions3(Page):
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed == 1 and C.TEST == 0
+
+
+class Instructions4(Page):
         form_model = 'player'
         form_fields = ['re_read']
         @staticmethod
         def is_displayed(player: Player):
             return player.proceed == 1 and C.TEST == 0
+
 
 class Instructions1_2(Page):
         @staticmethod
@@ -100,6 +106,11 @@ class Instructions2_2(Page):
 
 
 class Instructions3_2(Page):
+        @staticmethod
+        def is_displayed(player: Player):
+            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
+
+class Instructions4_2(Page):
         @staticmethod
         def is_displayed(player: Player):
             return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
@@ -213,4 +224,4 @@ class Back_to_Prolific (Page):
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing,Instructions1, Instructions2,Instructions3,Instructions1_2, Instructions2_2,Instructions3_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_2, Questionnaire,Back_to_Prolific]
+page_sequence = [Landing,Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_2, Questionnaire,Back_to_Prolific]
