@@ -4,9 +4,9 @@
 {% block content %}
 
 <!-- [Risk taking risky benefit - Baseline scenario 1] -->
-<input type="hidden" name="choice_2_1_confirm" id="id_choice_2_1_confirm">
-<input type="hidden" name="choice_2_2_confirm" id="id_choice_2_2_confirm">
-<input type="hidden" name="choice_2_3_confirm" id="id_choice_2_3_confirm">
+<input type="hidden" name="choice_5_1_confirm" id="id_choice_5_1_confirm">
+<input type="hidden" name="choice_5_2_confirm" id="id_choice_5_2_confirm">
+<input type="hidden" name="choice_5_3_confirm" id="id_choice_5_3_confirm">
 
 <div class="card bg-light instructions">
     <div class="card-body">
@@ -17,7 +17,7 @@
  <div class="row">
 
       <div class="alert alert-success" role="alert" style="text-align:center">
-        <h3> ROUND 2 </h3>
+        <h3> ROUND 5 </h3>
 
     </div>
   </div>
@@ -30,7 +30,7 @@
               <th colspan="4">In round 1 you decided to send {{choice_1}} points to your co-participant</th>
           </tr>
 
-    {% if sequence == 1 %}
+    {% if sequence == 3 %}
           <tr>
               <td rowspan="3">Now you can decide to confirm your choice or to change it <br> in case you are paired with a co-participant of a <strong> specific gender. </strong> </td>
               <td>Male</td>
@@ -38,7 +38,7 @@
               <td>Not binary</td>
           </tr>
 
-    {% elif sequence == 2 %}
+    {% elif sequence == 4 %}
       <tr>
               <td rowspan="3">Now you can decide to confirm your choice or to change it <br> in case you are paired with a co-participant's <strong> appeareance </strong> </td>
               <td>Attractive</td>
@@ -47,7 +47,7 @@
       </tr>
 
 
-      {% elif sequence == 3 %}
+      {% elif sequence == 1 %}
         <tr>
                 <td rowspan="3">Now you can decide to confirm your choice or to change it <br> in case you are paired with a co-participant's <strong> political positioning</strong> </td>
                 <td>Left</td>
@@ -55,7 +55,7 @@
                 <td>Right</td>
         </tr>
 
-      {% elif sequence == 4 %}
+      {% elif sequence == 2 %}
         <tr>
                   <td rowspan="3">Now you can decide to confirm your choice or to change it <br> in case you are paired with a co-participant's <strong> socio-economic status </strong> </td>
                   <td>Low</td>
@@ -65,21 +65,21 @@
      {% endif %}
 
           <tr>
-              <td><button type="button" id = "button_confirm_2_1" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
-              <td><button type="button" id = "button_confirm_2_2" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
-              <td><button type="button" id = "button_confirm_2_3" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
+              <td><button type="button" id = "button_confirm_5_1" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
+              <td><button type="button" id = "button_confirm_5_2" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
+              <td><button type="button" id = "button_confirm_5_3" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
           </tr>
           <tr>
-            <td><button type="button" id = "button_change_2_1" class="btn btn-outline-primary btn-lg">Change round 1 choice <br>  <span id="change_choice_2_1"> {% formfield player.choice_2_1 label="" %} </span>   </td>
-            <td><button type="button" id = "button_change_2_2" class="btn btn-outline-primary btn-lg">Change  round 1 choice <br> <span id="change_choice_2_2"> {% formfield player.choice_2_2 label="" %} </span>  </td>
-            <td><button type="button" id = "button_change_2_3" class="btn btn-outline-primary btn-lg">Change  round 1 choice <br>  <span id="change_choice_2_3"> {% formfield player.choice_2_3 label="" %} </span>   </td>
+            <td><button type="button" id = "button_change_5_1" class="btn btn-outline-primary btn-lg">Change round 1 choice <br>  <span id="change_choice_5_1"> {% formfield player.choice_5_1 label="" %} </span>   </td>
+            <td><button type="button" id = "button_change_5_2" class="btn btn-outline-primary btn-lg">Change  round 1 choice <br> <span id="change_choice_5_2"> {% formfield player.choice_5_2 label="" %} </span>  </td>
+            <td><button type="button" id = "button_change_5_3" class="btn btn-outline-primary btn-lg">Change  round 1 choice <br>  <span id="change_choice_5_3"> {% formfield player.choice_5_3 label="" %} </span>   </td>
            </tr>
       </table>
       </div>
 
-      {{ formfield_errors 'choice_2_1'}}
-      {{ formfield_errors 'choice_2_2'}}
-      {{ formfield_errors 'choice_2_3'}}
+      {{ formfield_errors 'choice_5_1'}}
+      {{ formfield_errors 'choice_5_2'}}
+      {{ formfield_errors 'choice_5_3'}}
 </div>
 </div>
 </div>
@@ -148,55 +148,55 @@
 	  	});
 
 
-    $("#change_choice_2_1").hide()
-    $("#change_choice_2_2").hide()
-    $("#change_choice_2_3").hide()
+    $("#change_choice_5_1").hide()
+    $("#change_choice_5_2").hide()
+    $("#change_choice_5_3").hide()
 
 
-      $("#button_confirm_2_1").click(function(){
+      $("#button_confirm_5_1").click(function(){
 
-          $("#button_change_2_1").hide();
-          $("#id_choice_2_1_confirm").val(1);
-          $("#id_choice_2_1").val(99);
+          $("#button_change_5_1").hide();
+          $("#id_choice_5_1_confirm").val(1);
+          $("#id_choice_5_1").val(99);
 
       });
 
-      $("#button_confirm_2_2").click(function(){
+      $("#button_confirm_5_2").click(function(){
 
-          $("#button_change_2_2").hide();
-          $("#id_choice_2_2_confirm").val(1);
-          $("#id_choice_2_2").val(99);
+          $("#button_change_5_2").hide();
+          $("#id_choice_5_2_confirm").val(1);
+          $("#id_choice_5_2").val(99);
 
           });
 
-          $("#button_confirm_2_3").click(function(){
+          $("#button_confirm_5_3").click(function(){
 
-              $("#button_change_2_3").hide();
-              $("#id_choice_2_3_confirm").val(1);
-              $("#id_choice_2_3").val(99);
-
-      });
-
-
-      $("#button_change_2_1").click(function(){
-        $("#id_choice_2_1_confirm").val(0);
-          $("#change_choice_2_1").show();
-          $("#button_confirm_2_1").hide();
-
-      });
-
-      $("#button_change_2_2").click(function(){
-          $("#id_choice_2_2_confirm").val(0);
-          $("#change_choice_2_2").show();
-          $("#button_confirm_2_2").hide();
+              $("#button_change_5_3").hide();
+              $("#id_choice_5_3_confirm").val(1);
+              $("#id_choice_5_3").val(99);
 
       });
 
 
-      $("#button_change_2_3").click(function(){
-          $("#id_choice_2_3_confirm").val(0);
-          $("#change_choice_2_3").show();
-          $("#button_confirm_2_3").hide();
+      $("#button_change_5_1").click(function(){
+        $("#id_choice_5_1_confirm").val(0);
+          $("#change_choice_5_1").show();
+          $("#button_confirm_5_1").hide();
+
+      });
+
+      $("#button_change_5_2").click(function(){
+          $("#id_choice_5_2_confirm").val(0);
+          $("#change_choice_5_2").show();
+          $("#button_confirm_5_2").hide();
+
+      });
+
+
+      $("#button_change_5_3").click(function(){
+          $("#id_choice_5_3_confirm").val(0);
+          $("#change_choice_5_3").show();
+          $("#button_confirm_5_3").hide();
 
       });
 

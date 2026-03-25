@@ -12,7 +12,7 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
     ENDOWMENT=50
-    TEST=0
+
 class Subsession(BaseSubsession):
      pass
 
@@ -39,14 +39,38 @@ class Player(BasePlayer):
     first= models.BooleanField(initial=False) #answer all questions at the first attempt
     next_rounds = models.IntegerField()
     choice_1= models.IntegerField()
+    ord =  models.IntegerField()
     choice_2_1_confirm= models.IntegerField(initial=0)
     choice_2_2_confirm= models.IntegerField(initial=0)
     choice_2_3_confirm= models.IntegerField(initial=0)
+    choice_3_1_confirm= models.IntegerField(initial=0)
+    choice_3_2_confirm= models.IntegerField(initial=0)
+    choice_3_3_confirm= models.IntegerField(initial=0)
+    choice_4_1_confirm= models.IntegerField(initial=0)
+    choice_4_2_confirm= models.IntegerField(initial=0)
+    choice_4_3_confirm= models.IntegerField(initial=0)
+    choice_5_1_confirm= models.IntegerField(initial=0)
+    choice_5_2_confirm= models.IntegerField(initial=0)
+    choice_5_3_confirm= models.IntegerField(initial=0)
+    choice_6_1_confirm= models.IntegerField(initial=0)
+    choice_6_2_confirm= models.IntegerField(initial=0)
+    choice_6_3_confirm= models.IntegerField(initial=0)
+
     choice_2_1= models.IntegerField(initial=None)
     choice_2_2= models.IntegerField(initial=None)
     choice_2_3= models.IntegerField(initial=None)
-
-
+    choice_3_1= models.IntegerField(initial=None)
+    choice_3_2= models.IntegerField(initial=None)
+    choice_3_3= models.IntegerField(initial=None)
+    choice_4_1= models.IntegerField(initial=None)
+    choice_4_2= models.IntegerField(initial=None)
+    choice_4_3= models.IntegerField(initial=None)
+    choice_5_1= models.IntegerField(initial=None)
+    choice_5_2= models.IntegerField(initial=None)
+    choice_5_3= models.IntegerField(initial=None)
+    choice_6_1= models.IntegerField(initial=None)
+    choice_6_2= models.IntegerField(initial=None)
+    choice_6_3= models.IntegerField(initial=None)
 
     instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'], [5, '5. Perfectly clear.']])
     student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
@@ -73,17 +97,17 @@ class Landing(Page):
 class Instructions1(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0
+            return player.proceed == 1 and  player.session.config['test'] == 0
 
 class Instructions2(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0
+            return player.proceed == 1 and player.session.config['test'] == 0
 
 class Instructions3(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0
+            return player.proceed == 1 and player.session.config['test'] == 0
 
 
 class Instructions4(Page):
@@ -91,36 +115,36 @@ class Instructions4(Page):
         form_fields = ['re_read']
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0
+            return player.proceed == 1 and player.session.config['test'] == 0
 
 
 class Instructions1_2(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
+            return player.proceed == 1 and player.session.config['test'] == 0 and (player.failed_once == True or player.re_read == 1)
 
 class Instructions2_2(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
+            return player.proceed == 1 and player.session.config['test'] == 0 and (player.failed_once == True or player.re_read == 1)
 
 
 class Instructions3_2(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
+            return player.proceed == 1 and player.session.config['test'] == 0 and (player.failed_once == True or player.re_read == 1)
 
 class Instructions4_2(Page):
         @staticmethod
         def is_displayed(player: Player):
-            return player.proceed == 1 and C.TEST == 0 and (player.failed_once == True or player.re_read == 1)
+            return player.proceed == 1 and player.session.config['test'] == 0 and (player.failed_once == True or player.re_read == 1)
 
 class Questions(Page):
     form_model = 'player'
     form_fields = ['q_1', 'q_2', 'q_3', 'q_4']
     @staticmethod
     def is_displayed(player: Player):
-        return player.proceed ==  1 and C.TEST == 0 and not player.first
+        return player.proceed ==  1 and player.session.config['test'] == 0 and not player.first
 
     def error_message(player: Player, values):
         solutions = dict(q_1=13, q_2=13, q_3=6, q_4=12)
@@ -142,7 +166,7 @@ class Questions(Page):
 class Feedback_Answers(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.failed_once and C.TEST == 0 and player.errors == 1
+        return player.failed_once and player.session.config['test'] == 0 and player.errors == 1
     @staticmethod
     def vars_for_template(player: Player):
             import json
@@ -208,8 +232,46 @@ class Choice_2(Page):
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.next_rounds == 1
+        player.ord=player.session.config['sequence']
     def vars_for_template(player: Player):
-        return {'choice_1': player.choice_1}
+        return {'choice_1': player.choice_1,'sequence': player.session.config['sequence']}
+
+class Choice_3(Page):
+    form_model = 'player'
+    form_fields = ['choice_3_1','choice_3_2','choice_3_3']
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1 and player.next_rounds == 1
+    def vars_for_template(player: Player):
+        return {'choice_1': player.choice_1,'sequence': player.session.config['sequence']}
+
+class Choice_4(Page):
+    form_model = 'player'
+    form_fields = ['choice_4_1','choice_4_2','choice_4_3']
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1 and player.next_rounds == 1
+    def vars_for_template(player: Player):
+        return {'choice_1': player.choice_1,'sequence': player.session.config['sequence']}
+
+class Choice_5(Page):
+    form_model = 'player'
+    form_fields = ['choice_5_1','choice_5_2','choice_5_3']
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1 and player.next_rounds == 1
+    def vars_for_template(player: Player):
+        return {'choice_1': player.choice_1,'sequence': player.session.config['sequence']}
+
+class Choice_6(Page):
+    form_model = 'player'
+    form_fields = ['choice_6_1','choice_6_2','choice_6_3']
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1 and player.next_rounds == 1
+    def vars_for_template(player: Player):
+        return {'choice_1': player.choice_1,'sequence': player.session.config['sequence']}
+
 
 class Questionnaire(Page):
     form_model = 'player'
@@ -224,4 +286,4 @@ class Back_to_Prolific (Page):
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing,Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_2, Questionnaire,Back_to_Prolific]
+page_sequence = [Landing,Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_2, Choice_3, Choice_4, Choice_5,Choice_6, Questionnaire,Back_to_Prolific]
