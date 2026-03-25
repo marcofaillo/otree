@@ -76,7 +76,9 @@ class Player(BasePlayer):
     student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
     employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
     comment = models.StringField(blank=True)
-
+    gender = models.IntegerField(choices=[[1, 'Male'], [2, 'Female'], [3, 'Non-binary']])
+    politics = models.IntegerField(choices=[[1, 'Center-Right'], [2, 'Center'], [3, 'Center-Left']])
+    ladder= models.IntegerField(choices=[[1, '1'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10']])
 
 
 # def set_payoff(player: Player):
@@ -275,7 +277,7 @@ class Choice_6(Page):
 
 class Questionnaire(Page):
     form_model = 'player'
-    form_fields = ['student', 'instructions', 'employment', 'comment']
+    form_fields = ['student', 'instructions', 'employment', 'comment', 'gender', 'politics', 'ladder']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1
