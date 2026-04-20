@@ -1,0 +1,73 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<input type="hidden" name="re_read" id="id_re_read">
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 4 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Matching and payment</strong></p>
+
+        <p> After completing the activity, you may return to Prolific. Once all participants in this session have finished the activity, matching will be carried out and bonus payments will be processed.</p>
+        <p> If you stopped at round 1, a co-participant will be randomly selected, and your payment and that of your co-participant will depend on your choices and that of your co-participant in that round.</p>
+        <p> If you chose to continue, one of the 5 rounds and a co-participant will be randomly drawn. Based on your ranked preferences and your co-participant’s characteristic, your choice and your co-participant’s choice will be implemented, and the payments for both you and your co-participant will be determined.</p>
+        <p> In a few days  you will receive a message with a link where you can check the outcome of the activity. </p>
+        <p> You have finished reading the instructions. If anything is unclear, please go back and read that part of the instructions again. If you understand everything, please proceed to the control questions.</p>
+
+      </div>
+    </div>
+</div>
+
+
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Proceed to the control questions</button>
+
+ </div>
+
+</div>
+&nbsp
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_re_read" class="btn btn-outline-primary btn-lg"> Read the instructions again from the beginning </button>
+
+</div>
+
+</div>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+  		$(document).ready(function(){
+
+  		$("#btn_submit").click(function(){
+      $("#id_re_read").val(2);
+  			$("#form").submit()
+  	  	});
+
+      $("#btn_re_read").click(function(){
+      $("#id_re_read").val(1);
+          $("#form").submit()
+          });
+  		});
+
+  </script>
+
+
+
+    {% endblock %}

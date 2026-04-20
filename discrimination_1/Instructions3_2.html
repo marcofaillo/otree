@@ -1,0 +1,81 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 3 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Ranking</strong></p>
+
+        <p> Finally you will be asked to rank the characteristics on a scale from 1 to 5, where 1 is the most important one for you. </p>
+        <p> After you have made your ranking, we will randomly choose one of the five characteristics to match you with a specific co-participant. </p>
+        <p> The probability that a revised decision based on one characteristic will be chosen depends on your ranking. See the table below. </p>
+
+        <table style="border-collapse: collapse; text-align: center; width: 300px; margin: 0 auto;">
+            <tr>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">Rank</th>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">Probability</th>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">First</td>
+              <td style="padding: 6px;">100%</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">Second</td>
+              <td style="padding: 6px;">90%</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">Third</td>
+              <td style="padding: 6px;">80%</td>
+          </tr>
+          <tr>
+              <td style="border-bottom: 1px solid black; padding: 6px;">Fourth</td>
+              <td style="border-bottom: 1px solid black; padding: 6px;">70%</td>
+          </tr>
+        </table>
+        &nbsp;
+        <p>	If the characteristic you ranked first is chosen, your revised decision based on the types in that characteristic will be implemented with 100% probability.</p>
+        <p>	If the second characteristic is chosen, your revised decision based on the types in that characteristic will be implemented with 90% probability. With a 10% probability, your round 1 decision will be implemented, disregarding your co-participant’s type.</p>
+        <p> The same applies to subsequent rankings.</p>
+
+      </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+<div class="col-sm-12 text-center">
+        <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+});
+$("#btn_submit").click(function(){
+$("#id_proceed").val(1);
+$("#form").submit()
+});
+
+</script>
+
+
+
+    {% endblock %}

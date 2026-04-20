@@ -1,0 +1,189 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+<input type="hidden" name="choice_soc_1_confirm" id="id_choice_soc_1_confirm">
+<input type="hidden" name="choice_soc_2_confirm" id="id_choice_soc_2_confirm">
+<input type="hidden" name="choice_soc_3_confirm" id="id_choice_soc_3_confirm">
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> ROUND 6 </h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <table class="table table-bordered text-center">
+          <tr>
+              <th colspan="4">In round 1 you decided to send {{choice_1}} points to your co-participant.</th>
+          </tr>
+
+        {% elif sequence == 1 %}
+        <tr>
+                  <td rowspan="3">Now you can decide to confirm your choice or to change it <br> in case you are paired with a co-participant  with a specific <strong> socio-economic status </strong> </td>
+                  <td>Low</td>
+                  <td>Medium</td>
+                  <td>High</td>
+      </tr>
+
+
+          <tr>
+              <td><button type="button" id = "button_confirm_soc_1" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
+              <td><button type="button" id = "button_confirm_soc_2" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
+              <td><button type="button" id = "button_confirm_soc_3" class="btn btn-outline-primary btn-lg">Confirm round 1 choice</td>
+          </tr>
+          <tr>
+            <td><button type="button" id = "button_change_soc_1" class="btn btn-outline-primary btn-lg">Change round 1 choice <br>  <span id="change_choice_soc_1"> {% formfield player.choice_soc_1 label="" %} </span>   </td>
+            <td><button type="button" id = "button_change_soc_2" class="btn btn-outline-primary btn-lg">Change  round 1 choice <br> <span id="change_choice_soc_2"> {% formfield player.choice_soc_2 label="" %} </span>  </td>
+            <td><button type="button" id = "button_change_soc_3" class="btn btn-outline-primary btn-lg">Change  round 1 choice <br>  <span id="change_choice_soc_3"> {% formfield player.choice_soc_3 label="" %} </span>   </td>
+           </tr>
+      </table>
+      </div>
+
+      {{ formfield_errors 'choice_soc_1'}}
+      {{ formfield_errors 'choice_soc_2'}}
+      {{ formfield_errors 'choice_soc_3'}}
+</div>
+</div>
+</div>
+
+<style>
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+ </div>
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+    $("#change_choice_soc_1").hide()
+    $("#change_choice_soc_2").hide()
+    $("#change_choice_soc_3").hide()
+
+
+      $("#button_confirm_soc_1").click(function(){
+
+          $("#button_change_soc_1").hide();
+          $("#id_choice_soc_1_confirm").val(1);
+          $("#id_choice_soc_1").val(99);
+
+      });
+
+      $("#button_confirm_soc_2").click(function(){
+
+          $("#button_change_soc_2").hide();
+          $("#id_choice_soc_2_confirm").val(1);
+          $("#id_choice_soc_2").val(99);
+
+          });
+
+          $("#button_confirm_soc_3").click(function(){
+
+              $("#button_change_soc_3").hide();
+              $("#id_choice_soc_3_confirm").val(1);
+              $("#id_choice_soc_3").val(99);
+
+      });
+
+
+      $("#button_change_soc_1").click(function(){
+        $("#id_choice_soc_1_confirm").val(0);
+          $("#change_choice_soc_1").show();
+          $("#button_confirm_soc_1").hide();
+
+      });
+
+      $("#button_change_soc_2").click(function(){
+          $("#id_choice_soc_2_confirm").val(0);
+          $("#change_choice_soc_2").show();
+          $("#button_confirm_soc_2").hide();
+
+      });
+
+
+      $("#button_change_soc_3").click(function(){
+          $("#id_choice_soc_3_confirm").val(0);
+          $("#change_choice_soc_3").show();
+          $("#button_confirm_soc_3").hide();
+
+      });
+
+
+});
+
+
+
+
+
+</script>
+
+
+
+{% endblock %}
