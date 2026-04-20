@@ -93,7 +93,7 @@ class Player(BasePlayer):
     religiosity = models.IntegerField(choices=[[1, 'Low'], [2, 'Medium'], [3, 'High'], [4,'I am not a religious person']])
     siblings = models.IntegerField(choices=[[1, 'Only child'], [2, 'One'], [3, 'More than one']])
     risk_2= models.IntegerField(choices=[[1, '1(Strongly disagree)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(Strongly agree)']])
-    comment=models.StringField()
+    comment=models.StringField(null=True, blank=True)
 # def set_payoff(player: Player):
 #
 def check_proceed(player:Player):
