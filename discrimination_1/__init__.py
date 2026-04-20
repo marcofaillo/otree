@@ -81,8 +81,8 @@ class Player(BasePlayer):
     weight = models.IntegerField(initial = None)
     politics = models.IntegerField(choices=[[1, 'Left'], [2, 'Centre-Left'], [3, 'Centre-Right'], [3, 'Right']])
     holidays = models.IntegerField(choices=[[1, 'Mountains'], [2, 'Beach'], [3, 'Visiting cities']])
-    ladder= models.IntegerField(choices=[[1, '1(worst off in terms of economic power)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(best off in terms of economic power)']])
-    risk_1= models.IntegerField(choices=[[1, '1(Strongly disagree)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(Strongly agree)']])
+    ladder= models.IntegerField(choices=[[1, '1 (worst off in terms of economic power)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(best off in terms of economic power)']])
+    risk_1= models.IntegerField(choices=[[1, '1 (Strongly disagree)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(Strongly agree)']])
 
 
 #final questionnaire
@@ -145,6 +145,7 @@ class Instructions1_2(Page):
         def is_displayed(player: Player):
             return player.proceed == 1 and player.session.config['test'] == 0 and (player.failed_once == True or player.re_read == 1)
 
+
 class Instructions2_2(Page):
         @staticmethod
         def is_displayed(player: Player):
@@ -156,10 +157,14 @@ class Instructions3_2(Page):
         def is_displayed(player: Player):
             return player.proceed == 1 and player.session.config['test'] == 0 and (player.failed_once == True or player.re_read == 1)
 
+
 class Instructions4_2(Page):
         @staticmethod
         def is_displayed(player: Player):
             return player.proceed == 1 and player.session.config['test'] == 0 and (player.failed_once == True or player.re_read == 1)
+        def before_next_page(player: Player, timeout_happened):
+            if player.re_read == 1:
+                player.re_read = 0
 
 class Questions(Page):
     form_model = 'player'
