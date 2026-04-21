@@ -87,7 +87,6 @@ class Player(BasePlayer):
 
 #final questionnaire
 
-    instructions=models.IntegerField(choices=[[1, '1. Not at all clear.'], [2, '2.'], [3,'3.'], [4,'4.'], [5, '5. Perfectly clear.']])
     student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
     employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
     religiosity = models.IntegerField(choices=[[1, 'Low'], [2, 'Medium'], [3, 'High'], [4,'I am not a religious person']])
