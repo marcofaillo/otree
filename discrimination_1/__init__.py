@@ -91,7 +91,7 @@ class Player(BasePlayer):
     student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
     employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
     religiosity = models.IntegerField(choices=[[1, 'Low'], [2, 'Medium'], [3, 'High'], [4,'I am not a religious person']])
-    siblings = models.IntegerField(choices=[[1, 'Only child'], [2, 'One'], [3, 'More than one']])
+    siblings = models.IntegerField(choices=[[1, 'No siblings'], [2, 'One sibling'], [3, 'More than one sibling']])
     risk_2= models.IntegerField(choices=[[1, '1(Strongly disagree)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(Strongly agree)']])
     comment=models.StringField(null=True, blank=True)
 # def set_payoff(player: Player):
@@ -332,7 +332,7 @@ class Choice_soc(Page):
 
 class Questionnaire_2(Page):
     form_model = 'player'
-    form_fields = ['student', 'employment', 'religiosity', 'siblings', 'risk_2', 'comment']
+    form_fields = ['student', 'employment', 'religiosity', 'siblings', 'risk_2', 'comment', 'holidays']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1

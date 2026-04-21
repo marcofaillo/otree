@@ -32,17 +32,18 @@
         <!-- Risk taking risky benefit - Scenario base 1 -->
 
         <p>Thank you for participating in this activity. </p>
-        <p> In this activity we will ask some questions and to make some decisions.</p>
-        <p> We’ll start with the questions, then go to the decisions, and conclude with one final set of questions.</p>
+        <p> In this activity we will ask you to answer some questions and to make some decisions.</p>
+        <p> We will begin with a set of questions, then move on to the decision tasks and conclude with a final set of questions.</p>
 
 &nbsp
         <p> {% formfield player.gender label="1. Which gender do you identify with?" %}</p>
         <p> {% formfield player.activity label="2. How often do you usually do physical activity? " %}</p>
         <p> {% formfield player.height label="3. What is your height in cm?" %}</p>
         <p> {% formfield player.weight label="4. What is your weight in kg?" %}</p>
-        <p> {% formfield player.politics label="5.	Which would you say is your political position on the left–right spectrum (Independently of your participation in voting)?" %}</p>
-        <p>  6. Please rate how much you agree with the following statement from 1 to 10 (1 = Strongly disagree, 10 = Strongly agree)<p>
-        <p> {% formfield player.risk_1 label="I usually do not like taking risks" %}</p>
+        <p> {% formfield player.politics label="5.How would you describe your political position on the left–right spectrum, regardless of your participation in voting?" %}</p>
+        <p>  6. Please rate how much you agree with the following statement from 1 to 10 (1 = Strongly disagree, 10 = Strongly agree).<p>
+
+        <div class="indent"> {% formfield player.risk_1 label="I usually do not like taking risks" %}</div>
 
         <p> 7. Imagine that this ladder scale pictures how society is set up. <p>
 
@@ -61,7 +62,11 @@
 &nbsp
 
 
-
+<style>
+.indent {
+    margin-left: 30px !important;
+}
+</style>
 
 
 &nbsp
