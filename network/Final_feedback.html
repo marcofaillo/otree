@@ -28,7 +28,7 @@
           <li> you sent {% if coparticipant == 1 %} {% if stage == 2%} {{choice_2_A_B}} {% else %} {{choice_3_A_B}} points to B {% endif%} {% else %} {% if stage == 2%} {{choice_2_A_C}} {% else %} {{choice_3_A_C}} {% endif%} points to C{% endif%}.
           <li> {% if coparticipant == 1 %} B sent you {% if stage == 2%} {{choice_2_B_A}} {% else %} {{choice_3_B_A}} {% endif%} {% else %}  C sent you {% if stage == 2%} {{choice_2_C_A}} {% else %} {{choice_3_C_A}} {% endif%} {% endif%} points.
         </ul>
-      <p> In that stage you earned <b> {{payoff}} </b> corresponding to ...euro </p>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to ...euro </p>
 {% elif role == 2 %}
       <p> <strong> You are participant B </strong> </p>
       <p> Stage <b> {{stage}} </b> and co-participant <b> {% if coparticipant == 1 %} A {% else %} C {% endif %} </b> were randomly selected </p>
@@ -37,7 +37,7 @@
           <li> you sent {% if coparticipant == 1 %} {% if stage == 2%} {{choice_2_B_A}} {% else %} {{choice_3_B_A}} points to A {% endif%} {% else %} {% if stage == 2%} {{choice_2_B_C}} {% else %} {{choice_3_B_C}} {% endif%} points to C {% endif%}.
           <li> {% if coparticipant == 1 %} A sent you {% if stage == 2%} {{choice_2_A_B}} {% else %} {{choice_3_A_B}} {% endif%} {% else %}  C sent you {% if stage == 2%} {{choice_2_C_B}} {% else %} {{choice_3_C_B}} {% endif%} {% endif%} points.
         </ul>
-      <p> In that stage you earned <b> {{payoff}} </b> corresponding to ...euro </p>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to ...euro </p>
 {% else %}
       <p> <strong> You are participant C </strong> </p>
       <p> Stage <b> {{stage}} </b> and co-participant <b> {% if coparticipant == 1 %} A {% else %} B {% endif %} </b> were randomly selected </p>
@@ -48,7 +48,7 @@
         </ul>
 
 
-      <p> In that stage you earned <b> {{payoff}} </b> corresponding to ...euro </p>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to ...euro </p>
 {% endif %}
 
     </div>
