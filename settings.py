@@ -39,7 +39,8 @@ SESSION_CONFIGS = [
             app_sequence=['network'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
             test =0,
-            network=1
+            network=1,
+            enforce = 0
             ),
 
         # dict(
