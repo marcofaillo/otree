@@ -1,0 +1,64 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> END OF STAGE 1</h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+{% if role == 1 %}
+      <p> <strong> You are participant A </strong> </p>
+      <p>  Co-participant <b>B
+
+      </b>declarated the intention to send you <b> {{choice_1_B_A}}</b> points. </p>
+      <p>  Co-participant<b> C </b>declarated the intention to send you <b>{{choice_1_C_A}} </b>points. </p>
+{% elif role == 2 %}
+    <p> <strong> You are participant B </strong> </p>
+    <p>  Co-participant <b>A </b>declarated the intention to send you <b>{{choice_1_A_B}} </b>points. </p>
+    <p>  Co-participant <b>C </b>declarated the intention to send you <b>{{choice_1_C_B}} </b>points. </p>
+{% else %}
+    <p> <strong> You are participant C </strong> </p>
+    <p>  Co-participant <b>A </b>declarated the intention to send you <b>{{choice_1_A_C}} </b>points. </p>
+    <p>  Co-participant <b>B </b>declarated the intention to send you<b> {{choice_1_B_C}} </b>points. </p>
+{% endif %}
+
+    </div>
+    </div>
+  </div>
+
+
+    <div class="row mt-4">
+    <div class="col-sm-12 text-center">
+            <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+    </div>
+    </div>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+
+    {% endblock %}

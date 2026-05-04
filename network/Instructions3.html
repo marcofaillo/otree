@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 3  </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Stage 2: Actual decision (confirm or adjust the stated intention)</strong></p>
+
+        <p> In Stage 2, you will make your final decision about the points you will actually send to your co-participants. </p>
+        <p> You can either confirm your stated intentions from Stage 1 or choose a different number of points to send.</p>
+        <p> All players make their decisions at the same time.</p>
+        If you confirm your stated intention, these points will be sent to the other players. If you choose a different amount, your revised decision will be implemented and sent.
+        <br>
+<!-- text for enforcement -->
+        <!-- <p>After all players have made their Stage 2 decisions, the implemented decision is determined as follows:</p>
+        <ul>
+          <li>There is an XX probability that your decision from Stage 1 is implemented. If this happens, then your Stage 2 choice is ignored.</li>
+          <li>There is an XX probability that your Stage 2 decision is implemented.</li>
+       </ul> -->
+
+      </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+<div class="col-sm-12 text-center">
+        <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+});
+$("#btn_submit").click(function(){
+$("#id_proceed").val(1);
+$("#form").submit()
+});
+
+</script>
+
+
+
+    {% endblock %}

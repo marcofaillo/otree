@@ -1,0 +1,97 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<input type="hidden" name="re_read" id="id_re_read">
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 4 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Stage 3: Second actual choice </strong></p>
+
+        <p> In Stage 3, you may see some additional information about your co-participants, depending on your position in the network.  </p>
+        <p> First, you may see what the other players chose to send you in Stage 2, and if this corresponded to their stated intentions of stage 1.</p>
+        <p> Second, you may receive some information about how your co-participants have interacted with each other. This includes </p>
+        <ul>
+          <li>	Their stated intentions in Stage 1, and </li>
+          <li>	their actual decisions in Stage 2.</li>
+        </ul>
+        <p>The information available to you and your co-participants, depend on your and their position in the network. For example, consider the network in Figure 3.</p>
+
+        &nbsp;
+        &nbsp;
+
+      <img src="{{ static 'network/figure_3.png' }}" class="rounded mx-auto d-block" width = "200"/>
+
+      &nbsp;
+      &nbsp;
+
+      <p>You are A, so you are connected to B and C.</p>
+
+      <ul>
+        <li>
+          You observe the Stage 2 choices of both B and C (dashed arrows with the eye icon).
+          So you will know if both B and C have confirmed their stated intention of Stage 1.
+        </li>
+        <li>
+          You also receive information from B about C’s behavior toward B in both Stage 1 and Stage 2
+          (solid arrow with the envelope icon). This means that you will know if C has confirmed
+          his stated intention in her interaction with B.
+        </li>
+        <li>
+          Finally, you receive information from C about B’s behavior toward C in both Stage 1 and Stage 2
+          (solid arrow with the envelope icon). This means that you will know if B has confirmed
+          his stated intention in her interaction with C.
+        </li>
+      </ul>
+
+      <p>B and C neither observe the other’s choices nor receive additional information.</p>
+
+      <p>After observing this information, all players make a final decision about the points to send to each of the other two players.</p>
+
+      <p>This decision cannot be changed.</p>
+
+      <p>This is the end of the game.</p>
+
+      </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+<div class="col-sm-12 text-center">
+        <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+</div>
+</div>
+
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+});
+$("#btn_submit").click(function(){
+$("#id_proceed").val(1);
+$("#form").submit()
+});
+
+</script>
+
+
+
+    {% endblock %}

@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<input type="hidden" name="re_read" id="id_re_read">
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 5  </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Earnings </strong></p>
+
+        <p>Your final earnings are determined by:</p>
+
+      <ul>
+        <li>One stage (Stage 1, 2, or 3) is randomly selected.</li>
+        <li>Within that stage, one of your two interactions is randomly selected.</li>
+      </ul>
+
+      <p>Your earnings are then based on the outcome of that interaction.</p>
+
+      <p>
+        For example, if Stage 2 and your co-participant B are selected, you will be paid based on
+        your interaction with B in that stage.
+      </p>
+
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Proceed to the control questions</button>
+
+ </div>
+
+</div>
+
+</div>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+  		$(document).ready(function(){
+
+  		$("#btn_submit").click(function(){
+      $("#id_re_read").val(2);
+  			$("#form").submit()
+  	  	});
+
+  		});
+
+  </script>
+
+
+
+    {% endblock %}

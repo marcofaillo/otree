@@ -1,0 +1,156 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> STAGE 2 </h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+  <div class="row">
+    <div class="col-md-6 small border p-3">
+      <div style="text-align: justify;">
+
+        <p> <strong> You are participant B </strong> </p> <p>In Stage 1 you declared the intention to send <strong>{{choice_1_B_A}} points to A </strong>and <strong> {{choice_1_B_C}} points to C.</strong> </p>
+        <p> Now you can confirm the choices, or move the sliders and change them.</p>
+        <p> How many points you intend to send co-participants <b>A.</b></b></p>
+        <div id="sliders_1"></div>
+        <br>
+        <br>
+        <p> How many points you intend to send co-participants <b>C.</b></p>
+        <div id="sliders_2"></div>
+      </div>
+    </div>
+
+      <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+        <img src="{{ static 'network/network1.png' }}" class="rounded mx-auto d-block" width = "200"/>
+        <p> In stage 3:  </p>
+        <ul>
+          <li>A sees how many points B and C decleared to sent to A in stage 1, and how many points they actually  sent to A in Stage 2 (eye).</li>
+          <li>A sees also A's and B's stated intentions to each other in Stage 1, and their actual decisions in Stage 2 (envelope). </li>
+          <li>B and C see their stated intentions to each other in Stage 1.</li>
+        </ul>
+      </div>
+        </div>
+      </div>
+
+
+
+      </div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+<style>
+
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+
+
+
+    <script src="{{ static 'network/mgsliders.js' }}"></script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            slider1 = new mgslider("choice_2_B_A", 0, 10, 1);
+            slider1.print(document.getElementById("sliders_1"));
+            slider1.set({{ choice_1_B_A }});
+
+            slider2 = new mgslider("choice_2_B_C", 0, 10, 1);
+            slider2.print(document.getElementById("sliders_2"));
+            slider2.set({{ choice_1_B_C }});
+        });
+    </script>
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+ </div>
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block scripts %}
+
+
+
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}
