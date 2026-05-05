@@ -141,8 +141,6 @@ class Instructions3(Page):
         @staticmethod
         def is_displayed(player: Player):
             return player.proceed == 1 and player.session.config['test'] == 0
-        def vars_for_template(player: Player):
-            return {'enforce':player.session.config['enforce']}
 
 
 class Instructions4(Page):
@@ -366,7 +364,7 @@ class Choice_3_C(Page):
         return player.proceed ==  1 and player.id_in_group == 3
     def vars_for_template(player: Player):
         return {'network': player.session.config['network']}
-        
+
 class Questionnaire(Page):
     form_model = 'player'
     form_fields = ['student', 'employment','comment']

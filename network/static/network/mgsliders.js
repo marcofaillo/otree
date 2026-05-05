@@ -38,8 +38,8 @@ function mgslider(field, min, max, step) {
     this.remember = false;
 
     this.prefix = "mgsliders_yF5sTZLy";
-    this.uncertain = "Points you send";
-    this.certain = "Points received by the co-participant";
+    this.uncertain = "You send";
+    this.certain = "The co-participant receives";
 
     mgsliders.push({field: field, obj: this});
 }
@@ -91,10 +91,10 @@ mgslider.prototype.markup = function () {
                 <td class='mgslider-limit'>" + "Points sent" + "</td>\
             </tr>\
             <tr class='mgslider-feedback'>\
-                <td id='" + this.id("show") + "' class='mgslider-show' colspan='3'>" + this.uncertain + ": <b><span id='" + this.id("cur") + "' class='mgslider-value'></span></b></td>\
+                <td id='" + this.id("show") + "' class='mgslider-show' colspan='3'>" + this.uncertain + ": <b><span id='" + this.id("cur") + "' class='mgslider-value'></span></b> points.</td>\
             </tr>\
             <tr class='mgslider-feedback mgslider-certain-row' style='display:none;'>\
-              <td id='" + this.id("show") + "' class='mgslider-show' colspan='3'>" + this.certain + ": <b><span id='" + this.id("line") + "' class='mgslider-value'></span></b></td>\
+              <td id='" + this.id("show") + "' class='mgslider-show' colspan='3'>" + this.certain + ": <b><span id='" + this.id("line") + "' class='mgslider-value'></span></b> points.</td>\
             </tr>\
         </table>\
         \
