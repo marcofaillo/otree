@@ -2,7 +2,7 @@ from otree.api import *
 import random as r
 import json
 
-doc = """NetROL networks experiment. v. 30/4/2026"""
+doc = """NetROL networks experiment. v. 6/5/2026"""
 
 # ruolo = player.id_in_group: 1 = A, 2 = B, 3 = C
 

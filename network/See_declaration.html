@@ -17,7 +17,9 @@
  </div>
 
  <div class="row">
-    <div class="col-sm-12">
+
+      <div class="col-md-6 small border p-3">
+        <div style="text-align: justify;">
       <div style="text-align: justify; font-size: 1.1rem;">
 {% if role == 1 %}
       <p> <strong> You are participant A </strong> </p>
@@ -34,9 +36,22 @@
     <p>  Co-participant <b>A </b>declared the intention to send you <b>{{choice_1_A_C}} </b>points. </p>
     <p>  Co-participant <b>B </b>declared the intention to send you<b> {{choice_1_B_C}} </b>points. </p>
 {% endif %}
+</div>
+
 
     </div>
     </div>
+
+    <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+      <img src="{{ static 'network/network1.png' }}" class="rounded mx-auto d-block" width = "200"/>
+      <p> In stage 3:  </p>
+      <ul>
+        <li>A can see how many points B and C decleared to send to A in Stage 1, and how many points they actually  sent to A in Stage 2 (eye symbol).</li>
+        <li>A also sees B's and C's stated intentions to each other in Stage 1, and their actual decisions in Stage 2 (envelope symbol). </li>
+        <li>B and C see their each other's stated intentions in Stage 1, and A's stated intention towards each of them in Stage 1.</li>
+      </ul>
+    </div>
+
   </div>
 
 
