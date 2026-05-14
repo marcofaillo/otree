@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 1 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+
+      <p>In this activity, you will be paired with another person who is randomly chosen and asked to make the same decisions as you. We call this person your “co-participant”.</p>
+      <p> The activity is divided into 6 rounds. Over the next pages, we provide you with a full description of what you will be asked to do in each round.</p>
+      &nbsp;
+
+      <p><strong>The activity: round 1</strong></p>
+
+      <p> In round 1, you will receive 10 points. You must then decide how many points to send to your co-participant. You will keep the remaining points. </p>
+      <p>Each point you send will be doubled and delivered to your co-participant.</p>
+      <p> Your co-participant will make the same decision (see Figure 1).</p>
+      &nbsp;
+      &nbsp;
+    <img src="{{ static 'discrimination_1/figure_1.png' }}" class="rounded mx-auto d-block" width = "300"/>
+    &nbsp
+      <p> At the end of the activity, each point will be converted at a rate of 1 point = 0.10£. </p>
+      <p> The total number of points you will earn is equal to: </p>
+      <p style="text-align: center;"> <b>  Points Earned = Your Initial 10 Points – The Points You Sent + ( 2×The Points your Co-Participant Sent) </b> </p>
+      <p> For example, if you send 2 points to your co-participant and they send you 3 points, the total number of points you earn is</p>
+      <p style="text-align: center;"> 10-2+(2×3)=14 </p>
+      <p> and your co-participant earns:</p>
+      <p style="text-align: center;">10-3+(2×2)=11</p>
+      <p> If, instead, you send 3 points to your co-participant and they send you 4 points, the total number of points you earn is:</p>
+      <p style="text-align: center;"> 10-3+(2×4)=15</p>
+      <p>and your co-participant earns:</p>
+      <p style="text-align: center;"> 10-4+(2×3)=12</p>
+      <p>This is the end of round 1.</p>
+      <p> At this point you can either choose to stop and move to a questionnaire, or you can stay for round 2. </p>
+      <p> If you stay, you have the opportunity to update your choice based on information about the characteristics of your co-participant. </p>
+      <p> After receiving that information, you can revise your first-round decision depending on the characteristics of your co-participant.</p>
+    </div>
+    </div>
+  </div>
+
+
+    <div class="row mt-4">
+    <div class="col-sm-12 text-center">
+            <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+    </div>
+    </div>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+
+    {% endblock %}
