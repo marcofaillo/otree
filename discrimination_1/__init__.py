@@ -74,6 +74,13 @@ class Player(BasePlayer):
     choice_soc_3= models.IntegerField(initial=None)
     choice_soc_4= models.IntegerField(initial=None)
 
+
+    rank_app = models.IntegerField(choices=[1, 2, 3, 4, 5])
+    rank_g = models.IntegerField(choices=[1, 2, 3, 4, 5])
+    rank_neu = models.IntegerField(choices=[1, 2, 3, 4, 5])
+    rank_pol = models.IntegerField(choices=[1, 2, 3, 4, 5])
+    rank_soc = models.IntegerField(choices=[1, 2, 3, 4, 5])
+
 # inital questionnaire
     gender = models.IntegerField(choices=[[1, 'Male'], [2, 'Female'], [3, 'Non-binary']])
     activity = models.IntegerField(choices=[[1, 'More than 6 hours per week'], [2, 'From 3 to 6 hours per week'], [3, 'Less than 3 hours per week']])
@@ -327,6 +334,30 @@ class Choice_soc(Page):
             if not (0 <= value <= 10 or value == 99):
                 return "Numbers must be between 0 and 10"
 
+class Ranking(Page):
+    form_model = 'player'
+    form_fields = ['rank_app','rank_g','rank_neu','rank_pol','rank_soc']
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1 and player.next_rounds == 1
+    @staticmethod
+    def error_message(player, values):
+
+        ranks = [
+            values['rank_app'],
+            values['rank_g'],
+            values['rank_neu'],
+            values['rank_pol'],
+            values['rank_soc'],
+        ]
+
+        # check that all rankings are unique
+        if len(set(ranks)) != 5:
+            return 'Each rank from 1 to 5 can only be assigned once.'
+
+        # optional: check that all numbers 1-5 are used
+        if sorted(ranks) != [1, 2, 3, 4, 5]:
+            return 'You must assign all ranks from 1 to 5.'
 
 
 class Questionnaire_2(Page):
@@ -342,4 +373,4 @@ class Back_to_Prolific (Page):
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing, Questionnaire_1, Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_g, Choice_app, Choice_neu, Choice_pol,Choice_soc, Questionnaire_2,Back_to_Prolific]
+page_sequence = [Landing, Questionnaire_1, Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_g, Choice_app, Choice_neu, Choice_pol,Choice_soc, Ranking, Questionnaire_2,Back_to_Prolific]

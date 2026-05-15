@@ -1,0 +1,59 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> RANKING</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <div style="text-align: justify;">
+
+        <!-- Risk taking risky benefit - Scenario base 1 -->
+
+        <p> We now ask you to rank each of the five characteristic on a scale from 1 to 5, where 1 indicates the most important for you. </p>
+        <p> The probability that a revised decision based on that characteristic will be implemented depends on your ranking, as explained in the intructions. </p>
+
+        <p>{% formfield player.rank_g label="Gender" %}</p>
+        <p>{% formfield player.rank_app label="Appearance" %}</p>
+        <p>{% formfield player.rank_neu label="Holiday preferences" %}</p>
+        <p>{% formfield player.rank_pol label="Political ideology" %}</p>
+        <p>{% formfield player.rank_soc label="Socio-economic status" %}</p>
+
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+{% next_button %}
+</div>
+<!--		BOTTONE PROSEGUI	2	-->
+
+
+
+{% endblock %}
