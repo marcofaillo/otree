@@ -41,7 +41,7 @@ SESSION_CONFIGS = [
             test =0,
             network=1,
             enforce = 0,
-            use_browser_bots=True,
+            use_browser_bots=False,
             ),
 
         # dict(
