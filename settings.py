@@ -40,7 +40,8 @@ SESSION_CONFIGS = [
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
             test =0,
             network=1,
-            enforce = 0
+            enforce = 0,
+            use_browser_bots=False,
             ),
 
         # dict(
