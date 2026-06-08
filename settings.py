@@ -33,10 +33,10 @@ SESSION_CONFIGS = [
             ),
 
         dict(
-            name='network',
-            display_name='network',
+            name='network_1',
+            display_name='network_1',
             num_demo_participants=3,
-            app_sequence=['network'],
+            app_sequence=['network_1'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
             test =0,
             network=1,

@@ -1,0 +1,108 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit – Second-order risk change] -->
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> QUESTIONS</h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+    <div style="text-align: justify;">
+
+
+        <!-- <p> ripristinare q1 You will interact with two other participants. What you have in common is that:" %}</p> -->
+
+        <p> Remember that Payment = Initial 10 points – (points sent) + (double the points received).</p>
+        <p> {% formfield player.q_1 label="Imagine you are player B. If in Part 2, you decide to send 3 points to your co-participant A, and A sends you 2 points, what will your payment (in points) be in this interaction?" %}</p>
+        <p> {% formfield player.q_2 label="If in part 2 you decide to send 3 points to your co-participant C and C sends you 4 points, what will C’s payment be (in points)?" %}</p>
+        <p> {% formfield player.q_3 label="In Part 1, you only receive information about one co-participant’s stated intention. True or false?" %}</p>
+        <p> {% formfield player.q_4 label="In Part 3, A will also be able to see both your stated intention and final decisions toward C. True or false?" %}</p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+&nbsp
+
+<style>
+.large-text {
+    font-size: 18px;
+}
+</style>
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+	</div>
+
+ </div>
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('input[type=number]').forEach(function(input) {
+        input.addEventListener('wheel', function(e) {
+            e.preventDefault();
+        });
+    });
+});
+</script>
+
+
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+</script>
+
+
+
+{% endblock %}

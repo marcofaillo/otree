@@ -1,0 +1,89 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> END OF STAGE 2</h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+      <div class="col-md-6 small border p-3">
+      <div style="text-align: justify; font-size: 1.1rem;">
+<p> This is the information that it is available to you, based on your position within the network: </p>
+{% if role == 1 %}
+      <p> <strong> You are participant A. </strong> </p>
+      <p>  Co-participant <b>B</b>
+        <ul>
+          <li>declared the intention to send you <b> {{choice_1_B_A}}</b> points.</li>
+          <li>sent you <b> {{choice_2_B_A}}</b> points.</li>
+          <li>declared the intention to send <b> {{choice_1_B_C}}</b> points to C.</li>
+          <li>sent <b> {{choice_2_B_C}}</b> points to C.</li>
+        </ul>
+      <p>  Co-participant<b> C</b>
+        <ul>
+          <li>declared the intention to send you <b>{{choice_1_C_A}} </b>points.</li>
+          <li>sent you <b> {{choice_2_C_A}}</b> points.</li>
+          <li>declared the intention to send <b>{{choice_1_C_B}} </b>points to B.</li>
+          <li>sent <b> {{choice_2_C_B}}</b> points to B.</li>
+        </ul>
+{% else %}
+  {% if network == 1 %}
+    {% if role == 2 %}
+      <p> <strong> You are participant B. </strong> </p>
+      <p>  Co-participant <b>A </b>declared the intention to send you <b>{{choice_1_A_B}} </b>points. </p>
+      <p>  Co-participant <b>C </b>declared the intention to send you <b>{{choice_1_C_B}} </b>points. </p>
+    {% else %}
+      <p> <strong> You are participant C. </strong> </p>
+      <p>  Co-participant <b>A </b>declared the intention to send you <b>{{choice_1_A_C}} </b>points. </p>
+      <p>  Co-participant <b>B </b>declared the intention to send you<b> {{choice_1_B_C}} </b>points. </p>
+{% endif %}
+{% endif %}
+{% endif %}
+    </div>
+    </div>
+    <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+      <img src="{{ static 'network_1/network1.png' }}" class="rounded mx-auto d-block" width = "200"/>
+      <p> In stage 3:  </p>
+      <ul>
+        <li>A can see how many points B and C decleared to send to A in Stage 1, and how many points they actually  sent to A in Stage 2 (eye symbol).</li>
+        <li>A also sees B's and C's stated intentions to each other in Stage 1, and their actual decisions in Stage 2 (envelope symbol). </li>
+        <li>B and C see their each other's stated intentions in Stage 1, and A's stated intention towards each of them in Stage 1.</li>
+      </ul>
+    </div>
+
+
+  </div>
+
+
+    <div class="row mt-4">
+    <div class="col-sm-12 text-center">
+            <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+    </div>
+    </div>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+
+    {% endblock %}
