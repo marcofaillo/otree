@@ -1,0 +1,64 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 1 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+
+      <p>  In this experiment, you will complete a three-part activity. </p>
+      <p>  At the beginning, you will be randomly given one of three roles: <b> A, B, or C. </b> </p>
+      <p> Each role will be given to about one third of participants. Your role will stay the same throughout the experiment.</p>
+      <p>  You will be part of a small network with two other participants. You will be able to see this network in a separate window on the right-hand side of your screen.</p>
+      <p>  Figure 1 below shows what this setup will look like.</p>
+        &nbsp
+        <img src="{{ static 'network_1/figure_1.png' }}" class="rounded mx-auto d-block" width = "500"/>
+        <div style="text-align: center; font-size: 1.0rem;"> Figure 1 </div>
+        &nbsp
+        &nbsp
+      <p> Each person will interact with the two other people in their group at the same time. We call these people your co-participants.</p>
+      <p>For example, if you are assigned role A, you will interact with one person assigned role B and one person assigned role C.</p>
+
+
+
+    </div>
+    </div>
+  </div>
+
+
+    <div class="row mt-4">
+    <div class="col-sm-12 text-center">
+            <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+    </div>
+    </div>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+
+    {% endblock %}
