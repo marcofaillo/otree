@@ -11,7 +11,7 @@
 <div class="row">
    <div class="col-sm-12">
      <div class="alert alert-primary" role="alert" style="text-align:center">
-       <h3> END OF STAGE 1</h3>
+       <h3> END OF PART 1</h3>
      </div>
    </div>
  </div>
@@ -42,15 +42,63 @@
     </div>
     </div>
 
-    <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
-      <img src="{{ static 'network_1/network1.png' }}" class="rounded mx-auto d-block" width = "200"/>
-      <p> In stage 3:  </p>
-      <ul>
-        <li>A can see how many points B and C decleared to send to A in Stage 1, and how many points they actually  sent to A in Stage 2 (eye symbol).</li>
-        <li>A also sees B's and C's stated intentions to each other in Stage 1, and their actual decisions in Stage 2 (envelope symbol). </li>
-        <li>B and C see their each other's stated intentions in Stage 1, and A's stated intention towards each of them in Stage 1.</li>
-      </ul>
-    </div>
+    {% if network == 1 %}
+          <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+
+            <img src="{{ static 'network_1/network1.png' }}" class="rounded mx-auto d-block" width = "200"/>
+            <p> In part 3:  </p>
+            <ul>
+              <li>A sees how many points B and C declared to send to A in Part 1, and how many points they actually  sent to A in Part 2 (eye symbol).</li>
+              <li>A also sees B's and C's stated intentions to each other in Part 1, and their actual decisions in Part 2 (envelope symbol). </li>
+              <li>B and C see their each other's stated intentions in Part 1, and A's stated intention towards each of them in Part 1.</li>
+            </ul>
+            </div>
+
+    {% elif network == 2 %}
+      <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+
+        <img src="{{ static 'network_1/network2.png' }}" class="rounded mx-auto d-block" width = "200"/>
+          <p> In part 3:  </p>
+          <ul>
+            <li> A sees how many points B and C declared to send to A in Part 1, and how many points they actually sent to A in Part 2 (eye symbol).
+            <li> B sees how many points C has stated to send to B in Part 1.
+            <li> B also sees how many points A has stated to send to B in Part 1, and how many points A actually sent to B in Part 2 (eye symbol).
+            <li> C sees how many points A and B have stated to send to C in Part 1.
+        </ul>
+      </div>
+
+      {% elif network == 3 %}
+        <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+
+          <img src="{{ static 'network_1/network3.png' }}" class="rounded mx-auto d-block" width = "200"/>
+            <p> In part 3:  </p>
+            <ul>
+              <li> A sees how many points B and C declared to send to A in Part 1, and how many points they actually sent to A in Part 2 (eye symbol).
+              <li> A also sees B's and C's stated intentions to each other in Part 1, and their actual decisions in Part 2 (envelope symbol).
+              <li> B sees how many points C has stated to send to B in Part 1.
+              <li> B also sees how many points A has stated to send to B in Part 1, and how many points A actually sent to B in Part 2 (eye symbol).
+              <li> C sees how many points B has stated to send to C in Part 1.
+              <li> C also sees how many points A has stated to send to C in Part 1, and how many points A actually sent to C in Part 2 (eye symbol).
+            </ul>
+        </div>
+
+        {% else %}
+          <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+
+            <img src="{{ static 'network_1/network4.png' }}" class="rounded mx-auto d-block" width = "200"/>
+              <p> In part 3:  </p>
+              <ul>
+                <li> A sees how many points B and C declared to send to A in Part 1, and how many points they actually sent to A in Part 2 (eye symbol).
+                <li> A also sees B's and C's stated intentions to each other in Part 1, and their actual decisions in Part 2 (envelope symbol).
+                <li> B sees how many points C has stated to send to B in Part 1.
+                <li> B also sees how many points A has stated to send to B in Part 1, and how many points A actually sent to B in Part 2 (eye symbol).
+                <li> C sees how many points B has stated to send to C in Part 1.
+                <li> C also sees how many points A has stated to send to C in Part 1, and how many points A actually sent to C in Part 2 (eye symbol).
+                <li> B and C receive information from each other about A’s behaviour towards each of them, both in Part 1 and Part 2 (envelope symbol).
+            </ul>
+          </div>
+
+          {% endif %}
 
   </div>
 
