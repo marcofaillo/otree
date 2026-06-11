@@ -8,7 +8,7 @@ doc = """NetROL networks experiment. v. 7/5/2026"""
 
 class C(BaseConstants):
     NAME_IN_URL = 'network_1'
-    EXCHANGE_RATE=0.02
+    EXCHANGE_RATE=0.15
     PLAYERS_PER_GROUP = 3
     NUM_ROUNDS = 1
     ENDOWMENT=50
@@ -57,6 +57,7 @@ class Player(BasePlayer):
     stage = models.IntegerField()
     coparticipant = models.IntegerField()
     pay = models.IntegerField()
+    gbp = models.FloatField()
 
 
 # inital questionnaire
@@ -117,7 +118,7 @@ def compute_payoffs(group: Group):
                     player.pay = 10 - group.choice_3_C_A + 2 * group.choice_3_A_C
                 else:
                     player.pay = 10 - group.choice_3_C_B + 2 * group.choice_3_B_C
-
+        player.gbp = player.pay * C.EXCHANGE_RATE
 
 class Landing(Page):
         form_model = 'player'
@@ -303,7 +304,7 @@ class ResultsWaitPage2(WaitPage):
 class Final_feedback (Page):
     @staticmethod
     def vars_for_template(player: Player):
-            return {'payoff': player.pay,'role': player.id_in_group, 'stage': player.stage, 'coparticipant' : player.coparticipant, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B,   'choice_3_A_B':player.group.choice_3_A_B,'choice_3_A_C': player.group.choice_3_A_C, 'choice_3_B_A': player.group.choice_3_B_A,'choice_3_B_C': player.group.choice_3_B_C, 'choice_3_C_A': player.group.choice_3_C_A, 'choice_3_C_B': player.group.choice_3_C_B }
+            return {'payoff': player.pay, 'gbp': player.gbp,'role': player.id_in_group, 'stage': player.stage, 'coparticipant' : player.coparticipant, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B,   'choice_3_A_B':player.group.choice_3_A_B,'choice_3_A_C': player.group.choice_3_A_C, 'choice_3_B_A': player.group.choice_3_B_A,'choice_3_B_C': player.group.choice_3_B_C, 'choice_3_C_A': player.group.choice_3_C_A, 'choice_3_C_B': player.group.choice_3_C_B }
 
 class Back_to_Prolific (Page):
     @staticmethod
