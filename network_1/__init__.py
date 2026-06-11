@@ -150,7 +150,6 @@ class Instructions4(Page):
             return player.proceed == 1 and player.session.config['test'] == 0
 
 class Instructions5(Page):
-        form_model = 'player'
         @staticmethod
         def is_displayed(player: Player):
             return player.proceed == 1 and player.session.config['test'] == 0
