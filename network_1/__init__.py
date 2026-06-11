@@ -118,8 +118,7 @@ def compute_payoffs(group: Group):
                     player.pay = 10 - group.choice_3_C_A + 2 * group.choice_3_A_C
                 else:
                     player.pay = 10 - group.choice_3_C_B + 2 * group.choice_3_B_C
-        player.gbp = player.pay * C.EXCHANGE_RATE
-
+        player.gbp = round(player.pay * C.EXCHANGE_RATE, 2)
 class Landing(Page):
         form_model = 'player'
         form_fields = ['proceed']
