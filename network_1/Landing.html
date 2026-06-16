@@ -2,8 +2,7 @@
 {% load otree static %}
 
 {% block content %}
-<input type="hidden" name="proceed" id="id_proceed">
- {{ formfield_errors 'proceed' }}
+
 <div class="card bg-light instructions">
     <div class="card-body">
 
@@ -30,8 +29,10 @@
       <p> After reading the instructions, you will be asked to answer some control questions to make sure you understand the rules. </p>
       <p> If you provide a wrong answer to one or more questions on the first attempt, you will receive feedback indicating which answers were incorrect.  </p>
       <p> At this point, you will have other attempts. The activity will proceed only when all participants in this session have provided correct answers to all the questions.</p>
-      <p> By proceeding to the instructions, you are accepting the rules and the informed consent statement at the bottom of the page (see the PDF file). </p>
-      <p> If you do not agree, please leave the activity now. </p>
+
+      <p id="wait_msg" class="text-center">
+          Please wait, in a few seconds buttons will appear and you can proceed.
+      </p>
   <!-- </div>
  3+4<span style="color: transparent;"> + 2 </span>
 </div> -->
@@ -47,58 +48,24 @@
 
 &nbsp
 <!--		BOTTONE PROSEGUI	2	-->
- <div class="row">
+<div class="row">
     <div class="col-sm-12 text-center">
-    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> I agree and I want to proceed</button>
+        <button type="button"
+                id="btn_submit"
+                class="btn btn-outline-primary btn-lg"
+                style="display:none;">
+                Proceed
+         </button>
+    </div>
+</div>
 
-	</div>
 
- </div>
-&nbsp
- <div class="row">
-    <div class="col-sm-12 text-center">
-    <button type="button" id = "btn_stop" class="btn btn-outline-primary btn-lg"> I prefer to leave </button>
 
- </div>
-
- </div>
-
- &nbsp
 
 
 
 	</div>
-  <style type="text/css">
-  iframe {
-    border: none;
-    width: 60%;
-    height: 300px;
-    controls controlsList="nodownload";
-  }
 
-  @media (min-width: 800px) {
-    .content_viewport {
-      border: 0px none;
-      height: 600px;
-  width: 100%;
-    }
-  }
-  @media (max-width: 800px) {
-    .content_viewport {
-      border: 0px none;
-      height: 600px;
-  width: 100%;  }
-  }
-  @media (min-width: 800px) {
-    .content_viewport {
-      border: 0px none;
-      height: 600px;
-  width: 100%;  }
-  }
-  </style>
-  <div style=" overflow: hidden; margin: 15px auto; max-width: 880px;"><iframe class="content_viewport" scrolling="no" src="{{ static 'network_1/CI.pdf' }}#navpanes=0" > </iframe>
-  <p>&nbsp;</p>
-  </div>
 </div>
 
 
@@ -109,6 +76,19 @@
 
 
 {% block scripts %}
+
+<script>
+setTimeout(function() {
+    document.getElementById('btn_submit').style.display = 'inline-block';
+}, 30000); // 60 secondi
+</script>
+<script>
+setTimeout(function() {
+    document.getElementById('btn_submit').style.display = 'inline-block';
+    document.getElementById('wait_msg').style.display = 'none';
+}, 30000);
+</script>
+
 
 	<script>
 		$(document).ready(function(){

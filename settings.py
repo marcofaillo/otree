@@ -36,13 +36,14 @@ SESSION_CONFIGS = [
             name='network_1',
             display_name='network_1',
             num_demo_participants=3,
-            app_sequence=['network_1'],
+            app_sequence=['zoom_meeting','network_1'],
             prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
             test =0,
-            network=1,
             enforce = 0,
-            use_browser_bots=False,
+            network =1,
             ),
+
 
         # dict(
         #     name='read_outcomes',

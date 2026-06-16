@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+
+{% block title %}Welcome!{% endblock %}
+{% block content %}
+
+
+<div class="panel panel-default" style="margin-bottom:10px">
+  <div class="panel-body">
+
+      <p>To proceed, please first access the Zoom meeting at this link, and then press Next:</p>
+
+      <button
+          type="button"
+          class="btn btn-primary"
+          onclick="joinZoom()">
+          Join Zoom
+      </button>
+
+      <p>Passcode: 522466</p>
+
+  </div>
+</div>
+
+<button id="nextBtn" class="otree-btn-next btn btn-primary" disabled>
+  Next
+</button>
+{% endblock %}
+{% block scripts %}
+<script>
+function joinZoom() {
+  window.open(
+      'https://unitn.zoom.us/j/84977457371?pwd=522466',
+      '_blank'
+  );
+
+  document.getElementById('nextBtn').disabled = false;
+}
+</script>
+{% endblock %}
