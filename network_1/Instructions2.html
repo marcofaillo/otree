@@ -1,0 +1,88 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 2 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+      <p><strong>      Part 1: Stated intention </strong></p>
+    <p>  At the start of Part 1, you will complete an activity with each of your two co-participants. This means you will have two separate interactions: one with each co-participant. Figure 2 shows how this works.</p>
+    <p> For each interaction, you start with 10 points. You then decide how many of these 10 points you want to send to your co-participants. Any points you send will be doubled and given to the other person. </p>
+    <p> You keep any points that you do not send.</p>
+
+        &nbsp;
+        &nbsp;
+
+      <img src="{{ static 'network_1/figure_2.png' }}" class="rounded mx-auto d-block" width = "300"/>
+      <div style="text-align: center; font-size: 1.0rem;"> Figure 2 </div>
+      &nbsp;
+      &nbsp;
+      <p>Your co-participants will do the same.</p>
+      <p>Your total payment is counted in points. At the end of the experiment, points will be converted into pounds. The exchange rate is: 1 point = £0.15</p>
+      <p>Your final points for each interaction are calculated as follows:</p>
+      </div>
+      <br>
+      <div style="text-align: justify; font-size: 1.0rem;"><p><p class="math-like">Final Points = Your initial 10 points – (points you send) + (double the points sent to you).</p> </div>
+      <div style="text-align: justify; font-size: 1.1rem;">
+      <br>
+      <div style="margin-left: 30px;">
+      <p><strong> Example: </strong> </p>
+      <p>  Suppose you are A and you are interacting with B. </p>
+    	<p>If you send 2 points to B, and B sends 3 points to you, then your final points for this interaction are:</p>
+      <p> 10-2+(3×2)=14.</p>
+      <p>B’s final points for this interaction are: 10-3+(2×2)=11.</p>
+      <p>As another example, if you send 3 points to B, and B sends 4 points to you, then your final points for this interaction are: 10-3+(2×4)=15,</p>
+      <p>B’s final points for this interaction are: 10-4+(2×3)=12.</p>
+      <br>
+      </div>
+      <p>This formula is applied separately to each of your interactions with your co-participants.</p>
+      <p>In Part 1, you will first be asked how many points you intend to send to each co-participant. Your co-participants will also report how many points they intend to send. After everyone has reported their intentions, you will see your co-participants’ <b> stated intentions </b> on your screen.</p>
+
+
+      </div>
+</div>
+</div>
+
+    <div class="row mt-4">
+    <div class="col-sm-12 text-center">
+            <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+    </div>
+    </div>
+
+    <style>
+    body .math-like {
+        font-family: "Cambria Math", "Times New Roman", serif !important;
+        font-style: italic !important;
+    }
+    </style>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+
+    {% endblock %}
