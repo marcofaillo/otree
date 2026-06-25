@@ -370,7 +370,13 @@ class Questionnaire_2(Page):
 
 class Back_to_Prolific (Page):
     @staticmethod
+    def is_displayed(player: Player):
+        return player.proceed ==  1
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}
 
-page_sequence = [Landing, Questionnaire_1, Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_g, Choice_app, Choice_neu, Choice_pol,Choice_soc, Ranking, Questionnaire_2,Back_to_Prolific]
+
+class Stop (Page):
+    pass
+
+page_sequence = [Landing, Questionnaire_1, Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_g, Choice_app, Choice_neu, Choice_pol,Choice_soc, Ranking, Questionnaire_2,Back_to_Prolific, Stop]
