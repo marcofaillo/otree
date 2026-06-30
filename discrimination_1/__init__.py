@@ -180,7 +180,7 @@ class Questions(Page):
         return player.proceed ==  1 and player.session.config['test'] == 0 and not player.first
 
     def error_message(player: Player, values):
-        solutions = dict(q_1=13, q_2=16, q_3=6, q_4=12)
+        solutions = dict(q_1=13, q_2=13, q_3=6, q_4=12)
 
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
@@ -371,7 +371,7 @@ class Questionnaire_2(Page):
 class Back_to_Prolific (Page):
     @staticmethod
     def is_displayed(player: Player):
-        
+
         return player.proceed ==  1
     def vars_for_template(player: Player):
         return {'prolific': player.session.config['prolific']}

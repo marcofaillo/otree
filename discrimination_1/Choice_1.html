@@ -83,26 +83,6 @@
 
     <script>
 
-
-      <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          document.querySelectorAll('input[type=number]').forEach(function(input) {
-              // Blocca la rotella del mouse
-              input.addEventListener('wheel', function(e) {
-                  e.preventDefault();
-              }, { passive: false });
-
-              // Blocca le frecce Su e Giù
-              input.addEventListener('keydown', function(e) {
-                  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-                      e.preventDefault();
-                  }
-              });
-          });
-      });
-      </script>
-      
-
         $(document).ready(function (event) {
             slider1 = new mgslider("choice_1", 0, 10, 1);
             slider1.print(document.getElementById("sliders_here"));
