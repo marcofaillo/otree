@@ -44,6 +44,13 @@ SESSION_CONFIGS = [
             network =1,
             ),
 
+        dict(
+            name='read_outcomes',
+            display_name='read_outcomes',
+            num_demo_participants=1,
+            app_sequence=['read_outcomes'],
+        ),
+
 
         # dict(
         #     name='read_outcomes',
