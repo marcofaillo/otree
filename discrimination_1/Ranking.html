@@ -57,3 +57,35 @@
 
 
 {% endblock %}
+
+{% block scripts %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const fields = [
+        'id_rank_g',
+        'id_rank_app',
+        'id_rank_neu',
+        'id_rank_pol',
+        'id_rank_soc'
+    ];
+
+    fields.forEach(function(fieldId) {
+        const input = document.getElementById(fieldId);
+
+        if (input) {
+            input.addEventListener('wheel', function(e) {
+                e.preventDefault();
+            }, { passive: false });
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                }
+            });
+        }
+    });
+});
+</script>
+
+{% endblock %}

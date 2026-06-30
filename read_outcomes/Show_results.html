@@ -1,0 +1,129 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+      <p>RESULTS.</p>
+
+      <!-- <p>We have contacted you because you have participated in a survey on <strong>[DATE]</strong>. You now have the possibility to participate in another activity. </p> -->
+
+    {% if round == "stop" %}
+      <p> You decided to stop at round 1 </p>
+      <p> In that round you sent {{sent_own}} points to your co-participant, and you were matched with a co-participant who, in round 1 decided to send you {{sent_match}} points.</p>
+      <p> Your final payment is {{payment}} GBP. </p>
+
+    {% elif round == "gender" %}
+        <p> Your choice regarding the characteristic "gender" was chosen.</p>
+        <p> In that round you were matched with a co-participant identifying with gender: "{{car_match}}". You decided to send {{sent_own}} point to a person with that gender.</p>
+        <p> You ranked this caracteristic: {{rank_own}}. </p>
+        <p> Your choice was {{impl_own}}.</p>
+        <p> You declared to identifying yourself with the gender: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your gender.</p>
+        <p> Your co-participant ranked this caracteristic:  {{rank_match}}. </p>
+        <p> The choice of your co-participant was {{impl_match}}
+        <p> Your final payment is {{payment}} GBP. </p>
+
+      {% elif round == "political ideology" %}
+            <p> Your choice regarding the characteristic "political ideology" was chosen.</p>
+            <p> In that round you were matched with a co-participant with the following political position: "{{car_match}}". You decided to send {{sent_own}} point to a person with that position.</p>
+            <p> You ranked this caracteristic: {{rank_own}}. </p>
+            <p> Your choice was {{impl_own}}.</p>
+            <p> Your  declared political position was: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your position.</p>
+            <p> Your co-participant ranked this caracteristic:  {{rank_match}}. </p>
+            <p> The choice of your co-participant was {{impl_match}}
+            <p> Your final payment is {{payment}} GBP. </p>
+
+        {% elif round == "socio-economic status" %}
+            <p> Your choice regarding the characteristic "socio-economic status" was chosen.</p>
+            <p> In that round you were matched with a co-participant with the following socio-economic status: "{{car_match}}". You decided to send {{sent_own}} point to a person with that status.</p>
+            <p> You ranked this caracteristic: {{rank_own}}. </p>
+            <p> Your choice was {{impl_own}}.</p>
+            <p> Your  declared socio-economic status was: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your status.</p>
+            <p> Your co-participant ranked this caracteristic:  {{rank_match}}. </p>
+            <p> The choice of your co-participant was {{impl_match}}
+            <p> Your final payment is {{payment}} GBP. </p>
+
+
+          {% elif round == "appearence" %}
+              <p> Your choice regarding the characteristic "appearence" was chosen.</p>
+              <p> In that round you were matched with a co-participant with the following appearence: "{{car_match}}". You decided to send {{sent_own}} point to a person with that appareance.</p>
+              <p> You ranked this caracteristic: {{rank_own}}. </p>
+              <p> Your choice was {{impl_own}}.</p>
+              <p> Your  declared appearence  was: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your appearence.</p>
+              <p> Your co-participant ranked this caracteristic:  {{rank_match}}. </p>
+              <p> The choice of your co-participant was {{impl_match}}
+              <p> Your final payment is {{payment}} GBP. </p>
+
+
+          {% elif round == "holiday preferences" %}
+              <p> Your choice regarding the characteristic "preference for holidays" was chosen.</p>
+              <p> In that round you were matched with a co-participant with the following preference: "{{car_match}}". You decided to send {{sent_own}} point to a person with that preference.</p>
+              <p> You ranked this caracteristic: {{rank_own}}. </p>
+              <p> Your choice was {{impl_own}}.</p>
+              <p> Your  declare preference was: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your preferences.</p>
+              <p> Your co-participant ranked this caracteristic:  {{rank_match}}. </p>
+              <p> The choice of your co-participant was {{impl_match}}
+              <p> Your final payment is {{payment}} GBP. </p>
+
+    {% endif %}
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+ </div>
+
+</div>
+
+ &nbsp
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}

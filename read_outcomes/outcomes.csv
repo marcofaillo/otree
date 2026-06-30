@@ -1,0 +1,9 @@
+PID,match,round,car_own,car_match,sent_own,sent_match,rank_own,rank_match,impl_own,impl_match,payment
+1,2,stop,male,female,8,9,1,4,,,13
+2,1,political ideology,left,center-left,5,3,1,4,implemented,implemented,11
+3,4,gender,male,male,4,2,3,5,impemented,not implemented,2
+4,3,socio-economic status,medium,low,3,1,3,5,not implemented,not implemented,22
+5,6,appearence,below average,above average,3,4,2,2,implemented,implemented,21
+6,5,holiday preferences,mountains,beach,3,2,1,2,not implemented,implemented,21
+7,8,gender,female,male,4,3,2,2,implemented,not implemented,22
+8,7,political ideology,right,left,3,4,5,5,not implemented,implemented,11

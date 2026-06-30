@@ -88,6 +88,25 @@
 
 
 {% block scripts %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('input[type=number]').forEach(function(input) {
+        // Blocca la rotella del mouse
+        input.addEventListener('wheel', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+
+        // Blocca le frecce Su e Giù
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                e.preventDefault();
+            }
+        });
+    });
+});
+</script>
+
 	<script>
 		$(document).ready(function(){
     });
