@@ -28,7 +28,7 @@
 
     {% if round == "stop" %}
       <p> You decided to stop at round 1. </p>
-      <p> In that round, you sent {{sent_own}} points to your co-participant, and you were matched with a co-participant who, in round 1 decided to send you {{sent_match}} points.</p>
+      <p> In that round, you sent {{sent_own}} points to your co-participant, and you were matched with a co-participant who, in round 1, decided to send you {{sent_match}} points.</p>
       <p> Your final payment is {{payment}} GBP. </p>
 
     {% elif round == "gender" %}
@@ -46,7 +46,7 @@
             <p> In that round, you were matched with a co-participant with the following political position: "{{car_match}}". You decided to send {{sent_own}} point to a person with that position.</p>
             <p> You ranked this caracteristic: {{rank_own}}. </p>
             <p> Your choice was {{impl_own}}.</p>
-            <p> Your  declared political position was: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your position.</p>
+            <p> Your  declared political position was: "{{car_own}}". Your co-participant decided to send {{sent_own}} points to a person with your position.</p>
             <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
             <p> The choice of your co-participant was {{impl_match}}.
             <p> Your final payment is {{payment}} GBP. </p>
@@ -62,12 +62,12 @@
             <p> Your final payment is {{payment}} GBP. </p>
 
 
-          {% elif round == "appearence" %}
+          {% elif round == "appearance" %}
               <p> Your choice regarding the characteristic "appearance" was chosen.</p>
               <p> In that round, you were matched with a co-participant with the following appearance: "{{car_match}}". You decided to send {{sent_own}} point to a person with that appearance.</p>
-              <p> You ranked the caracteristic appearence: {{rank_own}}. </p>
+              <p> You ranked the characteristic appearance: {{rank_own}}. </p>
               <p> Your choice was {{impl_own}}.</p>
-              <p> Based on your answers your appearance resulted: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your appearance.</p>
+              <p> Based on your answers your appearance resulted: "{{car_own}}". Your co-participant decided to send {{sent_own}} points to a person with your appearance.</p>
               <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
               <p> The choice of your co-participant was {{impl_match}}.
               <p> Your final payment is {{payment}} GBP. </p>
@@ -76,10 +76,10 @@
           {% elif round == "holiday preferences" %}
               <p> Your choice regarding the characteristic "preference for holidays" was chosen.</p>
               <p> In that round, you were matched with a co-participant with the following preference: "{{car_match}}". You decided to send {{sent_own}} point to a person with that preference.</p>
-              <p> You ranked this caracteristic: {{rank_own}}. </p>
+              <p> You ranked this characteristic: {{rank_own}}. </p>
               <p> Your choice was {{impl_own}}.</p>
-              <p> Your  declare preference was: "{{car_own}}". Your co-participant decided to send {{sent_own}} point to a person with your preferences.</p>
-              <p> Your co-participant ranked this caracteristic:  {{rank_match}}. </p>
+              <p> Your  declared preference was: "{{car_own}}". Your co-participant decided to send {{sent_own}} points to a person with your preferences.</p>
+              <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
               <p> The choice of your co-participant was {{impl_match}}.
               <p> Your final payment is {{payment}} GBP. </p>
 
