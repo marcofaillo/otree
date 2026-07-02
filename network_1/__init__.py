@@ -15,8 +15,7 @@ class C(BaseConstants):
     ENDOWMENT=50
 
 class Subsession(BaseSubsession):
-     pass
-
+      pass
 
 class Group(BaseGroup):
     choice_1_A_B= models.IntegerField()
@@ -39,6 +38,7 @@ class Group(BaseGroup):
     choice_3_C_B= models.IntegerField()
 
 class Player(BasePlayer):
+    network = models.IntegerField(initial=0)
     proceed = models.IntegerField(initial=0)
     person=models.IntegerField()
     id_player=models.IntegerField()
@@ -75,10 +75,12 @@ class Player(BasePlayer):
 
 
 def compute_payoffs(group: Group):
+
     stage = r.randint(2, 3)
     coparticipant = r.randint(1, 2)
 
     for player in group.get_players():
+        player.network=player.session.config['network'] 
         player.stage = stage
         player.coparticipant = coparticipant
 
@@ -177,13 +179,13 @@ class Instructions5(Page):
 
 class Questions(Page):
     form_model = 'player'
-    form_fields = ['q_1', 'q_2', 'q_3', 'q_4']
+    form_fields = ['q_1', 'q_2', 'q_3']
     @staticmethod
     def is_displayed(player: Player):
         return player.session.config['test'] == 0
 
     def error_message(player: Player, values):
-        solutions = dict(q_1=11, q_2=12, q_3=False, q_4=True)
+        solutions = dict(q_1=11, q_2=12, q_3=False)
 
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
         if errors:
