@@ -40,6 +40,7 @@ class Player(BasePlayer):
     next_rounds = models.IntegerField()
     choice_1= models.IntegerField()
     ord =  models.IntegerField()
+    choice_g_1_confirm= models.IntegerField(initial=0)
     choice_g_2_confirm= models.IntegerField(initial=0)
     choice_g_3_confirm= models.IntegerField(initial=0)
     choice_app_1_confirm= models.IntegerField(initial=0)
@@ -86,7 +87,7 @@ class Player(BasePlayer):
     activity = models.IntegerField(choices=[[1, 'More than 6 hours per week'], [2, 'From 3 to 6 hours per week'], [3, 'Less than 3 hours per week']])
     height = models.IntegerField(initial = None)
     weight = models.IntegerField(initial = None)
-    politics = models.IntegerField(choices=[[1, 'Left'], [2, 'Centre-Left'], [3, 'Centre-Right'], [3, 'Right']])
+    politics = models.IntegerField(choices=[[1, 'Left'], [2, 'Centre-Left'], [3, 'Centre-Right'], [4, 'Right']])
     holidays = models.IntegerField(choices=[[1, 'Mountains'], [2, 'Beach'], [3, 'Visiting cities']])
     ladder= models.IntegerField(choices=[[1, '1 (worst off in terms of economic power)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(best off in terms of economic power)']])
     risk_1= models.IntegerField(choices=[[1, '1 (Strongly disagree)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(Strongly agree)']])
@@ -261,7 +262,7 @@ class Choice_1_stop(Page):
 
 class Choice_g(Page):
     form_model = 'player'
-    form_fields = ['choice_g_1','choice_g_2','choice_g_3']
+    form_fields = ['choice_g_1','choice_g_2','choice_g_3', 'choice_g_1_confirm','choice_g_2_confirm','choice_g_3_confirm']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.next_rounds == 1
@@ -276,7 +277,7 @@ class Choice_g(Page):
 
 class Choice_app(Page):
     form_model = 'player'
-    form_fields = ['choice_app_1','choice_app_2','choice_app_3']
+    form_fields = ['choice_app_1','choice_app_2','choice_app_3','choice_app_1_confirm','choice_app_2_confirm','choice_app_3_confirm']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.next_rounds == 1
@@ -290,7 +291,7 @@ class Choice_app(Page):
 
 class Choice_neu(Page):
     form_model = 'player'
-    form_fields = ['choice_neu_1','choice_neu_2','choice_neu_3']
+    form_fields = ['choice_neu_1','choice_neu_2','choice_neu_3','choice_neu_1_confirm','choice_neu_2_confirm','choice_neu_3_confirm']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.next_rounds == 1
@@ -306,7 +307,7 @@ class Choice_neu(Page):
 
 class Choice_pol(Page):
     form_model = 'player'
-    form_fields = ['choice_pol_1','choice_pol_2','choice_pol_3','choice_pol_4']
+    form_fields = ['choice_pol_1','choice_pol_2','choice_pol_3','choice_pol_4','choice_pol_1_confirm','choice_pol_2_confirm','choice_pol_3_confirm','choice_pol_4_confirm']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.next_rounds == 1
@@ -322,7 +323,7 @@ class Choice_pol(Page):
 
 class Choice_soc(Page):
     form_model = 'player'
-    form_fields = ['choice_soc_1','choice_soc_2','choice_soc_3']
+    form_fields = ['choice_soc_1','choice_soc_2','choice_soc_3','choice_soc_1_confirm','choice_soc_2_confirm','choice_soc_3_confirm']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1 and player.next_rounds == 1
