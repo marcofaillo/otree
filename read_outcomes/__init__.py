@@ -21,17 +21,22 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    entered_id = models.StringField(label='Insert your Prolific ID')
+    PID = models.StringField(label='Insert your Prolific ID')
+    name = models.IntegerField()
     round = models.StringField()
-    car_own = models.StringField()
-    car_match = models.StringField()
+    stopped_round1 = models.IntegerField()
+    own_choice_1 = models.IntegerField()
+    partner_choice_1 = models.IntegerField()
+    char_own = models.StringField()
+    char_match = models.StringField()
     sent_own = models.IntegerField()
     sent_match= models.IntegerField()
     rank_own=models.IntegerField()
     rank_match=models.IntegerField()
     impl_own=models.StringField()
     impl_match=models.StringField()
-    payment=models.IntegerField()
+    payoff_points =models.IntegerField()
+    payment=models.FloatField()
 
 
 def look_up(input_id):
@@ -47,38 +52,40 @@ def look_up(input_id):
 
 class Prolific_ID(Page):
     form_model = 'player'
-    form_fields = ['entered_id']
+    form_fields = ['PID']
 
     @staticmethod
     def error_message(player, values):
-        riga = look_up(values['entered_id'])
+        riga = look_up(values['PID'])
         if riga is None:
             return 'ID not found.'
 
     @staticmethod
     def before_next_page(player, timeout_happened):
-        riga = look_up(player.entered_id)
-
+        riga = look_up(player.PID)
         player.round = str(riga['round'])
-        player.car_own = str(riga['car_own'])
-        player.car_match = str(riga['car_match'])
+        player.stopped_round1 = int(riga['stopped_round1'])
+        player.char_own = str(riga['char_own'])
+        player.char_match = str(riga['char_match'])
         player.sent_own = int(riga['sent_own'])
         player.sent_match = int(riga['sent_match'])
         player.rank_own= int(riga['rank_own'])
         rank_match=player.rank_match = int(riga['rank_match'])
         player.impl_own = str(riga['impl_own'])
         player.impl_match = str(riga['impl_match'])
-        payment=player.payment = int(riga['payment'])
+        player.payoff_points=int(riga['payoff_points'])
+        player.payment = float(riga['payment'])
 
 
 class Show_results(Page):
     @staticmethod
     def vars_for_template(player):
         return dict(
-            id=player.entered_id,
+            id=player.PID,
             round=player.round,
-            car_own=player.car_own,
-            car_match=player.car_match,
+            stopped_round1 = player.stopped_round1,
+            car_own=player.char_own,
+            car_match=player.char_match,
             sent_own=player.sent_own,
             sent_match=player.sent_match,
             rank_own=player.rank_own,
@@ -86,6 +93,7 @@ class Show_results(Page):
             impl_own=player.impl_own,
             impl_match=player.impl_match,
             payment=player.payment,
+            payoff_points =player.payoff_points,
 
         )
 

@@ -1,9 +1,61 @@
-PID,match,round,car_own,car_match,sent_own,sent_match,rank_own,rank_match,impl_own,impl_match,payment
-1,2,stop,male,female,8,9,1,4,,,13
-2,1,political ideology,left,center-left,5,3,1,4,implemented,implemented,11
-3,4,gender,male,male,4,2,3,5,impemented,not implemented,2
-4,3,socio-economic status,medium,low,3,1,3,5,not implemented,not implemented,22
-5,6,appearence,below average,above average,3,4,2,2,implemented,implemented,21
-6,5,holiday preferences,mountains,beach,3,2,1,2,not implemented,implemented,21
-7,8,gender,female,male,4,3,2,2,implemented,not implemented,22
-8,7,political ideology,right,left,3,4,5,5,not implemented,implemented,11
+PID,name,match,round,stopped_round1,own_choice_1,partner_choice_1,char_own,char_match,sent_own,sent_match,rank_own,rank_match,impl_own,impl_match,own_choice_final,partner_choice_final,payoff_points,payment
+5f21ff288900cb4709dd49aa,6,3,political ideology,0,5,0,Centre-Left,Centre-Left,5,0,5,3,implemented,implemented,5,0,5,0.5
+5e830913ff38e3016d1a69f2,3,6,political ideology,0,0,5,Centre-Left,Centre-Left,0,5,3,5,implemented,implemented,0,5,20,2
+69f4a9509c70262d28b09012,7,6,political ideology,0,5,5,Centre-Right,Centre-Left,5,5,1,5,implemented,implemented,5,5,15,1.5
+577d0ad6adbc7500015d2839,36,2,political ideology,0,5,2,Centre-Right,Left,5,2,1,4,implemented,implemented,5,2,9,0.9
+6a07485b93d23575f1790312,33,4,political ideology,0,5,2,Centre-Left,Centre-Right,5,1,2,4,implemented,implemented,5,1,7,0.7
+60317fc2c8f6320ecde4bcb3,27,5,political ideology,0,5,1,Left,Centre-Left,5,1,1,4,implemented,implemented,5,1,7,0.7
+604092168305452a726e70bb,44,6,political ideology,0,10,3,Left,Left,10,3,1,5,implemented,implemented,10,3,6,0.6
+6a0629b3ffd44de0854a404b,37,7,political ideology,0,6,1,Centre-Left,Centre-Right,6,0,5,2,implemented,implemented,6,0,4,0.4
+6724ecab5e536f446afcfb92,52,8,political ideology,0,3,0,Left,Centre-Left,3,0,1,2,implemented,implemented,3,0,7,0.7
+6a0a03dd289a037c7fa5b887,58,10,political ideology,0,0,3,Right,Centre-Left,0,3,2,1,implemented,implemented,0,3,16,1.6
+69861dfb01ea223b623c0501,49,14,political ideology,1,0,5,Centre-Left,Right,0,5,,3,,implemented,0,5,20,2
+5f5be81d1e52273aabdfce6a,42,20,political ideology,0,5,5,Left,Left,5,5,3,5,implemented,not implemented,5,5,15,1.5
+6978a3dbe81c0a4527eb39c7,35,24,political ideology,0,5,2,Centre-Right,Centre-Right,3,2,5,3,implemented,not implemented,3,2,11,1.1
+6a23babd7d465294a6f552c6,5,27,political ideology,0,1,5,Centre-Left,Left,1,5,4,1,implemented,implemented,1,5,19,1.9
+6a25a735c0c4832cac169817,4,33,political ideology,0,2,5,Centre-Right,Centre-Left,1,5,4,2,implemented,implemented,1,5,19,1.9
+6654f5c576effabe847b5df1,24,35,political ideology,0,2,5,Centre-Right,Centre-Right,2,3,3,5,not implemented,implemented,2,3,14,1.4
+6a070a3c73b6bf4d7cf41202,2,36,political ideology,0,2,5,Left,Centre-Right,2,5,4,1,implemented,implemented,2,5,18,1.8
+6928dd58e9646fd97fa8ffdd,7,37,political ideology,0,1,6,Centre-Right,Centre-Left,0,6,2,5,implemented,implemented,0,6,22,2.2
+5ba0a1450611410001076625,47,41,political ideology,0,1,2,Right,Centre-Left,1,1,4,5,implemented,not implemented,1,2,13,1.3
+6a14389e8e777174250013a5,20,42,political ideology,0,5,5,Left,Left,5,5,5,3,not implemented,implemented,5,5,15,1.5
+6977c0dd24d3fdad12e17e23,45,43,political ideology,0,6,3,Centre-Left,Centre-Left,6,5,1,1,implemented,implemented,6,5,14,1.4
+69ef77a7e2ccc46873168750,6,44,political ideology,0,3,10,Left,Left,3,10,5,1,implemented,implemented,3,10,27,2.7
+693288d74d0b087449ff136e,43,45,political ideology,0,3,6,Centre-Left,Centre-Left,5,6,1,1,implemented,implemented,5,6,17,1.7
+6977d62f12d12cd6a63a25df,50,46,political ideology,0,3,3,Centre-Left,Left,3,3,2,5,implemented,not implemented,3,3,13,1.3
+69ee087a660eaeddd9ed5d0f,41,47,political ideology,0,2,1,Centre-Left,Right,1,1,5,4,not implemented,implemented,2,1,10,1
+6a227c9692af59493b9599e9,14,49,political ideology,0,5,0,Right,Centre-Left,5,0,3,,implemented,,5,0,5,0.5
+6a219b748c8d556504dc8144,46,50,political ideology,0,3,3,Left,Centre-Left,3,3,5,2,not implemented,implemented,3,3,13,1.3
+5fb7b8880045d6396a86c803,8,52,political ideology,0,0,3,Centre-Left,Left,0,3,2,1,implemented,implemented,0,3,16,1.6
+69fc555b0082d6602a2de879,57,53,political ideology,0,5,5,Left,Left,7,5,2,2,implemented,implemented,7,5,13,1.3
+6082ab1645d375d3f7a4d9bd,53,57,political ideology,0,5,5,Left,Left,5,7,2,2,implemented,implemented,5,7,19,1.9
+6a15fd34f60c820025f100cb,10,58,political ideology,0,3,0,Centre-Left,Right,3,0,1,2,implemented,implemented,3,0,7,0.7
+69f88518acd928ba0c1f6abd,19,3,gender,0,5,10,Male,Male,5,1,1,5,implemented,not implemented,5,10,25,2.5
+5b55a500ed9028000150f937,35,4,gender,0,4,9,Female,Male,4,9,3,3,implemented,implemented,4,9,24,2.4
+69fa39ea70843e41d94f4698,6,5,gender,0,10,10,Male,Female,10,10,1,5,implemented,not implemented,10,10,20,2
+6a0f70cf06a88ee3e7ae2235,5,6,gender,0,10,10,Female,Male,10,10,5,1,not implemented,implemented,10,10,20,2
+667af2cedc61d160277cc56a,18,7,gender,0,10,2,Female,Female,10,2,1,1,implemented,implemented,10,2,4,0.4
+6a00ddf17a4ca511079ba36b,53,11,gender,0,3,5,Female,Female,3,5,5,4,implemented,not implemented,3,5,17,1.7
+69feea9dc22e399b0e73d266,36,14,gender,0,7,6,Female,Male,3,6,3,5,implemented,implemented,3,6,19,1.9
+69fb5e97d6d680dd702f7e3a,37,16,gender,0,10,4,Female,Female,10,5,3,3,implemented,implemented,10,5,10,1
+6a063854edc25e19198660da,29,17,gender,0,5,4,Male,Female,5,3,4,2,implemented,implemented,5,3,11,1.1
+6977a42747b002c2e481efad,7,18,gender,0,2,10,Female,Female,2,10,1,1,implemented,implemented,2,10,28,2.8
+6a0f50754e6b63f371463674,3,19,gender,0,10,5,Male,Male,1,5,5,1,not implemented,implemented,10,5,10,1
+6a1434cebc07a98dab900760,48,23,gender,0,4,4,Female,Female,4,4,1,4,implemented,implemented,4,4,14,1.4
+69776189d5cda55af954ca0a,44,26,gender,0,2,3,Male,Female,3,3,4,2,implemented,implemented,3,3,13,1.3
+69fe58cab3b78f98a7956d4e,42,28,gender,0,1,3,Male,Female,1,3,3,3,implemented,implemented,1,3,15,1.5
+69e9fb510135ad9952eb2de3,17,29,gender,0,4,5,Female,Male,3,5,2,4,implemented,implemented,3,5,17,1.7
+69f353b1106e23458c2749f7,34,30,gender,0,4,3,Female,Male,4,3,1,5,implemented,implemented,4,3,12,1.2
+6a05e73d5b0c360ee10404f4,30,34,gender,0,3,4,Male,Female,3,4,5,1,implemented,implemented,3,4,15,1.5
+6a25716a8c6962a86565b400,1,35,gender,0,5,4,Male,Female,5,4,5,3,not implemented,implemented,5,4,13,1.3
+6a0b7a4e20ba62b38fc1403f,4,35,gender,0,9,4,Male,Female,9,4,3,3,implemented,implemented,9,4,9,0.9
+5e81b4ab1fa05c00097c8c9d,14,36,gender,0,6,7,Male,Female,6,3,5,3,implemented,implemented,6,3,10,1
+6a1b458a612a279d5b5a2adb,16,37,gender,0,4,10,Female,Female,5,10,3,3,implemented,implemented,5,10,25,2.5
+69f2edb7bad7d1cc11349f3f,28,42,gender,0,3,1,Female,Male,3,1,3,3,implemented,implemented,3,1,9,0.9
+6102f6750186f8a2588fd981,52,43,gender,0,2,3,Male,Male,2,1,4,4,implemented,implemented,2,1,10,1
+6a01bdbcfbada82faa84def9,26,44,gender,0,3,2,Female,Male,3,3,2,4,implemented,implemented,3,3,13,1.3
+60fa6f5d0c4ef9c26538f610,47,45,gender,0,3,6,Female,Female,3,6,1,2,implemented,implemented,3,6,19,1.9
+6a19b7810ec184b1b156c85c,45,47,gender,0,6,3,Female,Female,6,3,2,1,implemented,implemented,6,3,10,1
+6977ba2b009114ad31cf0602,23,48,gender,0,4,4,Female,Female,4,4,4,1,implemented,implemented,4,4,14,1.4
+6931f21a0511d9bd2fedffbc,43,52,gender,0,3,2,Male,Male,1,2,4,4,implemented,implemented,1,2,13,1.3
+69fb6f75ae4aae605a1e93af,11,53,gender,0,5,3,Female,Female,5,3,4,5,not implemented,implemented,5,3,11,1.1
