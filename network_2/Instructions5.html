@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 5 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Payment</strong></p>
+
+        <p>Your final payment will be calculated as follow:</p>
+
+      <ul>
+        <li>First, one Part will be randomly selected: Part 2, or Part 3.</li>
+        <li>Second, one of your two interactions from that part will be randomly selected.</li>
+      </ul>
+
+      <p>Your payment will then be based only on the result of that selected interaction.</p>
+
+      <p> <b>Example</b>:</p>
+      <p>  If your are A, Part 2 is selected, and your interaction with co-participant B is selected, you will be paid based on your Part 2 interaction with B.  </p>
+
+      <div class="row mt-4">
+      <div class="col-sm-12 text-center">
+              <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Proceed with the control questions </button>
+      </div>
+      </div>
+
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+
+        {% endblock %}

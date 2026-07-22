@@ -1,0 +1,196 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> PART 2 </h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+  <div class="row">
+    <div class="col-md-6 small border p-3">
+      <div style="text-align: justify;">
+
+        <p> <strong> You are participant C</strong>. </p>
+        <p> Now, you can either <b> confirm </b> your stated intentions or <b> adjust </b> them by moving the sliders.</p>
+        <p> <b> Stated intentions </b> <p>
+          <ul>
+            <li>  You intended to send <strong>{{choice_1_C_A}} points </strong> to A. </li>
+            <li>  A intended to send <strong>{{choice_1_A_C}} points </strong> to you. </li>
+            {% if network < 3 %}
+            <li>  A can observe you actual decision. </li>
+            <li>  You cannot observe A's actual decision. </li>
+            {% else %}
+            <li>  A can observe you actual decision. </li>
+            <li>  You can observe A's actual decision. </li>
+            {% endif %}
+            </ul>
+        <br>
+        <p> How many points do you actually send to  <b>A</b>?</p>
+        <div id="sliders_1"></div>
+        <br>
+        <br>
+        <p> <b> Stated intentions </b> <p>
+          <ul>
+            <li>  You intended to send <strong>{{choice_1_C_B}} points </strong> to B. </li>
+            <li>  B intended to send <strong>{{choice_1_B_C}} points </strong>  to you.</li>
+            {% if network < 3 %}
+            <li>  B cannot observe you actual decision. </li>
+            <li>  You cannot observe B's actual decision. </li>
+            {% else %}
+            <li>  B can observe you actual decision. </li>
+            <li>  You can observe B's actual decision. </li>
+            {% endif %}
+        </ul>
+        <br>
+
+        <p> How many points do you actually send to <b>B</b>?</p>
+        <div id="sliders_2"></div>
+      </div>
+    </div>
+
+    {% if network == 1 %}
+          <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+            <br> <br>  <br> <br>  <br>
+              <img src="{{ static 'network_2/network1.png' }}" class="rounded mx-auto d-block" width = "300"/>
+          </div>
+
+    {% elif network == 2 %}
+    <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+      <br> <br>  <br> <br>  <br>
+      <img src="{{ static 'network_2/network2.png' }}" class="rounded mx-auto d-block" width = "300"/>
+      </div>
+      {% else %}
+      <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+        <br> <br>  <br> <br>  <br>
+        <img src="{{ static 'network_2/network3.png' }}" class="rounded mx-auto d-block" width = "300"/>
+
+      </div>
+          {% endif %}
+                </div>
+      </div>
+
+
+
+      </div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+<style>
+
+        .mgslider-wrapper {
+            border-spacing: 10px;
+        }
+        .mgslider-limit {
+            width: 10%;
+            min-width: 75px;
+            height: 40px;
+            margin: 100px;
+            text-align: center;
+            background: #eee;
+            border: 1px solid #888;
+        }
+        .mgslider-limit, .mgslider-value {
+            font-variant-numeric: tabular-nums;
+        }
+        .mgslider-before {
+            height: 16px;
+            width: 100%;
+            background: #1e5bff;
+        }
+        .mgslider-feedback {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+
+
+
+    <script src="{{ static 'network_2/mgsliders.js' }}"></script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            slider1 = new mgslider("choice_2_C_A", 0, 10, 1);
+            slider1.print(document.getElementById("sliders_1"));
+            slider1.set({{ choice_1_C_B }});
+
+            slider2 = new mgslider("choice_2_C_B", 0, 10, 1);
+            slider2.print(document.getElementById("sliders_2"));
+            slider2.set({{ choice_1_C_A }});
+        });
+    </script>
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT</button>
+
+ </div>
+
+</div>
+
+
+<style>
+.mgslider-certain-row {
+    display: none !important;
+}
+</style>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block scripts %}
+
+
+
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}

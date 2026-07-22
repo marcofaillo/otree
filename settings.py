@@ -2,6 +2,7 @@ from os import environ
 
 
 SESSION_CONFIGS = [
+
     # dict(
     #     name='public_goods',
     #     display_name="Public Goods",
@@ -22,42 +23,6 @@ SESSION_CONFIGS = [
     # ),
 
 
-        dict(
-            name='discrimination_1',
-            display_name='discrimination_1',
-            num_demo_participants=1,
-            app_sequence=['discrimination_1'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            sequence =1, #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
-            test =0,
-            ),
-
-        dict(
-            name='network_1',
-            display_name='network_1',
-            num_demo_participants=3,
-            app_sequence=['zoom_meeting','network_1'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
-            test =0,
-            enforce = 0,
-            network =1,
-            ),
-
-        dict(
-            name='read_outcomes',
-            display_name='read_outcomes',
-            num_demo_participants=1,
-            app_sequence=['read_outcomes'],
-        ),
-
-
-        # dict(
-        #     name='read_outcomes',
-        #     display_name='read_outcomes',
-        #     num_demo_participants=1,
-        #     app_sequence=['read_outcomes'],
-        # ),
 
 
         # dict(
@@ -171,7 +136,7 @@ SESSION_CONFIGS = [
         #
         #     ),
 
-        #
+
         # dict(
         #     name='weingast_citizens_3',
         #     display_name='weingast_citizens_3',
@@ -179,8 +144,21 @@ SESSION_CONFIGS = [
         #     app_sequence=['weingast_citizens_3'],
         #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
         #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
-        #     topic = 5 # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
+        #
         #     ),
+        #
+        # dict(
+        #     name='weingast_citizens_2',
+        #     display_name='weingast_citizens_2',
+        #     num_demo_participants=1,
+        #     app_sequence=['weingast_citizens_2'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = citizen-soveireign coalition
+        #
+        #     ),
+        #
+        #
+        #
         # dict(
         #     name='weingast_sovereign',
         #     display_name='weingast_sovereign',
@@ -188,8 +166,8 @@ SESSION_CONFIGS = [
         #     app_sequence=['weingast_sovereign'],
         #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
         #     treatment =3, # 1 = no info,  2 = citizens coalition 3 = P2-soveireign coalition 4 = P3-soveireign coalition
-        #     topic = 1, # 1 = immigration, 2 = Gender, 3 =  LGBTQ,  4 = climate change , 5 = income
-        #     person = 3, # person to which he is associated
+        #     topic =1, # topic == 1 %} “immigration” {% elif topic == 2 %} “gender” {% elif topic == 3 %} "LGBTQ+" {% elif topic == 4 %} "climate change" {% else %} "welfare"
+        #
         #     ),
         #
 
@@ -203,6 +181,41 @@ SESSION_CONFIGS = [
         #
         #     ),
 
+        dict(
+            name='discrimination_1',
+            display_name='discrimination_1',
+            num_demo_participants=1,
+            app_sequence=['discrimination_1'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
+            test =0,
+            ),
+
+        dict(
+            name='network_1',
+            display_name='network_1',
+            num_demo_participants=3,
+            app_sequence=['zoom_meeting','network_1'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
+            test =0,
+            enforce = 0,
+            network =1,
+            ),
+
+
+
+        dict(
+            name='network_2',
+            display_name='network_2',
+            num_demo_participants=3,
+            app_sequence=['zoom_meeting','network_2'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
+            test =0,
+            enforce = 0,
+            network =1,
+            ),
 
         # dict(
         #     name='are_you_sure',
@@ -396,28 +409,76 @@ SESSION_CONFIGS = [
         #
         #     num_demo_participants=3,
         #
-        #     ),
-        #
+        # #     ),
+        # #
         # dict(
         #     name='Imitation_kappa_0',
         #
         #     display_name="Imitation_kappa_0",
         #
-        #     app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
+        #     # app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
+        #     app_sequence=['Imitation_kappa_0','questionnaire'],
         #
-        #     PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
+        #
+        #     # PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
         #
         #     num_demo_participants=3,
         #
         #     kappa=0, # k values 0,3,9
         #
         #     instructions=1,
-        #     order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+        #     # order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
         #
-        #     error=20,
+        #     error=0,
         #
         #     ),
-        # #
+        #
+        # dict(
+        #     name='Imitation_kappa_3',
+        #
+        #     display_name="Imitation_kappa_3",
+        #
+        #     # app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
+        #     app_sequence=['Imitation_kappa_3','questionnaire'],
+        #
+        #
+        #     # PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
+        #
+        #     num_demo_participants=3,
+        #
+        #     kappa=0, # k values 0,3,9
+        #
+        #     instructions=1,
+        #     # order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+        #
+        #     error=0,
+        #
+        #     ),
+        #
+        # dict(
+        #     name='Imitation_kappa_9',
+        #
+        #     display_name="Imitation_kappa_9",
+        #
+        #     # app_sequence=['Imitation_kappa_0','Imitation_kappa_3', 'Imitation_kappa_9', 'questionnaire'],
+        #     app_sequence=['Imitation_kappa_9','questionnaire'],
+        #
+        #
+        #     # PARTICIPANT_FIELDS = ['guadagno_cumulato_landscape'],
+        #
+        #     num_demo_participants=3,
+        #
+        #     kappa=0, # k values 0,3,9
+        #
+        #     instructions=1,
+        #     # order=1, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
+        #
+        #     error=0,
+        #
+        #     ),
+
+
+
         # dict(
         #     name='Imitation_kappa_3',
         #
@@ -431,7 +492,7 @@ SESSION_CONFIGS = [
         #
         #     instructions=1,
         #
-        #     error=20,
+        #     error=0,
         #
         #     order=2, # 1 se ordine 0 3 9  ; 2 se ordine 3 9 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
         #
@@ -451,38 +512,31 @@ SESSION_CONFIGS = [
         #
         #     instructions=1,
         #
-        #     error=20,
+        #     error=0,
         #
         #     order=3, # 1 se ordine 0 3 9  ; 2 se ordine 3 0 0 ; 3 se ordine è 9,0,3. Serve per decidere se visualizzare le istruzioni
         #
         #     ),
+    #     #
+    # dict(
+    #
+    #     name='faillo_np',
+    #
+    #     display_name="NK with imitation",
+    #
+    #     app_sequence=['faillo_np'],
+    #
+    #     num_demo_participants=3,
+    #
+    #     treatment=1,
+    #
+    #     instructions=1,
+    #
+    #     error=20,
+    #     num_rounds = 3,
+    #
+    #     ),
 
-        # dict(
-        #     name='faillo_np',
-        #
-        #     display_name="NK with imitation",
-        #
-        #     app_sequence=['faillo_np'],
-        #
-        #     num_demo_participants=3,
-        #
-        #     kappa=9, # k values 0,3,9
-        #
-        #     instructions=0,
-        #
-        #     error=0,
-        #
-        #
-        #     last =1,
-        #
-        #     # fineexp=25,
-        #     #
-        #     # superadmin=0,
-        #     #
-        #     # waitstart=0,
-        #     #
-        #     # type_instructions=2,
-        #     ),
         # dict(
         #     name='sif_B_F',
         #     display_name='sif_B_F',

@@ -1,0 +1,181 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> PART 1 </h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+  <div class="row">
+    <div class="col-md-6 small border p-3">
+      <div style="text-align: justify;">
+        <p> You are participant {% if role == 1 %} A {% elif role == 2 %} B {% else%} C {% endif %}
+        <p> On the right side of the screen, you can see the network in which you are playing. It will remain there for all your decisions.</p>
+        <p> Please look at it carefully. </p>
+        <p> You can proceed in a few seconds. </p>
+
+    </div>
+      </div>
+    {% if network == 1 %}
+          <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+
+            <img src="{{ static 'network_2/network1.png' }}" class="rounded mx-auto d-block" width = "200"/>
+            <p> <b> Information access: </b> </p>
+            <ul>
+              <li> Everybody observes the stated intentions of their co-participants.</li>
+            </ul>
+            <p> <b> A observes: </b> </p>
+            <ul>
+            <li> How many points B actually sends to A in Part 2.</li>
+            <li> How many points C actually sends to A in Part 2 </li>
+            </ul>
+            <p> <b>B observes: </b></p>
+
+            <ul>
+              <li> No further observation.</li>
+            </ul>
+            <p> <b>C observes: </b></p>
+            <ul>
+              <li> No further observation.</li>
+            </ul>
+
+            </div>
+
+    {% elif network == 2 %}
+    <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+
+      <img src="{{ static 'network_2/network2.png' }}" class="rounded mx-auto d-block" width = "200"/>
+      <p> <b> Information access: </b> </p>
+      <ul>
+        <li> Everybody observes the stated intentions of their co-participants.</li>
+      </ul>
+      <p> <b> A observes: </b> </p>
+      <ul>
+      <li> How many points B actually sends to A in Part 2.</li>
+      <li> How many points C actually sends to A in Part 2 </li>
+      </ul>
+      <p> <b>B observes: </b></p>
+
+      <ul>
+        <li> How many points A actually sends to B in Part 2. </li>
+      </ul>
+      <p> <b>C observes: </b></p>
+      <ul>
+        <li> No further observation.</li>
+      </ul>
+
+      </div>
+      {% else  %}
+      <div class="col-md-6 text-justify small border p-3" style="font-size: 0.85rem;">
+
+        <img src="{{ static 'network_2/network3.png' }}" class="rounded mx-auto d-block" width = "200"/>
+        <p> <b> Information access: </b> </p>
+        <ul>
+          <li> Everybody observes the stated intentions of their co-participants.</li>
+        </ul>
+        <p> <b> A observes: </b> </p>
+        <ul>
+        <li> How many points B actually sends to A in Part 2.</li>
+        <li> How many points C actually sends to A in Part 2 </li>
+        </ul>
+        <p> <b>B observes: </b></p>
+          <ul>
+          <li> How many points A actually sends to B in Part 2.</li>
+          <li> How many points C actually sends to B in Part 2. </li>
+        </ul>
+        <p> <b>C observes: </b></p>
+        <ul>
+          <li> How many points A actually sends to C in Part 2.</li>
+          <li> How many points B actually sends to C in Part 2. </li>
+        </ul>
+
+        </div>
+          {% endif %}
+
+
+        </div>
+      </div>
+
+
+
+      </div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <button type="button"
+                id="btn_submit"
+                class="btn btn-outline-primary btn-lg"
+                style="display:none;">
+                Proceed
+         </button>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block scripts %}
+
+
+<script>
+setTimeout(function() {
+    document.getElementById('btn_submit').style.display = 'inline-block';
+}, 30000); // 60 secondi
+</script>
+<script>
+setTimeout(function() {
+    document.getElementById('btn_submit').style.display = 'inline-block';
+    document.getElementById('wait_msg').style.display = 'none';
+}, 30000);
+</script>
+
+
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}
