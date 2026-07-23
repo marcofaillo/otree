@@ -178,8 +178,6 @@ class Instructions5(Page):
 
 class Fixed(Page):
         @staticmethod
-        def is_displayed(player: Player):
-            return player.session.config['test'] == 0
         def vars_for_template(player: Player):
             return {'role':player.id_in_group,'network': player.session.config['network']}
 

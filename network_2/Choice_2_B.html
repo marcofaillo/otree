@@ -35,9 +35,11 @@
           <ul>
             <li>  You intended to send <strong>{{choice_1_B_A}} points </strong> to A. </li>
             <li>  A intended to send <strong>{{choice_1_A_B}} points </strong> to you. </li>
-            {% if network == 1 %}
+            <br>
+          {% if network == 1 %}
             <li>  A can observe you actual decision. </li>
             <li>  You cannot observe A's actual decision. </li>
+            <br>
             {% else %}
             <li>  A can observe you actual decision. </li>
             <li>  You can observe A's actual decision. </li>
@@ -52,6 +54,7 @@
           <ul>
             <li>  You intended to send <strong>{{choice_1_B_C}} points </strong> to C. </li>
             <li>  C intended to send <strong>{{choice_1_C_B}} points </strong> to you. </li>
+            <br>
             {% if network < 3 %}
             <li>  C cannot observe you actual decision. </li>
             <li>  You cannot observe C's actual decision. </li>
