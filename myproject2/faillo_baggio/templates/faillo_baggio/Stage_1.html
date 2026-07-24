@@ -1,0 +1,205 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+<!--
+VARIABILI
+-->
+{% for target in targets %}
+	<input type="hidden" value=0 name="slider_{{forloop.counter}}" id="id_slider_{{forloop.counter}}">
+{% endfor %}
+	<input type="hidden" value="L" name="task_quality" id="id_task_quality">
+	<input type="hidden" name="task_type" id="id_task_type" value="{{tasktype}}">
+	<input type="hidden" name="tempo_impiegato" id="id_tempo_impiegato" value=0>
+
+
+<!--
+INTESTAZIONE
+-->
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione">
+			<div class="col-md-12">
+				Il tuo ruolo è {{ruolo}}
+			</div>
+		</div>
+		<div class="row"><div class="col-md-12">&nbsp;</div></div>
+		<div class="row">
+			<div class="col-md-12">
+				{% if tasktype == "E" %} Attività da un (1) cursore
+				{% else %} Attività da tre (3) cursori
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+
+	<div class="alert alert-danger" id="errore" role="alert">
+		Per proseguire devi posizionare correttamente tutti gli sliders
+	</div>
+
+<!--
+SLIDERS (help on sliders js https://seiyria.com/bootstrap-slider/)
+-->
+
+	<div class="container bordi" id="my_sliders">
+
+		<div class="row"><div class="col-md-12">&nbsp;</div></div> <div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+		{% for target in targets %}
+		<div class="form-group sl{{forloop.counter}}">
+			<input class="mysliderclass" id="ex{{forloop.counter}}" data-slider-id='exSlider{{forloop.counter}}' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" />
+			<span class="badge badge-success my_badge" id="value_slider_{{forloop.counter}}">0</span>&nbsp;&nbsp;&nbsp;<span class="badge badge-primary">target: {{target}}</span>
+		</div>
+
+		<div class="row"><div class="col-md-12">&nbsp;</div></div> <div class="row"><div class="col-md-12">&nbsp;</div></div>
+		{% endfor %}
+
+	</div>
+
+
+
+
+<!--
+BOTTONE COMPRA e PROSEGUI
+-->
+
+<div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+<div class="row">
+	<!-- <div class="col-md-2">
+		<button type="button" id = "btn_low" class="btn btn-outline-primary btn-lg">LOW</button>
+	</div>
+	<div class="col-md-2">
+			&nbsp;
+		</div>
+		<div class="col-md-2">
+			<button type="button" id = "btn_high" class="btn btn-outline-primary btn-lg">HIGH</button>
+		</div> -->
+		<div class="col-md-5">
+				&nbsp;
+			</div>
+	<div class="col-md-2">
+		<button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg">PROSEGUI</button>
+	</div>
+</div>
+
+<div class="row"><div class="col-md-12">&nbsp;</div></div>
+</div>
+
+
+
+{% endblock %}
+
+{% block styles %}
+	<link href="{% static "faillo_baggio/mystyle.css" %}" rel="stylesheet">
+	<link href="{% static "faillo_baggio/js/css/bootstrap-slider.css" %}" rel="stylesheet">
+
+    <link href="{% static "faillo_baggio/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script src="{% static 'faillo_baggio/js/bootstrap-slider.js' %}"></script>
+
+	<script>
+		var cont;
+
+
+
+		$(document).ready(function(){
+
+			$("#my_sliders").hide();
+			$("#errore").hide();
+			$("#btn_submit").hide();
+			attiva();
+			cont=0;
+
+// EVENTI SLIDERS
+
+			for (var i=1;i<4;i++){
+				$("#ex"+i).slider({ id: "exSlider"+i, min: 0, max: 100, value: 0 });
+			}
+
+			$(".mysliderclass").on("slide", function(slideEvt) {
+				$("#value_slider_"+this.id[2]).html(slideEvt.value);
+				$("#id_slider_"+this.id[2]).val(slideEvt.value);
+			});
+
+
+		});
+
+// BOTTONI
+
+		$("#btn_submit").click(function(){
+			// var targets = JSON.parse("{{targets|safe}}");
+			// var correct = true;
+			// var num_slider = 3;
+			//
+			// if ($("#id_task_quality").val() == 'L') {
+			// 	num_slider = 1;
+			// }
+			// for (var i=0; i<num_slider; i++){
+			// 	var k = i+1;
+			// 	if ( compare(targets[i], ($("#ex"+k).slider('getValue')) ) ) {
+			// 		correct = false;
+			// 	}
+			// }
+			// // if ( $("#id_play_game_1").val() == 0 ) { correct = true; }
+			// if (correct) { $("#form").submit(); }
+			// else { $("#errore").show(); }
+			$("#form").submit();
+		  });
+
+		$('#btn_low').on('click',function(){
+				$("#id_task_quality").val("L")
+				attiva();
+			}
+		);
+
+		$('#btn_high').on('click',function(){
+				$("#id_task_quality").val("H")
+				attiva();
+			}
+		);
+
+		// $('#btn_buy').on('click',function(){
+		// 	$("#id_play_game_1").val(1);
+		// 	$('#btn_buy').hide();
+		// 	$("#my_sliders").show();
+		// 	}
+		// );
+
+		function attiva(){
+			$("#my_sliders").show();
+			$("#btn_submit").show();
+			$("#btn_low").hide();
+			$("#btn_high").hide();
+			if ( $("#id_task_type").val() == "E" ){
+				$(".sl2").hide();
+				$(".sl3").hide();
+			}
+		}
+
+// Compara in caso di Low e High
+		function compare(t,s){
+			if ($("#id_task_quality").val() == 'H') {
+				if (s != t){return true;}
+			}
+			else {
+				if (s < t - 5 || s > t + 5){return true;}
+			}
+			return false;
+		}
+
+		$('.otree-timer').on('update.countdown', function(event){
+			cont = cont+1;
+			$("#id_tempo_impiegato").val(cont);
+		});
+
+</script>
+{% endblock %}

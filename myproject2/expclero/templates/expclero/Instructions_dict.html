@@ -1,0 +1,144 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> SITUAZIONE 1: ISTRUZIONI</h3>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+<font size="4">
+        <p class="text-justify"> Hai a disposizione {{endowment_dict}} euro, l'altra persona ne ha zero </p>
+        <p class="text-justify">In questa situazione devi decidere quanti euro inviare all'altra persona scegliendo un numero tra  1 e 10 </p>
+        <p class="text-justify"> All'altra persona verrà chiesto di fare la stessa cosa <p>
+      <p class="text-justify"> Se questa situazione verrà selezionata, e se la tua scelta verrà selezionata, il tuo pagamento sarà uguale a {{endowment_dict}} euro meno la somma che hai deciso trasferire all'altra persona </p>
+        <p class="text-justify"> Se invece verrà selezionata la scelta dell'altra persona, allora il tuo pagamento sarà uguale alla somma che l'altra persona ha deciso di trasferire a te.</p>
+        <p class="text-justify"> Prima di procedere con la scelta ti chiediamo di rispondere ad alcune domande di controllo  </p>
+        <p class="text-justify"> Potrai proseguire solo quando avrai risposto correttamente a tutte le domande.  </p>
+
+
+<p> &nbsp </p>
+</div>
+</div>
+
+
+
+<!-- DOMANDE DI CONTROLLO-->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3>DOMANDE DI CONTROLLO</h3>
+      </div>
+    </div>
+  </div>
+
+<div class="container" style="border-style: solid;border-color:lightgray">
+<font size="4">
+
+  <div class="col-sm-12">
+
+  <div class="row">
+  <p> Se invii 10 euro all'altra persona e la tua scelta viene selezionata, quanti euro verranno assegnati a te per questa situazione? E quanti all'altra persona?</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+         {% formfield player.q1_dict  label = "1) TU" %}
+    </div>
+      <div class="col-sm-6">
+                 {% formfield player.q2_dict  label="2) ALTRA PERSONA" %}
+        </div>
+  </div>
+
+<p> &nbsp </p>
+
+  <div class="row">
+  <p> Se invii 7 euro all'altra persona e la tua scelta viene selezionata, quanti euro verranno assegnati a te per questa situazione? E quanti all'altra persona?</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+        {% formfield player.q3_dict  label="3) TU" %}
+   </div>
+
+  <div class="col-sm-6">
+        {% formfield player.q4_dict  label="4) ALTRA PERSONA" %}
+  </div>
+  </div>
+
+<p> &nbsp </p>
+
+  <div class="row">
+    <p>  Se invii 5 euro all'altra persona e la tua scelta viene selezionata, quanti euro verranno assegnati a te per questa situazione? E quanti all'altra persona?</p>
+  </div>
+
+  <div class="row">
+      <div class="col-sm-6">
+        {% formfield player.q5_dict  label="5) TU" %}
+     </div>
+
+    <div class="col-sm-6">
+        {% formfield player.q6_dict  label="6) ALTRA PERSONA" %}
+   </div>
+   </div>
+
+<p> &nbsp </p>   
+  <div class="row">
+  <p> Se invii 0 euro all'altra persona e la tua scelta viene selezionata, quanti euro verranno assegnati a te per questa situazione? E quanti all'altra persona?</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+       {% formfield player.q7_dict  label="7) TU" %}
+
+   </div>
+
+    <div class="col-sm-6">
+       {% formfield player.q8_dict  label="8) ALTRA PERSONA" %}
+   </div>
+  </div>
+  </font>
+
+
+</div>
+
+</div>
+
+<p> &nbsp </p>
+
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

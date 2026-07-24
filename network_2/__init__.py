@@ -3,7 +3,7 @@ import random as r
 import json
 import time
 
-doc = """NetROL networks experiment. v. 7/5/2026"""
+doc = """NetROL networks experiment. v. 24/7/2026"""
 
 # ruolo = player.id_in_group: 1 = A, 2 = B, 3 = C
 

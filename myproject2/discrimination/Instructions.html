@@ -1,0 +1,152 @@
+  {% extends "global/Page.html" %}
+  {% load otree static %}
+
+  {% block content %}
+
+  <div class="row">
+      <div class="alert alert-success text-center" role="alert">
+          <h3 id="instructions_title">INSTRUCTIONS 1</h3>
+      </div>
+  </div>
+
+  <div id="page1" class="instruction-page">
+      <div style="text-align: justify; font-size: 1.1rem;">
+          <p>In this activity, you will be paired with another person who is randomly chosen and asked to make the same decisions as you. We call this person your “co-participant”.</p>
+          <p> The activity is divided into XX rounds. Over the next pages, we provide you with a full description of what you will be asked to do in each round.</p>
+          &nbsp;
+
+          <p><strong>The activity</strong></p>
+
+          <p> In round 1, you will receive 100 red points. You must then decide how many points to send to your co-participant. You will keep the remaining points. </p>
+          <p>Each point you send will be doubled and delivered to your co-participant.</p>
+          <p> Your co-participant will make the same decision (see Figure 1).</p>
+          &nbsp;
+          &nbsp;
+        <img src="{{ static 'discrimination/figure_1.png' }}" class="rounded mx-auto d-block" width = "300"/>
+        &nbsp
+          <p> At the end of the activity, each point will be converted at a rate of 1 point = 0.10€. </p>
+          <p> The total number of points you will earn is equal to: </p>
+          <p style="text-align: center;"> <b>  Points Earned = Your Initial 10 Points – The Points You Sent + ( 2×The Points your Co-Participant Sent) </b> </p>
+          <p> For example, if you send 2 points to your co-participant and they send you 3 points, the total number of points you earn is</p>
+          <p style="text-align: center;"> 10-2+(2×3)=14 </p>
+          <p> and your co-participant earns:</p>
+          <p style="text-align: center;">10-3+(2×2)=11.</p>
+          <p> If, instead, you send 3 points to your co-participant and they send you 4 points, the total number of points you earn is:</p>
+          <p style="text-align: center;"> 10-3+(2×4)=15,</p>
+          <p>and your co-participant earns:</p>
+          <p style="text-align: center;"> 10-4+(2×3)=12.</p>
+          <p>This is the end of round 1.</p>
+          <p> At this point you can either choose to stop and move to a questionnaire, or you stay for round 2. </p>
+          <p> If you stay, you have the opportunity to update your choice based on information about the characteristics of your co-participant. </p>
+          <p> After receiving that information, you can revise your first-round decision depending on the characteristics of your co-participant.</p>
+      </div>
+  </div>
+
+  <div id="page2" class="instruction-page" style="display: none;">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Round 2</strong></p>
+        <p>If you decide to move to round 2, you will be asked to think about the person with whom you could be. In particular, you will see a possible description of what type of co-participant you could be matched, based on his/her answers to the same short survey that you have filled in at the beginning of the experiment. </p>
+        <p> At this point you can decide to confirm your round 1 choice, applying it independently of the type of co-participant, or you can change it in case your co-participant has some specific characteristic. </p>
+        <p> For example, let’s consider a characteristic that will not be used in this activity: your co-participant’s height , as shown in Figure 2. </p>
+        <p> As you can see at the top of the screen, you are reminded of your first-round choice. Then, there is a short description of the characteristic  you are receiving and the different types of co-participants (tall, medium-sized, or short) with whom you could be matched.</p>
+        <p> For each type, you have to decide whether to confirm your first-round choice or to change it.</p>
+
+          &nbsp;
+          &nbsp;
+        <img src="{{ static 'discrimination/figure_2.png' }}" class="rounded mx-auto d-block" width = "500"/>
+        &nbsp;
+        &nbsp;
+        <p>Once you have concluded ... rounds, we will ask you to rank the ... categories for which you have been given the opportunity to revise your first-round decision. Please rank them on a scale from 1 to 5, where 1 is the most important category for you. After you have made your ranking, we will randomly choose one of the five categories to match you with a specific co-participant. Once you have concluded <6> rounds, we will ask you to rank the <5> categories for which you have been given the opportunity to revise your first-round decision. </p>
+        <p> Please rank them on a scale from 1 to 5, where 1 is the most important category for you. </p>
+        <p> After you have made your ranking, we will randomly choose one of the five categories to match you with a specific co-participant. </p>
+        <p> The probability that a revised decision based on the types in one category will be choosen depends on your ranking. See table below </p>
+
+        <table style="border-collapse: collapse; text-align: center; width: 300px; margin: 0 auto;">
+            <tr>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">Rank</th>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">Probability</th>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">First</td>
+              <td style="padding: 6px;">100%</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">Second</td>
+              <td style="padding: 6px;">90%</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">Third</td>
+              <td style="padding: 6px;">80%</td>
+          </tr>
+          <tr>
+              <td style="border-bottom: 1px solid black; padding: 6px;">Fourth</td>
+              <td style="border-bottom: 1px solid black; padding: 6px;">70%</td>
+          </tr>
+        </table>
+        &nbsp;
+        <p>	Then if the category you ranked first is chosen, your revised decision based on the types in that category will be implemented with 100% probability;</p>
+        <p>	if the category you ranked second is chosen, your revised decision based on the types in that category will be implemented with 90% probability, and with 10% probability your first-round decision will be implemented, which disregards your co-participant’s type;</p>
+        <p> And so on. </p>
+
+      </div>
+  </div>
+
+  <div id="page3" class="instruction-page" style="display: none;">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Matching and payment</strong></p>
+
+        <p> After completing the activity, you may return to Prolific. Once all participants in this session have finished the activity, matching will be carried out and bonus payments will be processed.</p>
+        <p> If you stopped at round 1, a co-participant will be randomly selected, and your payment and that of your co-participant will depend on your choices in that round.</p>
+        <p> If instead you continued, one the X rounds, a category, and a co-participant will be randomly drawn. Based on the co-participant’s characteristics in that category and in that round, your choice will be implemented and both your payment and that of your co-participant will be determined.</p>
+        <p> In a few days  you will receive a message with a link where you check the outcome of the activity </p>
+        <p> You have finished reading the instructions. If anything is unclear, go back and read that part of the instructions again. If you understand everything, please proceed to the control questions.</p>
+
+      </div>
+  </div>
+
+  <div class="row mt-4">
+      <div class="col-sm-12 text-center">
+          <button type="button" id="btn_back" class="btn btn-secondary btn-lg" style="display: none;">Back</button>
+          <button type="button" id="btn_next" class="btn btn-outline-primary btn-lg">Next</button>
+          <button type="submit" id="btn_continue" class="btn btn-primary btn-lg" style="display: none;">Proceed to control questions</button>
+      </div>
+  </div>
+
+  {% endblock %}
+
+  {% block scripts %}
+  <script>
+      var currentPage = 1;
+      const totalPages = 3;
+
+      function showPage(page) {
+          for (let i = 1; i <= totalPages; i++) {
+              document.getElementById("page" + i).style.display = (i === page) ? "block" : "none";
+          }
+
+          document.getElementById("instructions_title").innerText = "INSTRUCTIONS " + page;
+
+          document.getElementById("btn_back").style.display = (page > 1) ? "inline-block" : "none";
+          document.getElementById("btn_next").style.display = (page < totalPages) ? "inline-block" : "none";
+          document.getElementById("btn_continue").style.display = (page === totalPages) ? "inline-block" : "none";
+      }
+
+      document.getElementById("btn_next").addEventListener("click", function (event) {
+          event.preventDefault();
+          if (currentPage < totalPages) {
+              currentPage++;
+              showPage(currentPage);
+          }
+      });
+
+      document.getElementById("btn_back").addEventListener("click", function (event) {
+          event.preventDefault();
+          if (currentPage > 1) {
+              currentPage--;
+              showPage(currentPage);
+          }
+      });
+
+      showPage(currentPage);
+  </script>
+  {% endblock %}

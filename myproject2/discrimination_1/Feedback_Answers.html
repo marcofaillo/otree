@@ -1,0 +1,88 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+  <div class="row">
+
+       <div class="alert alert-success" role="alert" style="text-align:center">
+         <h3> Check answers</h3>
+
+     </div>
+   </div>
+
+ </div>
+
+<div class="container-xxl" >
+  <div class="row">
+
+    <div class="col-lg">
+
+      <div align="justify">
+
+          <p>You answered some questions incorrectly. Below, we show which ones were wrong and what you answered:</p>
+
+          <h4>Your answers:</h4>
+          <ul>
+          {% for q_text, a in answers.items %}
+              <li>{{ q_text }} <b> <br>→ {{ a }} </b></li>
+          {% endfor %}
+          </ul>
+
+
+
+
+
+          <p>You will now be redirected to the instructions before attempting the questions again.</p>
+
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!--		BOTTONE PROSEGUI	2	-->
+
+<div class="row">
+   <div class="col-sm-12 text-center">
+   <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> Next </button>
+
+</div>
+
+ </div>
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+
+</script>
+
+
+
+{% endblock %}

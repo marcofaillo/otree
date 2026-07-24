@@ -1,0 +1,105 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<!-- [Risk taking risky benefit - Baseline scenario 1] -->
+<input type="hidden" name="next_rounds" id="id_next_rounds">
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+      <div class="alert alert-success" role="alert" style="text-align:center">
+        <h3> ROUND 1 </h3>
+
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+    <div style="text-align: justify;">
+
+        <p> You made your choice.</p>
+        <p> Do you want to proceed to the following rounds or stop here and return to prolific and confirm your submission? </p>
+        <p> If you proceed you can move to the next 5 rounds and decide to confirm or revise your round 1 choice based on the characteristics of your co-participant. </p>
+      </div>
+      </div>
+      </div>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> I want to proceed</button>
+
+	</div>
+
+ </div>
+&nbsp
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_stop" class="btn btn-outline-primary btn-lg"> I prefer to stop </button>
+
+ </div>
+
+ </div>
+
+ &nbsp
+
+
+
+
+
+ {{ formfield_errors 'next_rounds' }}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block scripts %}
+
+	<script>
+		$(document).ready(function(){
+
+		$("#btn_submit").click(function(){
+    $("#id_next_rounds").val(1);
+			$("#form").submit()
+	  	});
+
+    $("#btn_stop").click(function(){
+    $("#id_next_rounds").val(0);
+        $("#form").submit()
+        });
+		});
+
+</script>
+
+
+
+{% endblock %}

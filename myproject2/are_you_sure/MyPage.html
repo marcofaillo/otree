@@ -1,0 +1,38 @@
+{{ block content }}
+
+    <p><i>This page warns if the user contributes 0 or their explanation is too short.</i></p>
+
+    {{ formfields }}
+
+    <button type="button" class="btn btn-primary" onclick="checkSubmit()">Next</button>
+
+    <script>
+        function checkSubmit() {
+            let form = document.getElementById('form');
+            let isValid = form.reportValidity();
+            if (!isValid) return;
+
+            let warnings = [];
+
+            let contribution = document.getElementsByName('contribution')[0].value;
+            if (contribution === '0') {
+                warnings.push("Are you sure you don't want to contribute anything?");
+            }
+
+            let reason = document.getElementsByName('reason')[0].value;
+            if (reason.length < 10) {
+                warnings.push("Are you sure you don't want to give a longer explanation?")
+            }
+
+            if (warnings.length > 0) {
+                warnings.push("Press OK to proceed anyway.")
+                let confirmed = window.confirm(warnings.join('\r\n'));
+                if (!confirmed) return;
+            }
+
+            form.submit();
+        }
+    </script>
+
+
+{{ endblock }}

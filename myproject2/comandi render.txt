@@ -1,0 +1,3 @@
+otree prodserver
+
+otree resetdb --noinput & otree prodserver

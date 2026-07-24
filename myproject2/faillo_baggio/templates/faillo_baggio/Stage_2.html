@@ -1,0 +1,150 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+<!--
+VARIABILI
+-->
+
+	<input type="hidden" value=0 name="slider_1" id="id_slider_1">
+	<input type="hidden" name="tasksolved" id="id_task_solved" value="{{tasksolved}}">
+	<input type="hidden" name="stochastic" id="id_stochastic" value="{{stochastic|safe}}">
+	<input type="hidden" name="tasktype" id="id_task_type" value="{{tasktype|safe}}">
+	<input type="hidden" name="tempo_impiegato" id="id_tempo_impiegato" value=0>
+
+
+<!--
+INTESTAZIONE
+-->
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione">
+			<div class="col-md-12">
+				Il tuo ruolo è {{ruolo}}
+			</div>
+		</div>
+		<div class="row"><div class="col-md-12">&nbsp;</div></div>
+		<div class="row">
+			<div class="col-md-12">
+				Il giocatore A ha affrontato un compito
+				{% if tasktype == "E" %} da un (1) cursore.
+				{% else %} da tre (3) cursori.
+				{% endif %}
+				<!--
+				TASK DA 1
+				-->
+				<br> Il giocatore A ha risolto {{tasksolved}} cursori.
+			</div>
+		</div>
+	</div>
+
+
+		<div class="alert alert-danger" id="stoc" role="alert">
+  Attenzione! Si è verificato l'evento imprevisto. Non ci sono attività da completare.
+</div>
+
+
+	<!--
+	SLIDERS (help on sliders js https://seiyria.com/bootstrap-slider/)
+	-->
+
+		<div class="container bordi" id="my_sliders">
+
+			<div class="row"><div class="col-md-12">&nbsp;</div></div> <div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+
+			<div class="form-group sl1">
+				<input class="mysliderclass" id="ex1" data-slider-id='exSlider1' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" />
+				<span class="badge badge-success my_badge" id="value_slider_1">0</span>&nbsp;&nbsp;&nbsp;<span class="badge badge-primary">target: {{target}}</span>
+			</div>
+
+			<div class="row"><div class="col-md-12">&nbsp;</div></div> <div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+		</div>
+
+
+
+
+
+<div class="container bordi">
+
+	<div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+	<div class="row">
+		<div class="col-md-5">
+			&nbsp;
+		</div>
+		<div class="col-md-2">
+			<button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg">PROSEGUI</button>
+		</div>
+	</div>
+
+	<div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+</div>
+
+
+
+
+{% endblock %}
+
+{% block styles %}
+	<link href="{% static "faillo_baggio/mystyle.css" %}" rel="stylesheet">
+	<link href="{% static "faillo_baggio/js/css/bootstrap-slider.css" %}" rel="stylesheet">
+
+    <link href="{% static "faillo_baggio/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block scripts %}
+	<script src="{% static 'faillo_baggio/js/bootstrap-slider.js' %}"></script>
+	<script>
+		var cont;
+
+		$(document).ready(function(){
+			$("#stoc").hide();
+			cont=0;
+			$("#ex1").slider({ id: "exSlider1", min: 0, max: 100, value: 0 });
+
+
+			$(".mysliderclass").on("slide", function(slideEvt) {
+				$("#value_slider_1").html(slideEvt.value);
+				$("#id_slider_1").val(slideEvt.value);
+			});
+
+			if ($("#id_task_solved").val() == 0){
+				$("#my_sliders").hide();
+			}
+
+
+			if  (($("#id_task_type").val() == "C") && ($("#id_task_solved").val() < 3))  {
+				$("#my_sliders").hide();
+			}
+
+			if  (($("#id_task_type").val() == "E") && ($("#id_task_solved").val() < 1))  {
+				$("#my_sliders").hide();
+			}
+
+			if ($("#id_stochastic").val() == "True"){
+				$("#my_sliders").hide();
+				$("#stoc").show();
+			}
+
+		});
+
+		$('.otree-timer').on('update.countdown', function(event){
+			cont = cont+1;
+			$("#id_tempo_impiegato").val(cont);
+		});
+// BOTTONI
+
+		$("#btn_submit").click(function(){
+			$("#form").submit();
+		});
+
+
+</script>
+{% endblock %}

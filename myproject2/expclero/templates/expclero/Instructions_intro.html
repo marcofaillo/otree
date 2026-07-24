@@ -1,0 +1,83 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> ISTRUZIONI GENERALI </h3>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+<font size="4">
+        <p class="text-justify"> Buongiorno, e grazie per aver accettato di partecipare a questo studio.  </p>
+        <p class="text-justify">Ti è stato assegnato un codice generato casualmente e composto di lettere e numeri  </p>
+        <p class="text-justify"> Il tuo codice è <h3> <span class="badge badge-warning"  id="id_remaining">{{codice}}</span> </h3> <p>
+        <p class="text-justify"> Ti chiediamo per cortesia di <b> annotarlo e di conservarlo </b>, servirà per poter effetturare il pagamento alla fine dello studio. Senza il codice non sarà possibile ricevere il compenso dovuto</p>
+        <p>&nbsp </p>
+        <p class="text-justify"> LO STUDIO  </p>
+        <p class="text-justify"> Stai prendendo parte ad uno studio su decisioni in ambito economico.</p>
+        <p class="text-justify"> Durante l’attività potrai guadagnare una somma di denaro. A questa somma si aggiungeranno ... euro per la partecipazione. Il tuo compenso complessivo dipenderà dalle tue decisioni e dalle decisioni degli altri partecipanti all’attività.</p>
+        <p class="text-justify">Le risposte che fornirai e le scelte che farai saranno assolutamente anonime. I ricercatori non saranno in grado di associare le tue scelte e le tue risposte al tuo nome, i dati raccolti verranno analizzati in forma aggregata e utilizzati esclusivamente per pubblicazioni di carattere scientifico. </p>
+
+        <p class="text-justify">A questa attività prendono parte studenti e studentesse sia di università pontificie che di altre università. Tra i partecipanti ci sono sia religiosi che laici.</p>
+        <p class="text-justify">Per tutta la durata dell’attività ti preghiamo di non comunicare con gli altri partecipanti e di prestare molta attenzione alle istruzioni che compariranno sul tuo monitor e verranno lette ad alta voce da uno dei ricercatori. Se hai domande, chiedi pure ai ricercatori.</p>
+        <p class="text-justify"> Alla fine dell’attività ti chiederemo di compilare un breve questionario, dopodiché si procederà con il pagamento, che avverrà in contanti.</p>
+        <p class="text-justify"> Le decisioni che dovrai prendere riguarderanno la distribuzione di gettoni tra te e l’altra persona, ogni gettone vale X euro.</p>
+
+        <p class="text-justify"> Durante l’attività ti troverai in 4 situazioni, con ruoli diversi in ogni situazione e dovrai prendere decisioni. </p>
+        <p class="text-justify"> In ciascuna  situazione interagirai con un’altra persona presente in aula e di cui non ti sarà rivelata  l’identità. La persona con cui interagirai sarà diversa nelle diverse situazioni.  Quindi, per esempio, la persona con cui interagirai nella situazione 2 sarà diversa da quella con cui hai interagito nella situazione 1, quella con cui interagirai nella situazione 3 sarà diversa da quella con cui interagirai nella situazione 4, e così via.</p>
+        <p class="text-justify"> Ogni situazione inizia con una schermata di istruzioni in cui riceverai informazioni dettagliate sulle decisioni che dovrai prendere.  Leggeremo le istruzioni insieme. Ti chiederemo poi di rispondere ad alcune domande di controllo per verificare la comprensione delle istruzioni. </p>
+        <p class="text-justify">Infine, dopo ogni decisione ti sarà chiesto di prevedere quale secondo te è la decisione presa, in quella specifica situazione, dalla maggioranza delle persone presenti in aula, quale pensi sia  la decisione giusta da prendere e quali pensi sia la decisione ritenuta giusta dalla maggioranza delle persone. Se le tue previsioni saranno corrette riceverai un compenso di un gettone per ciascuna previsione corretta. . </p>
+        <p class="text-justify">  Quindi per ogni situazione visualizzerai: una schermata con le istruzioni, una o due schermate di domande, una schermata per la decisione che dovrai prendere, due schermate per le previsioni. La schermata per la decisione avrà lo sfondo verde, tutte le altre avranno uno sfondo grigio.  </p>
+        <p class="text-justify">Attenderemo sempre che tutti completino tutte le schermate di una situazione prima di procedere con la successiva. </p>
+        <p class="text-justify">  Alla fine dell’attività verrà selezionata casualmente una sola delle 4 situazioni e verrai pagato/a in base alle decisioni e alle previsioni in quella situazione. </p>
+        <p class="text-justify">  L’esito dell’estrazione e il pagamento finale verranno visualizzati sui monitor di ciascun partecipante.   </p>
+
+
+<p> &nbsp </p>
+</div>
+</div>
+
+<!--		BOTTONE PROSEGUI	2	-->
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> NEXT </button>
+
+	</div>
+
+ </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "SIF_singolo_L_2/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "SIF_singolo_L_2/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

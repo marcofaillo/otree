@@ -1,0 +1,150 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+<!--
+VARIABILI
+-->
+
+
+
+{% for target in targets %}
+	<input type="text" value=0 name="slider_{{forloop.counter|add:5}}" id="id_slider_{{forloop.counter|add:5}}">
+{% endfor %}
+<input type="hidden" value=0 name="play_game_2" id="id_play_game_2">
+
+<!--
+INTESTAZIONE
+-->
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione">
+			<div class="col-md-12">
+				Il tuo ruolo è {{ruolo}}.
+			</div>
+		</div>
+		<div class="row"><div class="col-md-12">&nbsp;</div></div>
+	</div>
+
+
+	<div class="alert alert-danger" id="errore" role="alert">
+		Per proseguire devi posizionare correttamente tutti gli sliders
+	</div>
+
+<!--
+SLIDERS (help on sliders js https://seiyria.com/bootstrap-slider/)
+-->
+
+	<div class="container bordi" id="my_sliders">
+
+		<div class="row"><div class="col-md-12">&nbsp;</div></div> <div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+		{% for target in targets %}
+		<div class="form-group">
+			<input class="mysliderclass" id="ex{{forloop.counter|add:5}}" data-slider-id='exSlider{{forloop.counter|add:5}}' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="0" />
+			<span class="badge badge-success my_badge" id="value_slider_{{forloop.counter|add:5}}">0</span>&nbsp;&nbsp;&nbsp;<span class="badge badge-primary">target: {{target}}</span>
+		</div>
+
+		<div class="row"><div class="col-md-12">&nbsp;</div></div> <div class="row"><div class="col-md-12">&nbsp;</div></div>
+		{% endfor %}
+
+
+	</div>
+
+
+
+
+<!--
+BOTTONE COMPRA e PROSEGUI
+-->
+
+<div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+<div class="row">
+	<div class="col-md-6">
+		<button type="button" id = "btn_buy" class="btn btn-outline-primary btn-lg">COMPRA SLIDERS</button>
+	</div>
+	<div class="col-md-4">
+			&nbsp;
+		</div>
+	<div class="col-md-2">
+		<button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg">PROSEGUI</button>
+	</div>
+</div>
+
+<div class="row"><div class="col-md-12">&nbsp;</div></div>
+</div>
+
+
+
+{% endblock %}
+
+{% block styles %}
+	<link href="{% static "faillo_baggio/mystyle.css" %}" rel="stylesheet">
+	<link href="{% static "faillo_baggio/js/css/bootstrap-slider.css" %}" rel="stylesheet">
+
+    <link href="{% static "faillo_baggio/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block scripts %}
+
+<script src="{% static 'faillo_baggio/js/bootstrap-slider.js' %}"></script>
+
+<script>
+
+
+	$(document).ready(function(){
+
+		$("#my_sliders").hide();
+		$("#errore").hide();
+
+// EVENTI SLIDERS
+
+		for (var i=6;i<11;i++){
+			$("#ex"+i).slider({ id: "exSlider"+i, min: 0, max: 100, value: 0 });
+		}
+
+		$(".mysliderclass").on("slide", function(slideEvt) {
+			exid = this.id[2]
+			if (exid == 1) {exid = 10;}
+			$("#value_slider_"+exid).html(slideEvt.value);
+			$("#id_slider_"+exid).val(slideEvt.value);
+		});
+
+
+	});
+
+// BOTTONI
+
+	$("#btn_submit").click(function(){
+		var targets = JSON.parse("{{targets|safe}}");
+		var correct = true;
+		for (var i=0; i<5; i++){
+			var k = i+6;
+			if ( (targets[i]) !=  ($("#ex"+k).slider('getValue')) ) {
+				correct = false;
+			}
+		}
+		if ( $("#id_play_game_2").val() == 0 ) { correct = true; }
+		if (correct) { $("#form").submit(); }
+		else { $("#errore").show(); }
+
+	  });
+
+
+
+	$('#btn_buy').on('click',function(){
+		$("#id_play_game_2").val(1);
+		$('#btn_buy').hide();
+		$("#my_sliders").show();
+		}
+	);
+
+
+</script>
+{% endblock %}

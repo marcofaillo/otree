@@ -1,0 +1,57 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row intestazione">
+			<div class="col-md-12">
+				<div class="alert alert-success" role="alert">
+				  <h2>ATTENZIONE - FINE DEI ROUND DI PROVA.</h2>
+          </div>
+          <div class="alert alert-light" role="alert">
+          <h2>Ora avrà inizio l'esperimento vero e proprio.<h2>
+				</div>
+				<p class="text-justify">
+		<div class="row">
+        </div>
+
+<!--
+BOTTONE PROSEGUI
+-->
+        <div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+        <div class="row">
+                <div class="col-md-5">&nbsp;</div>
+            <div class="col-md-7">
+                <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg">PROSEGUI</button>
+            </div>
+        </div>
+
+        <div class="row"><div class="col-md-12">&nbsp;</div></div>
+	</div>
+
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_baggio/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_baggio/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

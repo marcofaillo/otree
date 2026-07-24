@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block content %}
+<div class="card bg-light instructions">
+    <div class="card-body">
+<!--INTESTAZIONE -->
+
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> ISTRUZIONI GENERALI </h3>
+      </div>
+    </div>
+
+ </div>
+
+<span style="display:inline-block; width: 10;"></span>
+<font size="5">
+ <div class="row">
+    <div class="col-sm-12">
+
+       {% formfield group.p_gen_input label="Enter a number between 0 and 10" %}
+
+    </div>
+
+ </div>
+
+</font>
+
+
+
+
+<span style="display:inline-block; width: 10;"></span>
+ <div class="row">
+    <div class="col-sm-12 text-center">
+    {% next_button %}
+    </div>
+ </div>

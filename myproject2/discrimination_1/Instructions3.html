@@ -1,0 +1,83 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 3 </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Ranking</strong></p>
+
+      <p> Finally, you will rank the five characteristics according to how important they are to you, with 1 = most important and 5 = least important. </p>
+      <p> Your ranking determines how likely it is that your revised decision for each characteristic will be implemented. </p>
+      <p> After you submit your ranking, one of the five characteristics will be selected at random.</p>
+      <p> The chance that your revised decision for the selected characteristic is implemented depends on how highly you ranked it (see Table below for a full explanation). </p>
+        <table style="border-collapse: collapse; text-align: center; width: 800px; margin: 0 auto;">
+            <tr>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">Rank</th>
+              <th style="border-top: 1px solid black; border-bottom: 1px solid black; padding: 6px;">                                                                </th>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">1 (most important)</td>
+              <td style="padding: 6px;">Your revised decision is implemented with 100% probability.</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">2</td>
+              <td style="padding: 6px;">Your revised decision is implemented with 90% probability.</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">3</td>
+              <td style="padding: 6px;">Your revised decision is implemented with 80% probability.</td>
+          </tr>
+          <tr>
+              <td style="padding: 6px;">4</td>
+              <td style="padding: 6px;">Your revised decision is implemented with 70% probability.</td>
+          </tr>
+
+          <tr>
+              <td style="border-bottom: 1px solid black; padding: 6px;">5 (least important)</td>
+              <td style="border-bottom: 1px solid black; padding: 6px;">Your revised decision is implemented with 60% probability.</td>
+          </tr>
+        </table>
+        &nbsp;
+        <p> In all cases where the revised decision is not implemented, your Round 1 decision is implemented instead, regardless of your co-participant's type. </p>
+      </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+<div class="col-sm-12 text-center">
+        <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+});
+$("#btn_submit").click(function(){
+$("#id_proceed").val(1);
+$("#form").submit()
+});
+
+</script>
+
+
+
+    {% endblock %}

@@ -1,0 +1,321 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+
+<!-- ISTRUZIONI-->
+ <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3> ISTRUZIONI </h3>
+      </div>
+    </div>
+  </div>
+
+<div class="container bordi">
+  <div class="row">
+
+    <div class="col-sm">
+<font size="4">
+        <p class="text-justify">
+            Grazie per aver deciso di partecipare a questo esperimento.
+
+        <p class="text-justify">
+            Ti preghiamo di non comunicare con gli altri partecipanti, di non guardare nelle altre postazioni, e di spegnere il telefono e altri dispositivi elettronici fino alla conclusione dell’esperimento.
+
+        <p class="text-justify">
+          Se hai domande, alza la mano e sarai raggiunto da uno dei ricercatori.
+        </p>
+
+        <p class="text-justify">
+           L’esperimento è descritto in queste istruzioni: dopo averle lette, dovrai rispondere a delle domande di controllo, seguirà poi  una fase di pratica per comprendere l’attività da svolgere, e poi inizierà l’esperimento, che è composto da 15 round.
+        </p>
+
+        <p class="text-justify">
+            Riceverai 3 € per aver partecipato ed esserti presentato in orario. In più durante ogni round di gioco potrai accumulare ulteriori guadagni, espressi in Unità di Moneta Sperimentale (UMS). Ogni UMS sarà convertita in 10 centesimi di euro (1 UMS = 0,1 €, 10 UMS = 1 € ecc.) e alla fine dell’esperimento sarai pagato in contanti.
+        </p>
+
+        <p> &nbsp </p>
+        <p> <h4>L'ATTIVITA' </h4></p>
+
+        <p class="text-justify">
+            L’attività da svolgere consiste nel posizionare uno o più cursori su un valore indicato di volta in volta (target). Ogni cursore è inizialmente sullo 0 e può essere spostato fino a 100 trascinando il mouse (non cliccando). Sulla destra puoi visualizzare sia la posizione corrente, sia il target. In alto puoi visualizzare il tempo a disposizione.
+        </p>
+
+
+         <p class="text-justify">
+          Puoi regolare la posizione del cursore tutte le volte che desideri, fino allo scadere del tempo.
+        </p>
+
+        <p class="text-justify">
+           Allo scadere del tempo, la pagina si chiude e i cursori sono valutati in base alla posizione in cui si trovano. Se finisci prima, puoi cliccare sul pulsante Prosegui e ottenere un ulteriore guadagno in base ai secondi non utilizzati.
+        </p>
+
+
+        <!-- IMMAGINE -->
+
+    <p> &nbsp </p>
+
+        <p> <h4>DESCRIZIONE DEI ROUND </h4></p>
+        <p class="text-justify">
+            Ciascuno dei 15 round si svolge in questo modo:
+        </p>
+
+        <p class="text-justify">
+           1. Viene formata in modo casuale una coppia composta da un PARTECIPANTE A e da un PARTECIPANTE B.
+        </p>
+
+          <p class="text-justify">
+            2.	TURNO DEL PARTECIPANTE A: riceve un’attività composta da 1 o da 3 cursori. Se completa la sua attività, produce un’attività che viene passata da svolgere al PARTECIPANTE B.
+
+          </p>
+
+          <p class="text-justify">
+            3.	C’è la possibilità che si verifichi un EVENTO FORTUITO che distrugge l’attività prodotta da A per B (la probabilità di questo evento fortuito è del 20%: in media può accadere 1 volta ogni 5 round).
+
+          </p>
+
+         <p class="text-justify">
+           4.	TURNO DEL PARTECIPANTE B: se A ha completato l’attività e non c’è stato evento fortuito, B riceve un’attività da 1 cursore.
+
+         </p>
+
+          <p class="text-justify">
+           5.	Al termine delle attività, i PARTECIPANTI visualizzano i guadagni realizzati in questo round e la somma dei guadagni ottenuti fino a quel punto.
+         </p>
+
+        <p class="text-justify">
+                6.	A questo punto il round è concluso e viene formata una nuova coppia di PARTECIPANTI A e B, dando inizio a un nuovo round.
+         </p>
+
+        <p class="text-justify">
+            All’inizio di ogni round si formano in modo casuale delle nuove coppie.
+        </p>
+
+        <p class="text-justify">
+            I 15 round sono indipendenti gli uni dagli altri: le decisioni prese in un round influiscono solo sui guadagni di quel round e non su quelli dei round successivi.
+        </p>
+
+     <p> &nbsp </p>
+
+        <p> <h4>COSA FANNO I PARTECIPANTI </h4></p>
+
+
+        <p class="text-justify">
+            In ciascun round, il PARTECIPANTE A
+             <ul>
+    <li> può ricevere un’attività <b> da 1 o da 3 cursori </b> (con probabilità del 50%: in media una attività per tipo ogni due) </li>
+                <li> ha a disposizione <b> 15 secondi </b> per completare la schermata</li>
+    <li> l’attività è considerata corretta se i cursori sono posizionati esattamente sul valore target (attività completata in modo <b>preciso</b>) e anche se i cursori sono posizionati intorno al target, con un’approssimazione di più o meno 5 unità (attività completata in modo <b>approssimato</b>).</li>
+            </ul>
+
+
+        </p>
+
+
+        <p class="text-justify">
+            Per esempio: se il PARTECIPANTE A incontra un cursore con target 50, può posizionarlo sia sul numero 50 (<b>preciso</b>), sia su un numero compreso tra 45 e 55 (<b>approssimato</b>).
+            In entrambi i casi la sua attività sarà considerata <b>corretta</b>, e il pagamento per A corrisponde a 5 UMS. Ciò che cambia è il valore dello slider prodotto per B: un’attività precisa produce uno slider dal valore di 3 UMS per B, un’attività approssimata produce uno slider da 1 UMS per B.
+        </p>
+
+        <p class="text-justify">
+            In ciascun round, il PARTECIPANTE B
+             <ul>
+                <li> può ricevere un’attività da 1 cursore (solo se il PARTECIPANTE A ha completato la sua attività e se non c’è stato l’evento fortuito). </li>
+    <li> ha a disposizione <b> 10 secondi</b> per completare la schermata</li>
+            </ul>
+
+         <p class="text-justify">
+            Se un PARTECIPANTE posiziona tutti i cursori prima dello scadere del tempo e clicca sul pulsante Prosegui, i secondi non utilizzati sono convertiti in UMS e concorrono a formare il guadagno del round.
+        </p>
+
+ <!-- GUADAGNI -->
+
+
+      <p> &nbsp </p>
+
+         <p class="text-justify">
+          <h4> GUADAGNI</h4>
+         </p>
+
+         <p class="text-justify">
+                Quando il round si conclude, i PARTECIPANTI ottengono i seguenti guadagni:
+         </p>
+
+<!-- TRATTAMENTO 1 -->
+ {% if trattamento == 1 %}
+
+         <p class="text-justify">
+             PARTECIPANTE A:
+          <ul>
+    <li> Se completa la sua attività in modo <b> corretto </b> (preciso o approssimato): 5 UMS + 0,5 UMS per ogni secondo non utilizzato  </li>
+    <li> Se <b> non </b> completa la sua attività: 0 UMS.</li>
+          </ul>
+          </p>
+
+           <p class="text-justify">
+             PARTECIPANTE B:
+          <ul>
+                <li> Se completa la sua attività in modo corretto (preciso) e il PARTECIPANTE A ha posizionato tutti i cursori in modo preciso: 3 UMS + 0,5 UMS per ogni secondo non utilizzato  </li>
+                <li> Se completa la sua attività in modo corretto (preciso) e il PARTECIPANTE A ha posizionato tutti i cursori in modo approssimato: 1 UMS + 0,5 UMS per ogni secondo non utilizzato </li>
+                <li> Se non riceve alcuna attività oppure non la completa: 0 UMS.</li>
+          </ul>
+          </p>
+
+
+
+{% else %}
+
+
+
+<!-- TRATTAMENTO 2 -->
+
+
+         <p class="text-justify">
+             PARTECIPANTE A:
+          <ul>
+        <li> Se completa la sua attività in modo <b>corretto</b> (preciso o approssimato) e non si verifica l'evento fortuito e B completa la sua attività : 5 UMS + 0,5 UMS per ogni secondo non utilizzato  </li>
+        <li> Se completa la sua attività in modo <b> corretto </b> (preciso o approssimato) e si verifica l'evento fortuito o B non completa la sua attività : 0,5 UMS per ogni secondo non utilizzato </li>
+        <li> Se <b> non </b> completa la sua attività: 0 UMS.</li>
+          </ul>
+          </p>
+
+           <p class="text-justify">
+             PARTECIPANTE B:
+          <ul>
+                <li> Se completa la sua attività in modo <b>corretto</b> (preciso) e il PARTECIPANTE A ha posizionato tutti i cursori in modo preciso: 3 UMS + 0,5 UMS per ogni secondo non utilizzato  </li>
+                <li> Se completa la sua attività in modo <b> corretto </b> (preciso) e il PARTECIPANTE A ha posizionato tutti i cursori in modo approssimato: 1 UMS + 0,5 UMS per ogni secondo non utilizzato </li>
+                <li> Se <b> non </b>  riceve alcuna attività oppure non la completa: 0 UMS.</li>
+          </ul>
+          </p>
+
+
+{% endif %}
+
+         <p class="text-justify">
+            Il guadagno finale per ciascun PARTECIPANTE corrisponde alla somma dei guadagni di ogni round più 3 € per aver partecipato all’esperimento.
+         </p>
+
+         <p class="text-justify">
+           Per essere certi che tu abbia compreso l’esperimento ti chiediamo di rispondere ad alcune semplici domande. L’esperimento avrà inizio solamente quando tutti avranno risposto correttamente.
+
+         </p>
+         <p> &nbsp </p>
+</font>
+</div>
+
+
+
+<div class="container">
+
+
+<!-- DOMANDE DI CONTROLLO -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-primary" role="alert" style="text-align:center">
+        <h3>DOMANDE DI CONTROLLO</h3>
+      </div>
+    </div>
+  </div>
+
+    <div class="container" style="border-style: solid;border-color:lightgray">
+<font size="4">
+
+  <div class="col-sm-12">
+
+  <div class="row">
+         {% formfield player.q1 label="1. All’inizio dell’esperimento ti verrà assegnato in maniera casuale un ruolo. Questo ruolo: " %}
+  </div>
+
+  <div class="row">
+        {% formfield player.q2 label="2. All’inizio di ogni round verrà formata in maniera casuale una coppia di PARTECIPANTI A-B. Questa coppia:" %}
+  </div>
+
+  <div class="row">
+        {% formfield player.q3 label="3. Poniamo che tu sia un PARTECIPANTE A. Se completi correttamente un’attività, qual è il suo valore per te?" %}
+  </div>
+
+  <div class="row">
+        {% formfield player.q4 label="4. Poniamo che tu sia un PARTECIPANTE A. Se completi correttamente un’attività, qual è il valore del cursore che hai prodotto per B?" %}
+
+  </div>
+
+  <div class="row">
+        5. Il PARTECIPANTE A riceve un’attività da 3 cursori e deve posizionarli sui valori 30, 40 e 50. Li posiziona sui valori 30, 40 e 52 e clicca su Prosegui quando mancano 4 secondi. Non c’è evento fortuito. Il PARTECIPANTE B riceve un’attività con un cursore da posizionare sul valore 18. Lo posiziona su 18 usando tutto il tempo a disposizione. Quanto hanno guadagnato alla fine di questo round?
+      <div class="col">
+      <p> {% formfield player.q5 label=" PARTECIPANTE A" %} </p>
+      <p> {% formfield player.q6 label=" PARTECIPANTE B" %} </p>
+       </div>
+  </div>
+
+<!-- TRATTAMENTO 1 -->
+{% if trattamento == 1 %}
+  <div class="row">
+       6. Il PARTECIPANTE A riceve un’attività da 1 cursore da posizionare sul valore 32. Lo posiziona su 31 e clicca su Prosegui quando mancano 14 secondi. C’è evento fortuito. Quanto hanno guadagnato alla fine di questo round?
+      <div class="col">
+      <p> {% formfield player.q7 label=" PARTECIPANTE A" %} </p>
+      <p> {% formfield player.q8 label=" PARTECIPANTE B" %} </p>
+       </div>
+  </div>
+{% else %}
+        <div class="row">
+       6. Il PARTECIPANTE A riceve un’attività da 1 cursore da posizionare sul valore 32. Lo posiziona su 32 e clicca su Prosegui quando mancano 14 secondi. C’è evento fortuito. Quanto hanno guadagnato alla fine di questo round?
+      <div class="col">
+      <p> {% formfield player.q7 label=" PARTECIPANTE A" %} </p>
+      <p> {% formfield player.q8 label=" PARTECIPANTE B " %} </p>
+       </div>
+  </div>
+
+ {% endif %}
+
+
+  <div class="row">
+      7.Il PARTECIPANTE A riceve un’attività da 1 cursore da posizionare sul valore 65. Lo posiziona su 65 e clicca su Prosegui quando mancano 2 secondi. Non c’è evento fortuito. Il PARTECIPANTE B riceve un’attività con un cursore da posizionare sul valore 20. Lo posiziona su 21 e clicca su Prosegui quando mancano 10 secondi. Quanto hanno guadagnato alla fine di questo round?
+        <div class="col">
+      <p> {% formfield player.q9 label=" PARTECIPANTE A" %} </p>
+      <p> {% formfield player.q10 label=" PARTECIPANTE B" %} </p>
+       </div>
+  </div>
+
+
+  </font>
+
+
+</div>
+
+
+ <p> &nbsp </p>
+
+<!--
+BOTTONE PROSEGUI
+-->
+        <div class="row">
+    <div class="col-sm-12 text-center">
+    <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg"> PROSEGUI </button>
+
+	</div>
+
+ </div>
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_baggio/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_baggio/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}

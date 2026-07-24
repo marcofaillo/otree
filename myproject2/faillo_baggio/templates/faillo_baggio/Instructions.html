@@ -1,0 +1,59 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+{% block content %}
+
+
+
+	<div class="container bordi" id="panel_riepilogo_guadagni">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="alert alert-danger" role="alert">
+				  <h2>ASSEGNAZIONE RUOLO</h2>
+				</div>
+				<p class="text-justify">
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Il tuo ruolo è {{ruolo}}.</h1> Sarai un giocatore {{ruolo}} per l'intera durata dell'esperimento.
+			</div>
+    </div>
+
+<!--
+BOTTONE PROSEGUI
+-->
+        <div class="row"><div class="col-md-12">&nbsp;</div></div>
+
+        <div class="row">
+            <div class="col-md-5">&nbsp;</div>
+            <div class="col-md-7">
+                <button type="button" id = "btn_submit" class="btn btn-outline-primary btn-lg">PROSEGUI</button>
+            </div>
+        </div>
+
+        <div class="row"><div class="col-md-12">&nbsp;</div></div>
+	</div>
+
+
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "faillo_baggio/mystyle.css" %}" rel="stylesheet">
+    <link href="{% static "faillo_baggio/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+		});
+
+		$("#btn_submit").click(function(){
+			$("#form").submit()
+	  	});
+
+</script>
+{% endblock %}
