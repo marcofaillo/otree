@@ -84,6 +84,7 @@ class Player(BasePlayer):
 
 # inital questionnaire
     gender = models.IntegerField(choices=[[1, 'Male'], [2, 'Female'], [3, 'Non-binary']])
+    sex = models.IntegerField(choices=[[1, 'Male'], [2, 'Female']])
     activity = models.IntegerField(choices=[[1, 'More than 6 hours per week'], [2, 'From 3 to 6 hours per week'], [3, 'Less than 3 hours per week']])
     height = models.IntegerField(initial = None)
     weight = models.IntegerField(initial = None)
@@ -363,7 +364,7 @@ class Ranking(Page):
 
 class Questionnaire_2(Page):
     form_model = 'player'
-    form_fields = ['student', 'employment', 'religiosity', 'siblings', 'risk_2', 'comment', 'holidays']
+    form_fields = ['student', 'employment', 'religiosity',  'sex','siblings', 'risk_2', 'comment', 'holidays']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1
