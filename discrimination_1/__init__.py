@@ -92,7 +92,7 @@ class Player(BasePlayer):
     holidays = models.IntegerField(choices=[[1, 'Mountains'], [2, 'Beach'], [3, 'Visiting cities']])
     ladder= models.IntegerField(choices=[[1, '1 (worst off in terms of economic power)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(best off in terms of economic power)']])
     risk_1= models.IntegerField(choices=[[1, '1 (Strongly disagree)'], [2, '2'], [3,'3'], [4,'4'], [5, '5'],[6, '6'], [7, '7'], [8, '8'], [9, '9'],[10, '10(Strongly agree)']])
-
+    age = models.IntegerField(initial = None)
 
 #final questionnaire
 
