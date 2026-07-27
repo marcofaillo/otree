@@ -364,7 +364,7 @@ class Ranking(Page):
 
 class Questionnaire_2(Page):
     form_model = 'player'
-    form_fields = ['student', 'employment', 'religiosity',  'sex','siblings', 'risk_2', 'comment', 'holidays']
+    form_fields = ['student', 'employment', 'religiosity',  'sex','siblings', 'risk_2', 'comment', 'holidays', 'age']
     @staticmethod
     def is_displayed(player: Player):
         return player.proceed ==  1
