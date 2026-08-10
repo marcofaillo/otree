@@ -2,7 +2,7 @@ from otree.api import *
 import random as r
 import json
 
-doc = """NetROL Discrimination experiment"""
+doc = """NetROL Discrimination experiment. 10 agosto 2026"""
 
 # Sequence 1: gender, appearence, neutral, ideo, socio
 
