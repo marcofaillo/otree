@@ -26,12 +26,22 @@
 
       <!-- <p>We have contacted you because you have participated in a survey on <strong>[DATE]</strong>. You now have the possibility to participate in another activity. </p> -->
 
-    {% if stopped_round1 == 1 %}
+  {% if stopped_round1 == 1 %}
       <p> You decided to stop at round 1 </p>
       <p> In that round you sent {{sent_own}} points to your co-participant</p>
+      <p> Your co-participant send you {{partner_choice_1}} points </p>
+      <p> You earning was  {{payoff_points}} points. </p>
+      <p> Your final bonus payment was {{payment}} GBP. </p>
+  {% else %}
+    {% if round == "Initial choice" %}
+      <p> Round 1 was randomly chosen.</p>
+      <p> In that round you sent {{sent_own}} points to your co-participant</p>
+      <p> Your co-participant send you {{partner_choice_1}} points </p>
+      <p> You earning was  {{payoff_points}} points. </p>
+      <p> Your final bonus payment was {{payment}} GBP. </p>
     {% endif %}
 
-    {% if round == "gender" %}
+    {% if round == "Gender" %}
         <p> The characteristic "gender" was randomly chosen.</p>
         {% if stopped_round1 == 0 %}
         <p> In that round you were matched with a co-participant identifying with gender: "{{car_match}}". </p>
@@ -44,10 +54,9 @@
         <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
         <p> The choice of your co-participant was {{impl_match}}. </p>
         <p> You earning was  {{payoff_points}} points. </p>
-        <p> Your final payment is {{payment}} GBP. </p>
+        <p> Your final bonus payment was {{payment}} GBP. </p>
 
-
-      {% elif round == "political ideology" %}
+      {% elif round == "Political ideology" %}
             <p> The characteristic "political position" was randomly chosen.</p>
             {% if stopped_round1 == 0 %}
             <p> In that round you were matched with a co-participant with the following political position: "{{car_match}}". </p>
@@ -60,10 +69,9 @@
             <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
             <p> The choice of your co-participant was {{impl_match}}.</p>
             <p> You earning was {{payoff_points}} points. </p>
-            <p> Your final payment is {{payment}} GBP. </p>
+            <p> Your final bonus payment was {{payment}} GBP. </p>
 
-
-        {% elif round == "socio-economic status" %}
+        {% elif round == "Socio-economic status" %}
             <p> The characteristic "socio-economic status" was randomly chosen.</p>
             {% if stopped_round1 == 0 %}
             <p> In that round you were matched with a co-participant with the following socio-economic status: "{{car_match}}". You decided to send {{sent_own}} points to a person with that status.</p>
@@ -75,10 +83,9 @@
             <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
             <p> The choice of your co-participant was {{impl_match}}</p>
             <p> You earning was  {{payoff_points}} points.</p>
-            <p> Your final payment is {{payment}} GBP. </p>
+            <p> Your final bonus payment was {{payment}} GBP. </p>
 
-
-          {% elif round == "appearence" %}
+          {% elif round == "Appearence" %}
               <p> The characteristic "appearence" was randomly chosen.</p>
               {% if stopped_round1 == 0 %}
               <p> In that round you were matched with a co-participant with the following appearence: "{{car_match}}". You decided to send {{sent_own}} points to a person with that appareance.</p>
@@ -90,10 +97,9 @@
               <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
               <p> The choice of your co-participant was {{impl_match}}.</p>
               <p> You earning was {{payoff_points}} points.</p>
-              <p> Your final payment is {{payment}} GBP. </p>
+            <p> Your final bonus payment was {{payment}} GBP. </p>
 
-
-          {% elif round == "holiday preferences" %}
+          {% elif round == "Holiday preferences" %}
               <p> The characteristic "preference for holidays" was randomly chosen.</p>
               {% if stopped_round1 == 0 %}
               <p> In that round you were matched with a co-participant with the following preference: "{{car_match}}".
@@ -106,10 +112,10 @@
               <p> Your co-participant ranked this characteristic:  {{rank_match}}. </p>
               <p> The choice of your co-participant was {{impl_match}}. </p>
               <p> You earning was {{payoff_points}} points.</p>
-              <p> Your final payment is {{payment}} GBP. </p>
+              <p> Your final bonus payment was {{payment}} GBP. </p>
 
     {% endif %}
-
+  {% endif %}
 </div>
 </div>
 

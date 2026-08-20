@@ -1,5 +1,5 @@
 PID,name,match,round,stopped_round1,own_choice_1,partner_choice_1,char_own,char_match,sent_own,sent_match,rank_own,rank_match,impl_own,impl_match,own_choice_final,partner_choice_final,payoff_points,payment
-5f21ff288900cb4709dd49aa,6,3,political ideology,0,5,0,Centre-Left,Centre-Left,5,0,5,3,implemented,implemented,5,0,5,0.5
+5f21ff288900cb4709dd49aa,6,3,Initial choice,0,5,0,Centre-Left,Centre-Left,5,0,5,3,implemented,implemented,5,0,5,0.5
 5e830913ff38e3016d1a69f2,3,6,political ideology,0,0,5,Centre-Left,Centre-Left,0,5,3,5,implemented,implemented,0,5,20,2
 69f4a9509c70262d28b09012,7,6,political ideology,0,5,5,Centre-Right,Centre-Left,5,5,1,5,implemented,implemented,5,5,15,1.5
 577d0ad6adbc7500015d2839,36,2,political ideology,0,5,2,Centre-Right,Left,5,2,1,4,implemented,implemented,5,2,9,0.9
@@ -9,7 +9,7 @@ PID,name,match,round,stopped_round1,own_choice_1,partner_choice_1,char_own,char_
 6a0629b3ffd44de0854a404b,37,7,political ideology,0,6,1,Centre-Left,Centre-Right,6,0,5,2,implemented,implemented,6,0,4,0.4
 6724ecab5e536f446afcfb92,52,8,political ideology,0,3,0,Left,Centre-Left,3,0,1,2,implemented,implemented,3,0,7,0.7
 6a0a03dd289a037c7fa5b887,58,10,political ideology,0,0,3,Right,Centre-Left,0,3,2,1,implemented,implemented,0,3,16,1.6
-69861dfb01ea223b623c0501,49,14,political ideology,1,0,5,Centre-Left,Right,0,5,,3,,implemented,0,5,20,2
+69861dfb01ea223b623c0501,49,14,political ideology,1,0,5,Centre-Left,Right,0,5,0,3,,implemented,0,5,20,2
 5f5be81d1e52273aabdfce6a,42,20,political ideology,0,5,5,Left,Left,5,5,3,5,implemented,not implemented,5,5,15,1.5
 6978a3dbe81c0a4527eb39c7,35,24,political ideology,0,5,2,Centre-Right,Centre-Right,3,2,5,3,implemented,not implemented,3,2,11,1.1
 6a23babd7d465294a6f552c6,5,27,political ideology,0,1,5,Centre-Left,Left,1,5,4,1,implemented,implemented,1,5,19,1.9

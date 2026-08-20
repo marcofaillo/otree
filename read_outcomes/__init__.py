@@ -3,7 +3,9 @@ import csv
 from pathlib import Path
 
 
-doc = """NetROL Discrimination experiment: read outcomes"""
+doc = """NetROL Discrimination experiment: read outcomes. Version 13/8/2026"""
+#remember to change the names of the first two columns in PID and name
+
 
 # ricorda di creare il file con google sheet !!!!""
 
@@ -65,6 +67,7 @@ class Prolific_ID(Page):
         riga = look_up(player.PID)
         player.round = str(riga['round'])
         player.stopped_round1 = int(riga['stopped_round1'])
+        player.partner_choice_1=int(riga['partner_choice_1'])
         player.char_own = str(riga['char_own'])
         player.char_match = str(riga['char_match'])
         player.sent_own = int(riga['sent_own'])
@@ -87,6 +90,7 @@ class Show_results(Page):
             car_own=player.char_own,
             car_match=player.char_match,
             sent_own=player.sent_own,
+            partner_choice_1 = player.partner_choice_1,
             sent_match=player.sent_match,
             rank_own=player.rank_own,
             rank_match=player.rank_match,
