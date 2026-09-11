@@ -217,6 +217,27 @@ SESSION_CONFIGS = [
             network =1,
             ),
 
+        dict(
+            name='network_lab',
+            display_name='network_lab',
+            num_demo_participants=3,
+            app_sequence=['network_lab'],
+            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
+            test =0,
+            enforce = 0,
+            network =1,
+            ),
+
+
+
+        dict(
+            name='read_outcomes',
+            display_name='read_outcomes',
+            num_demo_participants=1,
+            app_sequence=['read_outcomes'],
+            ),
+
         # dict(
         #     name='are_you_sure',
         #     display_name='are_you_sure',

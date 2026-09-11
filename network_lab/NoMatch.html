@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> NO MATCH</h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p>
+        Unfortunately, there are not enough participants available to continue the activity.<p>
+        The activity requires groups of three participants. As there are currently not enough participants to form a complete group, the activity cannot continue for you.<p>
+        Please remain seated and wait for further instructions from the experimenter.
+    </p>
+
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+
+
+    </script>
+
+
+
+        {% endblock %}

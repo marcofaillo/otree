@@ -1,0 +1,112 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+
+ <div class="row">
+
+  </div>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <div align="justify">
+
+
+<font size="4">
+
+  <div style="text-align: justify;">
+
+      <p>Welcome, and thank you for taking part in this activity.</p>
+      <!-- <p>We have contacted you because you have participated in a survey on <strong>[DATE]</strong>. You now have the possibility to participate in another activity. </p> -->
+      <p> During the activity you will interact with other participants. </p>
+      <p> If you complete this activity, you will earn a sum that will depend on your choices and on the choices of another participant, who you will be randomly matched with. </p>
+      <p> After reading the instructions, you will be asked to answer some control questions to make sure you understand the rules. </p>
+      <p> If you answer one or more of these questions incorrectly on your first attempt, you will receive feedback indicating which answers were incorrect.  </p>
+      <p> You will then have the opportunity to try again. The activity will only proceed once all participants in this session have answered all the questions correctly.</p>
+
+      <p id="wait_msg" class="text-center">
+          Please wait a few seconds for a button to appear; you can then click it to proceed.
+      </p>
+  <!-- </div>
+ 3+4<span style="color: transparent;"> + 2 </span>
+</div> -->
+
+</div>
+</div>
+
+&nbsp
+
+
+
+
+
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <button type="button"
+                id="btn_submit"
+                class="btn btn-outline-primary btn-lg"
+                style="display:none;">
+                Proceed
+         </button>
+    </div>
+</div>
+
+
+
+
+
+
+	</div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+<script>
+setTimeout(function() {
+    document.getElementById('btn_submit').style.display = 'inline-block';
+}, 0); // 60 seconds: RESTORE 30000
+</script>
+<script>
+setTimeout(function() {
+    document.getElementById('btn_submit').style.display = 'inline-block';
+    document.getElementById('wait_msg').style.display = 'none';
+},0);RESTORE 30000
+</script>
+
+
+	<script>
+		$(document).ready(function(){
+
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+
+    $("#btn_stop").click(function(){
+    $("#id_proceed").val(2);
+        $("#form").submit()
+        });
+		});
+
+</script>
+
+
+
+{% endblock %}

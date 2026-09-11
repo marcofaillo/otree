@@ -1,0 +1,183 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> END OF ACTIVITY</h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+		<p> This is the end of the activity. </p>
+
+		{% if role == 1 %}
+
+		    <p> <strong> You are participant A. </strong> </p>
+
+	       <p>To determine your payment, stage <b> {{stage}} </b> and co-participant <b> {% if coparticipant == 1 %} B {% else %} C {% endif %}</b> were 	randomly selected.</p>
+
+      <p> In that stage: </p>
+        <ul>
+          <li>
+            You sent
+            {% if coparticipant == 1 %}
+                              {% if stage == 2 %}
+                                  {{choice_2_A_B}}  points to B. {% if enforced_A_B == 1 %} Your stated intention ({{choice_1_A_B}}) was automatically implemented.{% endif %}
+                              {% else %}
+                                {{choice_3_A_B}} points to B.
+                              {% endif%}
+                      {% else %}
+                              {% if stage == 2%} {{choice_2_A_C}} points to C. {% if enforced_A_C == 1 %} Your stated intention ({{choice_1_A_C}}) was automatically implemented.{% endif %}
+                              {% else %}
+                                {{choice_3_A_C}} points to C.
+                              {% endif%}
+                      {% endif%}
+          </li>
+          <li>
+            {% if coparticipant == 1 %}
+              B sent you
+                {% if stage == 2%} {{choice_2_B_A}} points. {% if enforced_B_A == 1 %} B's stated intention ({{choice_1_B_A}}) was automatically implemented. {% endif %}
+                {% else %}
+                {{choice_3_B_A}} points.
+                {% endif%}
+             {% else %}
+              C sent you
+                {% if stage == 2%}
+                  {{choice_2_C_A}}  points. {% if enforced_C_A == 1 %} C's stated intention  ({{choice_1_C_A}}) was automatically implemented. {% endif %}
+                {% else %} {{choice_3_C_A}} points.
+                {% endif%}
+
+           {% endif%}
+         </li>
+        </ul>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ gbp|to2}} GBP. </b>  </p>
+
+
+
+{% elif role == 2 %}
+      <p> <strong> You are participant B. </strong> </p>
+      <p> To determine your payment, stage <b> {{stage}} </b> and co-participant <b> {% if coparticipant == 1 %} A {% else %} C {% endif %} </b> were randomly selected. </p>
+      <p> In that stage: </p>
+        <ul>
+          <li>
+            You sent
+            {% if coparticipant == 1 %}
+              {% if stage == 2%} {{choice_2_B_A}} points to A. {% if enforced_B_A == 1 %} Your stated intention ({{choice_1_B_A}}) was automatically implemented.{% endif %}
+              {% else %}
+                {{choice_3_B_A}} points to A.
+              {% endif %}
+            {% else %}
+              {% if stage == 2%} {{choice_2_B_C}} points to C. {% if enforced_B_C == 1 %} Your stated intention ({{choice_1_B_C}}) was automatically implemented.{% endif %}
+              {% else %} {{choice_3_B_C}} points to C
+              {% endif%}
+            {% endif%}
+          </li>
+          <li>
+            {% if coparticipant == 1 %}
+              A sent you
+                {% if stage == 2%}
+                  {{choice_2_A_B}} points. {% if enforced_A_B == 1 %} A's stated intention ({{choice_1_A_B}}) was automatically implemented.{% endif %}
+                {% else %}
+                  {{choice_3_A_B}} points.
+                {% endif%}
+              {% else %}
+                C sent you
+                {% if stage == 2%}
+                  {{choice_2_C_B}} points. {% if enforced_C_B == 1 %} C's stated intention ({{choice_1_C_B}}) was automatically implemented.{% endif %}
+                {% else %} {{choice_3_C_B}} points.
+                {% endif%}
+              {% endif%}  </li>
+        </ul>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ gbp|to2}} GBP </b>. </p>
+
+{% else %}
+
+      <p> <strong> You are participant C. </strong> </p>
+      <p> To determine your payment, stage <b> {{stage}} </b> and co-participant <b> {% if coparticipant == 1 %} A {% else %} B {% endif %} </b> were randomly selected. </p>
+      <p> In that stage: </p>
+        <ul>
+          <li>
+            You sent
+            {% if coparticipant == 1 %}
+              {% if stage == 2%}
+                {{choice_2_C_A}} points to A. {% if enforced_C_A == 1 %} Your stated intention ({{choice_1_C_A}}) was automatically implemented.{% endif %}
+              {% else %}
+                {{choice_3_C_A}} points to A.
+              {% endif%}
+            {% else %}
+              {% if stage == 2%}
+                {{choice_2_C_B}} points to B. {% if enforced_C_B == 1 %} Your stated intention ({{choice_1_C_B}}) was automatically implemented.{% endif %}
+              {% else %} {{choice_3_C_B}} points to B.
+              {% endif%}
+            {% endif%} </li>
+          <li>
+            {% if coparticipant == 1 %}
+              A sent you
+                {% if stage == 2%}
+                  {{choice_2_A_C}} points.  {% if enforced_A_C == 1 %} A's stated intention ({{choice_1_A_C}}) was automatically implemented.{% endif %}
+                {% else %}
+                  {{choice_3_A_C}} points.
+                {% endif%}
+              {% else %}
+                B sent you
+                  {% if stage == 2%}
+                    {{choice_2_B_C}} points.  {% if enforced_B_C == 1 %} B's stated intention ({{choice_1_B_C}}) was automatically implemented.{% endif %}
+                  {% else %}
+                    {{choice_3_B_C}} points.
+                  {% endif%}
+              {% endif%}</li>
+        </ul>
+
+
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ gbp|to2}} GBP </b>. </p>
+{% endif %}
+
+ <!-- LAB PAYMENT INSTRUCTIONS -->
+
+                    <div class="alert alert-info" role="alert">
+    Please remain seated until we provide further announcements.<br>
+    To ensure anonymity, please leave the experimental site as quickly as possible after receiving your payment.
+</div>
+
+   	  </div>
+      </div>
+  </div>
+
+
+    <div class="row mt-4">
+    <div class="col-sm-12 text-center">
+            <button type="submit"
+		    id="btn_continue"
+		    class="btn btn-primary btn-lg">
+		Close session
+	    </button>
+       </div>
+    </div>
+
+ {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+
+    {% endblock %}

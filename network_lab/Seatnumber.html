@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block content %}
+<div class="card bg-light instructions">
+    <div class="card-body">
+ <div class="row">
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div align="justify">
+<font size="4">
+  <div style="text-align: justify;">
+      <p>Please insert the seat number you got assigned, so that we can pay you your payoff in the end whilst keeping your anonymity.</p>
+      <p>{% formfield player.seat_number label="" %}</p>
+</div>
+</div>
+&nbsp
+&nbsp
+<!--		BOTTONE PROSEGUI	2	-->
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <button type="button" id="btn_submit" class="btn btn-outline-primary btn-lg"> Proceed</button>
+    </div>
+</div>
+	</div>
+</div>
+{% endblock %}
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+    });
+		$("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+			$("#form").submit()
+	  	});
+</script>
+{% endblock %}

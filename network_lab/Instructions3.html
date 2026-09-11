@@ -1,0 +1,73 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+<!-- ISTRUZIONI-->
+
+<div class="row">
+   <div class="col-sm-12">
+     <div class="alert alert-primary" role="alert" style="text-align:center">
+       <h3> INSTRUCTIONS 3  </h3>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: justify; font-size: 1.1rem;">
+        <p><strong>Part 2: Decision to confirm or revise</strong></p>
+
+        <p> In Part 2, you will decide how many points you will actually send to each of your co-participants. </p>
+        <p> You can either:
+        <ul>
+          <li> confirm your stated intention from Part 1, or
+          <li> choose a different number of points to send.
+        </ul>
+        </p>
+        <p> All co-participants will make this decision at the same time.</p>
+        {% if enforce == 0 %}
+        <p> If you confirm your stated intention, these points will be doubled and sent to the other co-participants. </p>
+        <p><b> If you choose a different amount, this will be implemented instead and the doubled amount given to your co-participants.<b> </p>
+        {% elif enforce == 1 %}
+
+        <p> If you confirm your stated intention, these points will be doubled and sent to the other co-participants.</p>
+        <p> <b> If you choose a different amount, there is a 50% chance that your revised choice will be implemented. In this case, these points will be doubled and sent to the other co-participants. With the other 50% chance, your stated intention will be automatically implemented instead and these points will be doubled and sent to the other co-participants. <b></p>
+        {% endif %}
+
+      </div>
+      </div>
+    </div>
+</div>
+
+
+    <div class="row mt-4">
+    <div class="col-sm-12 text-center">
+            <button type="submit" id="btn_continue" class="btn btn-primary btn-lg">Next</button>
+    </div>
+    </div>
+
+    <style>
+    body .math-like {
+        font-family: "Cambria Math", "Times New Roman", serif !important;
+        font-style: italic !important;
+    }
+    </style>
+
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    $(document).ready(function(){
+    });
+    $("#btn_submit").click(function(){
+    $("#id_proceed").val(1);
+    $("#form").submit()
+    });
+
+    </script>
+
+
+    {% endblock %}
