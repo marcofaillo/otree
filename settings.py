@@ -179,43 +179,43 @@ SESSION_CONFIGS = [
         #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
         #     treatment =9, # 3  or 9 ;
         #
+        # #     ),
+        #
+        # dict(
+        #     name='discrimination_1',
+        #     display_name='discrimination_1',
+        #     num_demo_participants=1,
+        #     app_sequence=['discrimination_1'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
+        #     test =0,
         #     ),
-
-        dict(
-            name='discrimination_1',
-            display_name='discrimination_1',
-            num_demo_participants=1,
-            app_sequence=['discrimination_1'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
-            test =0,
-            ),
-
-        dict(
-            name='network_1',
-            display_name='network_1',
-            num_demo_participants=3,
-            app_sequence=['zoom_meeting','network_1'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
-            test =0,
-            enforce = 0,
-            network =1,
-            ),
-
-
-
-        dict(
-            name='network_2',
-            display_name='network_2',
-            num_demo_participants=3,
-            app_sequence=['zoom_meeting','network_2'],
-            prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
-            #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
-            test =0,
-            enforce = 0,
-            network =1,
-            ),
+        #
+        # dict(
+        #     name='network_1',
+        #     display_name='network_1',
+        #     num_demo_participants=3,
+        #     app_sequence=['zoom_meeting','network_1'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
+        #     test =0,
+        #     enforce = 0,
+        #     network =1,
+        #     ),
+        #
+        #
+        #
+        # dict(
+        #     name='network_2',
+        #     display_name='network_2',
+        #     num_demo_participants=3,
+        #     app_sequence=['zoom_meeting','network_2'],
+        #     prolific='https://app.prolific.co/submissions/complete?cc=C1LHTJ3E',
+        #     #1 = gender, appearence, neutral, ideo, socio ; 2 = appearence, gender, neutral, socio, ideo, 3= ideo, socio, neutral, gender, appearence, 4= socio, ideo, neutral, appearence, gender.
+        #     test =0,
+        #     enforce = 0,
+        #     network =1,
+        #     ),
 
         dict(
             name='network_lab',
@@ -230,13 +230,13 @@ SESSION_CONFIGS = [
             ),
 
 
-
-        dict(
-            name='read_outcomes',
-            display_name='read_outcomes',
-            num_demo_participants=1,
-            app_sequence=['read_outcomes'],
-            ),
+        #
+        # dict(
+        #     name='read_outcomes',
+        #     display_name='read_outcomes',
+        #     num_demo_participants=1,
+        #     app_sequence=['read_outcomes'],
+        #     ),
 
         # dict(
         #     name='are_you_sure',
