@@ -45,8 +45,7 @@
             {% if network > 1 %}
             <li>  A actually sent <strong>{{choice_2_A_B}} points </strong> to you. </li>
             {% endif %}
-            {% if enforced_B_A == 1 %} Your stated intention was automatically implemented  {% endif %}
-            {% if network > 1 %}{% if enforced_A_B == 1 %} A's stated intention was automatically implemented  {% endif %}{% endif %}
+            {% if enforced == 1 %} <li> Your and A's stated intentions were automatically implemented  </li>{% endif %}
 
 
           </ul>
@@ -67,9 +66,7 @@
             {% if network == 3 %}
             <li>  C actually sent <strong>{{choice_2_C_B}} points </strong> to you. </li>
             {% endif %}
-            {% if enforced_B_C == 1 %} Your stated intention was automatically implemented  {% endif %}
-            {% if network == 3 %}{% if enforced_C_B == 1 %} C's stated intention was automatically implemented  {% endif %}{% endif %}
-
+            {% if enforced == 1 %} <li> Your and C's stated intentions were automatically implemented </li> {% endif %}
           </ul>
 
 

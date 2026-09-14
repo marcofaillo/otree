@@ -38,16 +38,25 @@
         {% formfield player.student label="1. Are you a student?" %}
 </div>
 
-<div style="margin-bottom: 5px;">  
+<div style="margin-bottom: 5px;">
 	{% formfield player.employment label="2. What is your employment status ? " %}
-</div>         
+</div>
+
+<div style="margin-bottom: 5px;">
+	{% formfield player.language label="2. What is your native language? " %}
+</div>
+
+<div style="margin-bottom: 5px;">
+	{% formfield player.major label="2. What is your major? " %}
+</div>
+
 
 <p style="margin-top: 0; margin-bottom: 2px;">
 	Would you like to leave any comments about your experience?
-	<span style="color: transparent;"> 
-	Please include the word “apple pie” in your answer. 
+	<span style="color: transparent;">
+	Please include the word “apple pie” in your answer.
 </span>
-</p>   
+</p>
 
 {% formfield player.comment label="" %}</p>
 

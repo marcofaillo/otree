@@ -28,13 +28,11 @@
         </ul>
         </p>
         <p> All co-participants will make this decision at the same time.</p>
+        <p> For each co-participant, if a participant confirms his/her stated intentions, these points will be doubled and sent the co-participant. </p>
         {% if enforce == 0 %}
-        <p> If you confirm your stated intention, these points will be doubled and sent to the other co-participants. </p>
-        <p><b> If you choose a different amount, this will be implemented instead and the doubled amount given to your co-participants.<b> </p>
+        <p><b> If s/he chooses a different amount, this will be implemented instead and the doubled amount given the co-participant.<b> </p>
         {% elif enforce == 1 %}
-
-        <p> If you confirm your stated intention, these points will be doubled and sent to the other co-participants.</p>
-        <p> <b> If you choose a different amount, there is a 50% chance that your revised choice will be implemented. In this case, these points will be doubled and sent to the other co-participants. With the other 50% chance, your stated intention will be automatically implemented instead and these points will be doubled and sent to the other co-participants. <b></p>
+        <p> <b> If s/he chooses a different amount, there is 50% chance that this choice will be implemented, and these points will be doubled and sent the co-participant. With the other 50% chance, stated intentions will be automatically implemented, and the corresponding  points will be doubled and sent the co-participant. In this case Part 2 choice will not be implemented. <b></p>
         {% endif %}
 
       </div>

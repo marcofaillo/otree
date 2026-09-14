@@ -33,12 +33,12 @@
             You sent
             {% if coparticipant == 1 %}
                               {% if stage == 2 %}
-                                  {{choice_2_A_B}}  points to B. {% if enforced_A_B == 1 %} Your stated intention ({{choice_1_A_B}}) was automatically implemented.{% endif %}
+                                  {{choice_2_A_B}}  points to B. {% if enforced == 1 %} Your stated intention ({{choice_1_A_B}}) was automatically implemented.{% endif %}
                               {% else %}
                                 {{choice_3_A_B}} points to B.
                               {% endif%}
                       {% else %}
-                              {% if stage == 2%} {{choice_2_A_C}} points to C. {% if enforced_A_C == 1 %} Your stated intention ({{choice_1_A_C}}) was automatically implemented.{% endif %}
+                              {% if stage == 2%} {{choice_2_A_C}} points to C. {% if enforced == 1 %} Your stated intention ({{choice_1_A_C}}) was automatically implemented.{% endif %}
                               {% else %}
                                 {{choice_3_A_C}} points to C.
                               {% endif%}
@@ -47,21 +47,21 @@
           <li>
             {% if coparticipant == 1 %}
               B sent you
-                {% if stage == 2%} {{choice_2_B_A}} points. {% if enforced_B_A == 1 %} B's stated intention ({{choice_1_B_A}}) was automatically implemented. {% endif %}
+                {% if stage == 2%} {{choice_2_B_A}} points. {% if enforced == 1 %} B's stated intention ({{choice_1_B_A}}) was automatically implemented. {% endif %}
                 {% else %}
                 {{choice_3_B_A}} points.
                 {% endif%}
              {% else %}
               C sent you
                 {% if stage == 2%}
-                  {{choice_2_C_A}}  points. {% if enforced_C_A == 1 %} C's stated intention  ({{choice_1_C_A}}) was automatically implemented. {% endif %}
+                  {{choice_2_C_A}}  points. {% if enforced == 1 %} C's stated intention  ({{choice_1_C_A}}) was automatically implemented. {% endif %}
                 {% else %} {{choice_3_C_A}} points.
                 {% endif%}
 
            {% endif%}
          </li>
         </ul>
-      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ gbp|to2}} GBP. </b>  </p>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ mdk|to0}} MDK. </b>  </p>
 
 
 
@@ -73,12 +73,12 @@
           <li>
             You sent
             {% if coparticipant == 1 %}
-              {% if stage == 2%} {{choice_2_B_A}} points to A. {% if enforced_B_A == 1 %} Your stated intention ({{choice_1_B_A}}) was automatically implemented.{% endif %}
+              {% if stage == 2%} {{choice_2_B_A}} points to A. {% if enforced == 1 %} Your stated intention ({{choice_1_B_A}}) was automatically implemented.{% endif %}
               {% else %}
                 {{choice_3_B_A}} points to A.
               {% endif %}
             {% else %}
-              {% if stage == 2%} {{choice_2_B_C}} points to C. {% if enforced_B_C == 1 %} Your stated intention ({{choice_1_B_C}}) was automatically implemented.{% endif %}
+              {% if stage == 2%} {{choice_2_B_C}} points to C. {% if enforced == 1 %} Your stated intention ({{choice_1_B_C}}) was automatically implemented.{% endif %}
               {% else %} {{choice_3_B_C}} points to C
               {% endif%}
             {% endif%}
@@ -87,19 +87,19 @@
             {% if coparticipant == 1 %}
               A sent you
                 {% if stage == 2%}
-                  {{choice_2_A_B}} points. {% if enforced_A_B == 1 %} A's stated intention ({{choice_1_A_B}}) was automatically implemented.{% endif %}
+                  {{choice_2_A_B}} points. {% if enforced == 1 %} A's stated intention ({{choice_1_A_B}}) was automatically implemented.{% endif %}
                 {% else %}
                   {{choice_3_A_B}} points.
                 {% endif%}
               {% else %}
                 C sent you
                 {% if stage == 2%}
-                  {{choice_2_C_B}} points. {% if enforced_C_B == 1 %} C's stated intention ({{choice_1_C_B}}) was automatically implemented.{% endif %}
+                  {{choice_2_C_B}} points. {% if enforced == 1 %} C's stated intention ({{choice_1_C_B}}) was automatically implemented.{% endif %}
                 {% else %} {{choice_3_C_B}} points.
                 {% endif%}
               {% endif%}  </li>
         </ul>
-      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ gbp|to2}} GBP </b>. </p>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ mdk|to0}} MDK </b>. </p>
 
 {% else %}
 
@@ -111,13 +111,13 @@
             You sent
             {% if coparticipant == 1 %}
               {% if stage == 2%}
-                {{choice_2_C_A}} points to A. {% if enforced_C_A == 1 %} Your stated intention ({{choice_1_C_A}}) was automatically implemented.{% endif %}
+                {{choice_2_C_A}} points to A. {% if enforced == 1 %} Your stated intention ({{choice_1_C_A}}) was automatically implemented.{% endif %}
               {% else %}
                 {{choice_3_C_A}} points to A.
               {% endif%}
             {% else %}
               {% if stage == 2%}
-                {{choice_2_C_B}} points to B. {% if enforced_C_B == 1 %} Your stated intention ({{choice_1_C_B}}) was automatically implemented.{% endif %}
+                {{choice_2_C_B}} points to B. {% if enforced == 1 %} Your stated intention ({{choice_1_C_B}}) was automatically implemented.{% endif %}
               {% else %} {{choice_3_C_B}} points to B.
               {% endif%}
             {% endif%} </li>
@@ -125,14 +125,14 @@
             {% if coparticipant == 1 %}
               A sent you
                 {% if stage == 2%}
-                  {{choice_2_A_C}} points.  {% if enforced_A_C == 1 %} A's stated intention ({{choice_1_A_C}}) was automatically implemented.{% endif %}
+                  {{choice_2_A_C}} points.  {% if enforced == 1 %} A's stated intention ({{choice_1_A_C}}) was automatically implemented.{% endif %}
                 {% else %}
                   {{choice_3_A_C}} points.
                 {% endif%}
               {% else %}
                 B sent you
                   {% if stage == 2%}
-                    {{choice_2_B_C}} points.  {% if enforced_B_C == 1 %} B's stated intention ({{choice_1_B_C}}) was automatically implemented.{% endif %}
+                    {{choice_2_B_C}} points.  {% if enforced == 1 %} B's stated intention ({{choice_1_B_C}}) was automatically implemented.{% endif %}
                   {% else %}
                     {{choice_3_B_C}} points.
                   {% endif%}
@@ -140,7 +140,7 @@
         </ul>
 
 
-      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ gbp|to2}} GBP </b>. </p>
+      <p> In that stage you earned <b> {{payoff}} </b> points, corresponding to <b> {{ mdk|to0}} MDK</b>. </p>
 {% endif %}
 
  <!-- LAB PAYMENT INSTRUCTIONS -->

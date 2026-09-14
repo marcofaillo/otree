@@ -22,11 +22,13 @@
       <div style="text-align: justify; font-size: 1.1rem;">
         <p><strong>Part 3: Last decision </strong></p>
 
-        <p> In Part 3, you may see some extra information about your co-participants. What you see depends on your role in the network.  </p>
-        <p> You may see how many points your co-participants sent to you in Part 2, and whether this matched they said they would send in Part 1.</p>
+        <p> In Part 3, you may see some extra information about your co-participants.  </p>
+        <p> Depending on your role in the network, you  may see or not how many points your co-participants sent to you in Part 2, and whether this matched they said they would send in Part 1.</p>
         {% if enforce == 1 %}
-        <p> Additionally, you will be informed if your and your co-participants’ stated intention will be automatically implemented, in case this differs from your actual decision in Part 2.</p>
+        <p> Additionally, you will be informed if stated intentions has been automatically implemented. </p>
         {% endif %}
+        <p> Your position in the network then defines your possibility to know whether stated intentions were confirmed by your co-partipants{% if enforce == 0 %}.{% else %}, and if what you receive is due to
+        the decision of your co-participants in Part 2, or by the automatic implementation of Part 1 decision. </p> {% endif %}
         <p> For example, consider the network shown in Figure 3.</p>
 
         &nbsp;

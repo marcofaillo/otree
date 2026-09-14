@@ -9,7 +9,7 @@
     <div class="card-body">
 
 <!-- ISTRUZIONI-->
-
+ENFORCED = {{enforced}}
 
  <div class="row">
 
@@ -41,8 +41,7 @@
           <ul>
             <li>  You actually sent <strong>{{choice_2_A_B}} points </strong> to B. </li>
             <li>  B actually sent <strong>{{choice_2_B_A}} points </strong> to you. </li>
-            {% if enforced_A_B == 1 %} <li> Your stated intention was automatically implemented  {% endif %} </li>
-            {% if enforced_B_A == 1 %} <li>B's stated intention was automatically implemented  {% endif %} </li>
+            {% if enforced == 1 %} <li> Your and B's stated intentions  were automatically implemented  {% endif %} </li>
 
           </ul>
         <p> How many points do you send to co-participant <b> B</b>?</p>
@@ -60,9 +59,7 @@
           <ul>
             <li>  You actually sent <strong>{{choice_2_A_C}} points </strong> to C. </li>
             <li>  C actually sent <strong>{{choice_2_C_A}} points </strong> to you. </li>
-            {% if enforced_A_C == 1 %} Your stated intention was automatically implemented  {% endif %}
-            {% if enforced_C_A == 1 %} C's stated intention was automatically implemented  {% endif %}
-
+            {% if enforced == 1 %} Your and C's stated intentions were automatically implemented  {% endif %}
           </ul>
 
 

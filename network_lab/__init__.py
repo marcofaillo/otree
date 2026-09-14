@@ -4,6 +4,7 @@ from otree.api import *
 import random as r
 import json
 import time
+import math
 
 doc = """NetROL networks experiment. v. 10/9/2026 (Marco)"""
 
@@ -11,7 +12,7 @@ doc = """NetROL networks experiment. v. 10/9/2026 (Marco)"""
 
 class C(BaseConstants):
     NAME_IN_URL = 'network_lab'
-    EXCHANGE_RATE=0.15
+    EXCHANGE_RATE=11
     PLAYERS_PER_GROUP = 3
     NUM_ROUNDS = 1
     ENDOWMENT=50
@@ -39,12 +40,8 @@ class Group(BaseGroup):
     choice_3_C_A= models.IntegerField()
     choice_3_C_B= models.IntegerField()
     enforce=models.IntegerField(initial = 0)
-    enforced_A_B = models.IntegerField(initial = 0)
-    enforced_A_C = models.IntegerField(initial = 0)
-    enforced_B_A = models.IntegerField(initial = 0)
-    enforced_B_C = models.IntegerField(initial = 0)
-    enforced_C_A = models.IntegerField(initial = 0)
-    enforced_C_B = models.IntegerField(initial = 0)
+    enforced = models.IntegerField(initial = 0)
+
 
 
 
@@ -70,16 +67,12 @@ class Player(BasePlayer):
     stage = models.IntegerField()
     coparticipant = models.IntegerField()
     pay = models.IntegerField()
-    gbp = models.FloatField()
-#    PID = models.StringField()
-
-
-# inital questionnaire
-    gender = models.IntegerField(choices=[[1, 'Male'], [2, 'Female'], [3, 'Non-binary']])
-
+    mdk = models.FloatField()
 
 #final questionnaire
 
+    language = models.StringField()
+    major = models.StringField()
     student = models.IntegerField(choices=[[1, 'Yes'], [0, 'No']])
     employment = models.IntegerField(choices=[[1, 'Full-time'], [2, 'Part-time'], [3, 'Due to start a new job within the next month'], [4,'Unemployed (and job seeking)'], [5,'Not in paid work (e.g. homemaker, retired or disabled)'], [6,'Other']])
     comment=models.StringField(null=True, blank=True)
@@ -87,30 +80,18 @@ class Player(BasePlayer):
 #
 
 def enforce_random(group: Group):
-        enforce = group.session.config['enforce']
+        group.enforce=group.session.config['enforce']
+        enforce = group.enforce
+
         if enforce == 1:
-            if group.choice_2_A_B != group.choice_1_A_B:
-                group.enforced_A_B = r.randint(0, 1)
-            if group.choice_2_A_C != group.choice_1_A_C:
-                group.enforced_A_C = r.randint(0, 1)
-            if group.choice_2_B_A != group.choice_1_B_A:
-                group.enforced_B_A = r.randint(0, 1)
-            if group.choice_2_B_C != group.choice_1_B_C:
-                group.enforced_B_C = r.randint(0, 1)
-            if group.choice_2_C_A != group.choice_1_C_A:
-                group.enforced_C_A = r.randint(0, 1)
-            if group.choice_2_C_B != group.choice_1_C_B:
-                group.enforced_C_B = r.randint(0, 1)
+            group.enforced= r.randint(0, 1)
+        else:
+            group.enforced= 0
 
 def compute_payoffs(group: Group):
     stage = r.randint(2, 3)
     coparticipant = r.randint(1, 2)
-    enforced_A_B = group.enforced_A_B
-    enforced_A_C = group.enforced_A_C
-    enforced_B_A = group.enforced_B_A
-    enforced_B_C = group.enforced_B_C
-    enforced_C_A = group.enforced_C_A
-    enforced_C_B = group.enforced_C_B
+    enforced = group.enforced
 
     for player in group.get_players():
         player.network=player.session.config['network']
@@ -119,25 +100,16 @@ def compute_payoffs(group: Group):
 
         if player.id_in_group == 1:
             if stage == 2:
-                if coparticipant == 1:
-                    if enforced_A_B == 0 and enforced_B_A == 0:
+                if coparticipant == 1: #B
+                    if enforced == 0:
                         player.pay = 10 - group.choice_2_A_B + 2 * group.choice_2_B_A
-                    elif enforced_A_B == 1 and enforced_B_A == 0:
-                        player.pay = 10 - group.choice_1_A_B + 2 * group.choice_2_B_A
-                    elif enforced_A_B == 0 and enforced_B_A == 1:
-                        player.pay = 10 - group.choice_2_A_B + 2 * group.choice_1_B_A
-                    elif enforced_A_B == 1 and enforced_B_A == 1:
+                    else:
                         player.pay = 10 - group.choice_1_A_B + 2 * group.choice_1_B_A
-
-                else:
-                    if enforced_A_C == 0 and enforced_C_A == 0:
-                        player.pay= 10 - group.choice_2_A_C + 2 * group.choice_2_C_A
-                    elif enforced_A_C == 1 and enforced_C_A == 0:
-                        player.pay= 10 - group.choice_1_A_C + 2 * group.choice_2_C_A
-                    elif enforced_A_C == 0 and enforced_C_A == 1:
-                        player.pay= 10 - group.choice_2_A_C + 2 * group.choice_1_C_A
-                    elif enforced_A_C == 1 and enforced_C_A == 1:
-                        player.pay= 10 - group.choice_1_A_C + 2 * group.choice_1_C_A
+                else:  #C
+                    if enforced == 0:
+                        player.pay = 10 - group.choice_2_A_C + 2 * group.choice_2_C_A
+                    else:
+                        player.pay = 10 - group.choice_1_A_C + 2 * group.choice_1_C_A
             else:
                 if coparticipant == 1:
                     player.pay = 10 - group.choice_3_A_B + 2 * group.choice_3_B_A
@@ -146,24 +118,17 @@ def compute_payoffs(group: Group):
 
         elif player.id_in_group == 2:
             if stage == 2:
-                if coparticipant == 1:
-                    if enforced_B_A == 0 and enforced_A_B == 0:
+                if coparticipant == 1: #A
+                    if enforced == 0:
                         player.pay = 10 - group.choice_2_B_A + 2 * group.choice_2_A_B
-                    elif enforced_B_A == 1 and enforced_A_B == 0:
-                        player.pay = 10 - group.choice_1_B_A + 2 * group.choice_2_A_B
-                    elif enforced_B_A == 0 and enforced_A_B == 1:
-                        player.pay = 10 - group.choice_2_B_A + 2 * group.choice_1_A_B
-                    elif enforced_B_A == 1 and enforced_A_B == 1:
+                    else:
                         player.pay = 10 - group.choice_1_B_A + 2 * group.choice_1_A_B
-                else:
-                    if enforced_B_C == 0 and enforced_C_B == 0:
+                else:  #C
+                    if enforced == 0:
                         player.pay = 10 - group.choice_2_B_C + 2 * group.choice_2_C_B
-                    elif enforced_B_C == 1 and enforced_C_B == 0:
-                        player.pay = 10 - group.choice_1_B_C + 2 * group.choice_2_C_B
-                    elif enforced_B_C == 0 and enforced_C_B == 1:
-                        player.pay = 10 - group.choice_2_B_C + 2 * group.choice_1_C_B
-                    elif enforced_B_C == 1 and enforced_C_B == 1:
+                    else:
                         player.pay = 10 - group.choice_1_B_C + 2 * group.choice_1_C_B
+
             else:
                 if coparticipant == 1:
                     player.pay = 10 - group.choice_3_B_A + 2 * group.choice_3_A_B
@@ -173,29 +138,23 @@ def compute_payoffs(group: Group):
         else:
             if stage == 2:
                 if coparticipant == 1:
-                    if enforced_C_A == 0 and enforced_A_C == 0:
+                    if enforced == 0: #A
                         player.pay= 10 - group.choice_2_C_A + 2 * group.choice_2_A_C
-                    elif enforced_C_A == 1 and enforced_A_C == 0:
-                        player.pay= 10 - group.choice_1_C_A + 2 * group.choice_2_A_C
-                    elif enforced_C_A == 0 and enforced_A_C == 1:
-                        player.pay= 10 - group.choice_2_C_A + 2 * group.choice_1_A_C
-                    elif enforced_C_A == 1 and enforced_A_C == 1:
+                    else:
                         player.pay= 10 - group.choice_1_C_A + 2 * group.choice_1_A_C
                 else:
-                    if enforced_C_B == 0 and enforced_B_C == 0:
-                        player.pay = 10 - group.choice_2_C_B + 2 * group.choice_2_B_C
-                    if enforced_C_B == 1 and enforced_B_C == 0:
-                        player.pay = 10 - group.choice_1_C_B + 2 * group.choice_2_B_C
-                    if enforced_C_B == 0 and enforced_B_C == 1:
-                        player.pay = 10 - group.choice_2_C_B + 2 * group.choice_1_B_C
-                    if enforced_C_B == 1 and enforced_B_C == 1:
-                        player.pay = 10 - group.choice_2_C_B + 2 * group.choice_2_B_C
+                    if enforced == 0: #B
+                        player.pay= 10 - group.choice_2_C_B + 2 * group.choice_2_B_C
+                    else:
+                        player.pay= 10 - group.choice_1_C_B + 2 * group.choice_1_B_C
+
             else:
                 if coparticipant == 1:
                     player.pay = 10 - group.choice_3_C_A + 2 * group.choice_3_A_C
                 else:
                     player.pay = 10 - group.choice_3_C_B + 2 * group.choice_3_B_C
-        player.gbp = round(player.pay * C.EXCHANGE_RATE, 2)
+
+        player.mdk = math.floor(player.pay * C.EXCHANGE_RATE / 10 + 0.5) * 10
 
 import time
 
@@ -367,7 +326,7 @@ class Choice_3_A(Page):
     def is_displayed(player: Player):
         return player.id_in_group == 1
     def vars_for_template(player: Player):
-        return {'network': player.session.config['network'], 'role': player.id_in_group,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B, 'enforced_A_B':player.group.enforced_A_B, 'enforced_A_C': player.group.enforced_A_C,'enforced_B_A': player.group.enforced_B_A,'enforced_B_C': player.group.enforced_B_C,'enforced_C_A': player.group.enforced_C_A, 'enforced_C_B': player.group.enforced_C_B}
+        return {'network': player.session.config['network'], 'role': player.id_in_group,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B, 'enforced':player.group.enforced, 'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced, 'enforced': player.group.enforced}
 
 class Choice_3_B(Page):
     form_model = 'group'
@@ -376,7 +335,7 @@ class Choice_3_B(Page):
     def is_displayed(player: Player):
         return player.id_in_group == 2
     def vars_for_template(player: Player):
-        return {'network': player.session.config['network'], 'role': player.id_in_group,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B, 'enforced_A_B': player.group.enforced_A_B, 'enforced_A_C': player.group.enforced_A_C,'enforced_B_A': player.group.enforced_B_A,'enforced_B_C': player.group.enforced_B_C,'enforced_C_A': player.group.enforced_C_A,'enforced_C_B': player.group.enforced_C_B}
+        return {'network': player.session.config['network'], 'role': player.id_in_group,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B, 'enforced': player.group.enforced, 'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced}
 
 
 class Choice_3_C(Page):
@@ -386,7 +345,7 @@ class Choice_3_C(Page):
     def is_displayed(player: Player):
         return player.id_in_group == 3
     def vars_for_template(player: Player):
-        return {'network': player.session.config['network'], 'role': player.id_in_group,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B, 'enforced_A_B': player.group.enforced_A_B, 'enforced_A_C': player.group.enforced_A_C,'enforced_B_A': player.group.enforced_B_A,'enforced_B_C': player.group.enforced_B_C,'enforced_C_A': player.group.enforced_C_A,'enforced_C_B': player.group.enforced_C_B}
+        return {'network': player.session.config['network'], 'role': player.id_in_group,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B, 'enforced': player.group.enforced, 'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced}
 
 class ResultsWaitPage(WaitPage):
     body_text = "Wait for the other participants to make their choices."
@@ -401,7 +360,7 @@ class ResultsWaitPage1(WaitPage):
 
 class Questionnaire(Page):
     form_model = 'player'
-    form_fields = ['student', 'employment','comment']
+    form_fields = ['student', 'employment', 'language','major', 'comment']
     pass
 
 
@@ -415,7 +374,7 @@ class ResultsWaitPage2(WaitPage):
 class Final_feedback (Page):
     @staticmethod
     def vars_for_template(player: Player):
-            return {'payoff': player.pay, 'gbp': player.gbp,'role': player.id_in_group, 'stage': player.stage, 'coparticipant' : player.coparticipant, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B,   'choice_3_A_B':player.group.choice_3_A_B,'choice_3_A_C': player.group.choice_3_A_C, 'choice_3_B_A': player.group.choice_3_B_A,'choice_3_B_C': player.group.choice_3_B_C, 'choice_3_C_A': player.group.choice_3_C_A, 'choice_3_C_B': player.group.choice_3_C_B, 'enforced_A_B': player.group.enforced_A_B, 'enforced_A_C': player.group.enforced_A_C,'enforced_B_A': player.group.enforced_B_A,'enforced_B_C': player.group.enforced_B_C,'enforced_C_A': player.group.enforced_C_A, 'enforced_C_B': player.group.enforced_C_B,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B}
+            return {'payoff': player.pay, 'mdk': player.mdk,'role': player.id_in_group, 'stage': player.stage, 'coparticipant' : player.coparticipant, 'choice_2_A_B':player.group.choice_2_A_B,'choice_2_A_C': player.group.choice_2_A_C, 'choice_2_B_A': player.group.choice_2_B_A,'choice_2_B_C': player.group.choice_2_B_C, 'choice_2_C_A': player.group.choice_2_C_A, 'choice_2_C_B': player.group.choice_2_C_B,   'choice_3_A_B':player.group.choice_3_A_B,'choice_3_A_C': player.group.choice_3_A_C, 'choice_3_B_A': player.group.choice_3_B_A,'choice_3_B_C': player.group.choice_3_B_C, 'choice_3_C_A': player.group.choice_3_C_A, 'choice_3_C_B': player.group.choice_3_C_B, 'enforced': player.group.enforced, 'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced,'enforced': player.group.enforced, 'enforced': player.group.enforced,'choice_1_A_B':player.group.choice_1_A_B,'choice_1_A_C': player.group.choice_1_A_C, 'choice_1_B_A': player.group.choice_1_B_A,'choice_1_B_C': player.group.choice_1_B_C, 'choice_1_C_A': player.group.choice_1_C_A, 'choice_1_C_B': player.group.choice_1_C_B}
 
 class CloseSession(Page):
     pass
