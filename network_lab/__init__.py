@@ -439,7 +439,7 @@ class Back_to_Prolific (Page):
 # page_sequence = [Landing, Instructions1, Instructions2,Instructions3,Instructions4,Instructions1_2, Instructions2_2,Instructions3_2, Instructions4_2, Questions, Feedback_Answers, Instructions1_2, Instructions2_2, Instructions3_2,Questions, Fail, Choice_1, Choice_1_stop, Choice_g, Choice_app, Choice_neu, Choice_pol,Choice_soc, Questionnaire_2,Back_to_Prolific]
 
 page_sequence = [
-    Agree, GroupingWaitPage, NoMatch, Seatnumber, Landing,
+    GroupingWaitPage,  NoMatch, Agree, Seatnumber, Landing,
     Instructions1, Instructions2, Instructions3, Instructions4, Instructions5,
     Questions, Fixed,
     Choice_1_A, Choice_1_B, Choice_1_C, ResultsWaitPage,
