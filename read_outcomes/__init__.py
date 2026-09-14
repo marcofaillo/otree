@@ -72,13 +72,16 @@ class Prolific_ID(Page):
         player.char_match = str(riga['char_match'])
         player.sent_own = int(riga['sent_own'])
         player.sent_match = int(riga['sent_match'])
-        player.rank_own= int(riga['rank_own'])
-        rank_match=player.rank_match = int(riga['rank_match'])
-        player.impl_own = str(riga['impl_own'])
-        player.impl_match = str(riga['impl_match'])
         player.payoff_points=int(riga['payoff_points'])
         player.payment = float(riga['payment'])
-
+        player.rank_match = int(riga['rank_match'])
+        player.impl_match = str(riga['impl_match'])
+        if player.stopped_round1 !=1:
+            player.rank_own= int(riga['rank_own'])
+            player.impl_own = str(riga['impl_own'])
+        else:
+            player.rank_own= 0
+            player.impl_own = ""
 
 class Show_results(Page):
     @staticmethod

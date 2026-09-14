@@ -206,10 +206,10 @@ class Feedback_Answers(Page):
             import json
 
             question_texts = {
-                'q_1': "1) In round 1, if you send 3 points and your co-participant sends 3 points, your earning will be",
-                'q_2': "2) In round 1, if you send 4 points and your co-participant sends 5  points,  your co-participant's  earning will be",
-                'q_3': "3) Considering the example of the instructions, suppose that in round 1 you decided to send 3 point to your co-participant. You decided to go on to round 2. In round 2, you decided to revise your choice only in case you are matched with a tall person, sending 6 points. How many points your co-participant will receive if, at the end, round 2 is selected and your co-participant is a  medium-sized person?",
-                'q_4': "4) Considering the previous scenario, How many points your co-participant will receive if, at the end, round 2 is selected and your co-participant is a tall person?",
+                'q_1': "1) In round 1, if you send 3 points and your co-participant sends 3 points, YOUR earning will be (remember that points are doubled once they’re sent):",
+                'q_2': "2) In round 1, if you send 4 points and your co-participant sends 5  points,  YOUR CO-PARTICIPANT's  earning will be:",
+                'q_3': "3) Considering the example in the instructions, suppose that in round 1, you decided to send 3 points to your co-participant.  You then decided to continue to round 2. In round 2, you decided to revise your choice only if you are matched with a person born on an odd calendar day, in which case you will send 6 points. You have ranked this characteristic first, so it will get implemented with a probability of 100%. How many points will your co-participant receive from you if round 2 is selected in the end and s/he was born on an even calendar day?",
+                'q_4': "4) Considering the previous scenario, how many points will your co-participant receive from you if round 2 is selected at the end and your co-participant was born on an odd calendar day?",
             }
 
             wrong_fields = json.loads(player.wrong_answers)
